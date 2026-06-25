@@ -7,6 +7,15 @@ export default function ServiceWorkerRegister() {
     if (typeof window === "undefined") return
     if (!("serviceWorker" in navigator)) return
 
+    // En desarrollo el SW cachea chunks que cambian con cada recompilación,
+    // provocando módulos rancios. Lo desactivamos y limpiamos cualquier registro previo.
+    if (process.env.NODE_ENV !== "production") {
+      navigator.serviceWorker.getRegistrations().then((registrations) => {
+        registrations.forEach((registration) => registration.unregister())
+      })
+      return
+    }
+
     const register = () => {
       navigator.serviceWorker
         .register("/sw.js", { scope: "/" })
