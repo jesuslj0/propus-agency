@@ -25,7 +25,27 @@ const projects: ShowcaseProject[] = [
     description:
       "Sitio Web para restaurante local con carta dinámica, animación de producto estrella y branding personalizado. Estilo oscuro y cálido, responsive completo y SEO optimizado.",
     tags: ["Astro", "TailwindCSS", "Lucide Icons", "Estilos Custom"],
-    image: "/img/landings/erdh-hero.png",
+    image: "/img/landings/erdh-hero2.png",
+  },
+  {
+    title: "El Casino",
+    url: "https://casinoelbonillo.com",
+    domain: "casinoelbonillo.com",
+    description:
+      "Web para restaurante tradicional con alma moderna en plena Plaza Mayor. Carta personalizada, secciones diversas (especialidades, novedades, reservas y ubicación) y una estética cálida y elegante con reserva de mesa integrada.",
+    tags: ["Next.js", "TailwindCSS", "Carta dinámica", "Reservas"],
+    image: "/img/landings/hero-casino.png",
+  },
+  {
+    title: "Lío Music Pub",
+    url: "https://liopub.com",
+    domain: "liopub.com",
+    description:
+      "App/landing para local de ocio nocturno y copas. Incluye un concurso de fotos con feed social y sistema de likes para votar, pensado en mobile-first para enganchar a su público más joven.",
+    tags: ["Astro", "Supabase", "Mobile First", "Feed social", "Concurso de fotos"],
+    image: "/img/landings/hero-lio-mobile.png",
+    orientation: "mobile",
+    extraImages: ["/img/landings/nacion-section.png"],
   },
 ]
 

@@ -20,6 +20,12 @@ export interface ShowcaseProject {
   tags?: string[]
   /** Ruta del screenshot en /public. Si no se indica, se usa un placeholder con gradiente */
   image?: string
+  /** Orientación de la captura. "mobile" muestra la imagen vertical centrada sobre un fondo difuminado */
+  orientation?: "desktop" | "mobile"
+  /** Capturas verticales adicionales (solo en modo "mobile"). Se muestran junto a la principal como pantallas de dispositivo */
+  extraImages?: string[]
+  /** Ajuste de la captura desktop. "contain" muestra la imagen completa (sin recorte) sobre un fondo difuminado. Por defecto "cover" */
+  fit?: "cover" | "contain"
 }
 
 interface ProjectsShowcaseProps {
@@ -126,7 +132,55 @@ function ProjectCard({ project, index }: { project: ShowcaseProject; index: numb
 
         {/* Preview */}
         <div className="relative aspect-16/10 overflow-hidden">
-          {project.image ? (
+          {project.image && project.orientation === "mobile" ? (
+            <>
+              {/* Fondo difuminado a partir de la propia captura */}
+              <Image
+                src={project.image}
+                alt=""
+                aria-hidden
+                fill
+                sizes="(max-width: 640px) 100vw, 50vw"
+                className="scale-110 object-cover object-center blur-2xl saturate-150"
+              />
+              <div className="absolute inset-0 bg-background/40" />
+              {/* Capturas verticales centradas (estilo dispositivo) */}
+              <div className="absolute inset-0 flex items-center justify-center gap-3 py-4">
+                {[project.image, ...(project.extraImages ?? [])].map((src, i) => (
+                  <Image
+                    key={src}
+                    src={src}
+                    alt={i === 0 ? `Preview de ${project.title}` : `Preview de ${project.title} (${i + 1})`}
+                    width={300}
+                    height={650}
+                    sizes="(max-width: 640px) 40vw, 20vw"
+                    className="h-full w-auto rounded-xl border border-foreground/10 object-contain shadow-2xl shadow-black/30 transition-transform duration-500 group-hover:scale-[1.04]"
+                  />
+                ))}
+              </div>
+            </>
+          ) : project.image && project.fit === "contain" ? (
+            <>
+              {/* Fondo difuminado a partir de la propia captura */}
+              <Image
+                src={project.image}
+                alt=""
+                aria-hidden
+                fill
+                sizes="(max-width: 640px) 100vw, 50vw"
+                className="scale-110 object-cover object-center blur-2xl saturate-150"
+              />
+              <div className="absolute inset-0 bg-background/40" />
+              {/* Captura completa centrada, sin recorte */}
+              <Image
+                src={project.image}
+                alt={`Preview de ${project.title}`}
+                fill
+                sizes="(max-width: 640px) 100vw, 50vw"
+                className="object-contain p-3 transition-transform duration-500 group-hover:scale-[1.03]"
+              />
+            </>
+          ) : project.image ? (
             <Image
               src={project.image}
               alt={`Preview de ${project.title}`}
