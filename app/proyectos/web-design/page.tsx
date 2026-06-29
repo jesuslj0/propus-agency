@@ -47,6 +47,15 @@ const projects: ShowcaseProject[] = [
     orientation: "mobile",
     extraImages: ["/img/landings/nacion-section.png"],
   },
+  {
+    title: "Golosea",
+    url: "https://golosea.com",
+    domain: "golosea.com",
+    description:
+      "Web para tienda local de chucherías, snacks y bebidas. Diseño moderno con animaciones y colores vibrantes, chatbot IA integrado, sección especial dedicada a eventos y formulario de encargos para Whatsapp.",
+    tags: ["Astro", "Chatbot", "Animaciones", "Responsive"],
+    image: "/img/landings/golosea-hero2.png",
+  },
 ]
 
 export default function WebDesignPage() {

@@ -77,6 +77,7 @@ export default function RootLayout({
     <html
       lang="es"
       suppressHydrationWarning
+      data-scroll-behavior="smooth"
       className={cn("h-full antialiased", satoshi.variable, clashDisplay.variable, instrumentSerif.variable)}
     >
       <body className="min-h-full flex flex-col font-sans">

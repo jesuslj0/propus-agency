@@ -108,8 +108,7 @@ function ProjectCard({ project, index }: { project: ShowcaseProject; index: numb
       custom={index}
       variants={cardVariants}
       initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, margin: "-80px" }}
+      animate="visible"
     >
       <Wrapper
         {...wrapperProps}
