@@ -53,7 +53,7 @@ const footerLinks: FooterSection[] = [
     label: 'Redes sociales',
     links: [
       { href: 'https://www.instagram.com/propus_nation?igsh=MWVibThwY2Y5YWFpbw==', label: 'Instagram', external: true },
-      { href: 'https://www.facebook.com/profile.php?id=61587772027579&locale=es_ES', label: 'Facebook', external: true },
+      { href: 'https://www.facebook.com/propusnation/?locale=es_ES', label: 'Facebook', external: true },
     ],
   },
 ];

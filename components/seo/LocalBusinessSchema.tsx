@@ -31,7 +31,7 @@ export default function LocalBusinessSchema() {
     ],
     sameAs: [
       "https://www.instagram.com/propus_nation",
-      "https://www.facebook.com/profile.php?id=61587772027579&locale=es_ES",
+      "https://www.facebook.com/propusnation",
     ],
   }
 

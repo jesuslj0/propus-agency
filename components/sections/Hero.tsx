@@ -13,8 +13,10 @@ export default function Hero() {
       {/* Spline background — en móvil el canvas se ensancha y se desplaza para
           correr la escena a la izquierda sin dejar bordes vacíos */}
       <div className="absolute inset-y-0 left-0 z-0 w-[180%] -translate-x-[40%] md:w-full md:translate-x-0">
+        {/* Escena auto-hospedada (antes prod.spline.design): evita la conexión
+            a un tercer dominio y permite precargarla en paralelo al runtime */}
         <SplineScene
-          scene="https://prod.spline.design/Xup3h6IBrMohCZ2d/scene.splinecode"
+          scene="/spline/hero.splinecode"
           className="w-full h-full"
         />
       </div>
