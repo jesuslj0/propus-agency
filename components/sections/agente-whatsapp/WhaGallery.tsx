@@ -2,22 +2,28 @@ import Image from "next/image"
 
 const screens = [
   {
-    src: "/img/autoclinic/panel.png",
+    src: "/img/autoclinic/fotopanelinicio1.png",
     title: "Panel de control",
     description:
       "Vista rápida del día: citas de hoy, solicitudes pendientes de confirmación y cancelaciones, todo en un vistazo.",
   },
   {
-    src: "/img/autoclinic/agenda.png",
+    src: "/img/autoclinic/fotoagenda2.png",
     title: "Agenda semanal",
     description:
       "El calendario sobre el que opera el agente: horarios de cada profesional, franjas laborables y huecos disponibles en tiempo real.",
   },
   {
-    src: "/img/autoclinic/base-conocimiento.png",
+    src: "/img/autoclinic/fotobaseconocimiento3.png",
     title: "Base de conocimiento",
     description:
       "Las FAQs, ubicación y políticas que defines aquí son la fuente con la que el agente responde a tus pacientes — siempre con tu información.",
+  },
+  {
+    src: "/img/autoclinic/fotoagente4.png",
+    title: "Agente de WhatsApp",
+    description:
+      "Conecta tu WhatsApp en unos pasos y pruébalo al instante: una interfaz de chat integrada simula conversaciones reales para validar cómo atiende y agenda citas tu agente.",
   },
 ]
 
