@@ -3,8 +3,12 @@ import Link from "next/link"
 import { WifiOffIcon } from "lucide-react"
 
 export const metadata: Metadata = {
-  title: "Sin conexión — Propus",
+  title: "Sin conexión",
   description: "No hay conexión a internet en este momento.",
+  robots: {
+    index: false,
+    follow: false,
+  },
 }
 
 export default function OfflinePage() {

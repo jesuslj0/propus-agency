@@ -27,6 +27,13 @@ const footerLinks: FooterSection[] = [
     ],
   },
   {
+    label: 'Soluciones',
+    links: [
+      { href: '/soluciones/clinicas', label: 'Agente + CRM para clínicas' },
+      { href: '/servicios/diseno-web-clinicas', label: 'Diseño web para clínicas' },
+    ],
+  },
+  {
     label: 'Empresa',
     links: [
       { href: '/sobre-nosotros', label: 'Sobre nosotros' },
@@ -45,7 +52,7 @@ const footerLinks: FooterSection[] = [
   {
     label: 'Redes sociales',
     links: [
-      { href: 'https://www.instagram.com/alt4ir.ai/', label: 'Instagram', external: true },
+      { href: 'https://www.instagram.com/propus_nation?igsh=MWVibThwY2Y5YWFpbw==', label: 'Instagram', external: true },
       { href: 'https://www.facebook.com/profile.php?id=61587772027579&locale=es_ES', label: 'Facebook', external: true },
     ],
   },
@@ -71,7 +78,7 @@ export default function Footer() {
         </AnimatedContainer>
 
         {/* Link columns */}
-        <div className="mt-10 grid grid-cols-2 gap-8 md:grid-cols-4 xl:col-span-2 xl:mt-0">
+        <div className="mt-10 grid grid-cols-2 gap-8 md:grid-cols-5 xl:col-span-2 xl:mt-0">
           {footerLinks.map((section, index) => (
             <AnimatedContainer key={section.label} delay={0.1 + index * 0.1}>
               <div className="mb-10 md:mb-0">

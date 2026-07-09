@@ -1,9 +1,12 @@
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
-  title: "Términos y Condiciones | Propus",
+  title: "Términos y Condiciones",
   description:
     "Términos y condiciones de uso del sitio web y los servicios de Propus.",
+  alternates: {
+    canonical: "/legal/terminos",
+  },
 }
 
 export default function TerminosPage() {
@@ -33,7 +36,7 @@ export default function TerminosPage() {
         </li>
         <li>
           <strong className="text-foreground">Correo electrónico:</strong>{" "}
-          salesteam@alt4ir.com
+          team@propus.ink
         </li>
       </ul>
 

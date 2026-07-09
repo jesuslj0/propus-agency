@@ -11,11 +11,15 @@ import FacturiaTrust from "@/components/sections/facturia/FacturiaTrust"
 import FacturiaIntegrations from "@/components/sections/facturia/FacturiaIntegrations"
 import FacturiaUseCases from "@/components/sections/facturia/FacturiaUseCases"
 import FacturiaCTA from "@/components/sections/facturia/FacturiaCTA"
+import ServiceSchema from "@/components/seo/ServiceSchema"
 
 export const metadata: Metadata = {
-  title: "FacturIA — Gestión inteligente de facturas con IA | Propus",
+  title: "FacturIA — Gestión inteligente de facturas con IA",
   description:
     "FacturIA automatiza el ciclo completo de tus facturas: captura con OCR e IA, revisión y aprobación automática, dashboard de métricas en tiempo real y exportación de informes listos para tu gestoría. Multiempresa y seguro.",
+  alternates: {
+    canonical: "/proyectos/facturia",
+  },
   openGraph: {
     title: "FacturIA — Gestión inteligente de facturas con IA",
     description:
@@ -28,6 +32,11 @@ export const metadata: Metadata = {
 export default function FacturiaPage() {
   return (
     <>
+      <ServiceSchema
+        name="FacturIA — Gestión inteligente de facturas con IA"
+        description="Automatización del ciclo completo de facturas: captura con OCR e IA, revisión y aprobación automática, dashboard de métricas en tiempo real y exportación de informes."
+        serviceType="Automatización de procesos administrativos con IA"
+      />
       <ProceduralGroundBackground />
       <Navbar />
       <main>

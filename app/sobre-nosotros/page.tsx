@@ -9,7 +9,7 @@ import Footer from "@/components/layout/Footer"
 import LocalBusinessSchema from "@/components/seo/LocalBusinessSchema"
 
 export const metadata: Metadata = {
-  title: "Sobre Nosotros — Propus | Agencia de IA en Albacete",
+  title: "Sobre Nosotros | Agencia de IA en Albacete",
   description:
     "Propus es una agencia de inteligencia artificial y automatización en Albacete, Castilla-La Mancha. Desarrollamos aplicaciones con IA, automatizamos procesos y creamos agentes inteligentes para empresas.",
   keywords: [
@@ -20,6 +20,9 @@ export const metadata: Metadata = {
     "Propus",
     "agentes inteligentes Albacete",
   ],
+  alternates: {
+    canonical: "/sobre-nosotros",
+  },
   openGraph: {
     title: "Sobre Nosotros — Propus | Agencia de IA en Albacete",
     description:
@@ -250,7 +253,7 @@ export default function SobreNosotrosPage() {
               <span>Albacete, Castilla-La Mancha, España</span>
             </div>
             <p className="mb-8 text-muted-foreground">
-              salesteam@alt4ir.com
+              team@propus.ink
             </p>
             <Button
               size="lg"

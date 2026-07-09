@@ -6,7 +6,7 @@ export default function LocalBusinessSchema() {
     description:
       "Agencia de inteligencia artificial y automatización en Albacete",
     url: "https://propus.ink",
-    email: "salesteam@alt4ir.com",
+    email: "team@propus.ink",
     address: {
       "@type": "PostalAddress",
       addressLocality: "Albacete",
@@ -21,6 +21,7 @@ export default function LocalBusinessSchema() {
     areaServed: [
       { "@type": "City", name: "Albacete" },
       { "@type": "State", name: "Castilla-La Mancha" },
+      { "@type": "Country", name: "España" },
     ],
     serviceType: [
       "Inteligencia Artificial",
@@ -29,7 +30,7 @@ export default function LocalBusinessSchema() {
       "Agentes inteligentes",
     ],
     sameAs: [
-      "https://www.instagram.com/alt4ir.ai/",
+      "https://www.instagram.com/propus_nation",
       "https://www.facebook.com/profile.php?id=61587772027579&locale=es_ES",
     ],
   }

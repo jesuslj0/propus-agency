@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button"
 import { Separator } from "@/components/ui/separator"
 import Navbar from "@/components/layout/Navbar"
 import Footer from "@/components/layout/Footer"
+import BreadcrumbSchema from "@/components/seo/BreadcrumbSchema"
 
 export async function generateMetadata({
   params,
@@ -17,8 +18,11 @@ export async function generateMetadata({
   const post = getPostBySlug(slug)
   if (!post) return { title: "Artículo no encontrado" }
   return {
-    title: `${post.title} — Propus Blog`,
+    title: post.title,
     description: post.description,
+    alternates: {
+      canonical: `/blog/${post.slug}`,
+    },
     openGraph: {
       title: post.title,
       description: post.description,
@@ -57,6 +61,11 @@ export default async function BlogPostPage({
     headline: post.title,
     description: post.description,
     datePublished: post.date,
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `https://propus.ink/blog/${post.slug}`,
+    },
+    image: "https://propus.ink/favicons/android-chrome-512x512.png",
     author: {
       "@type": "Organization",
       name: "Propus",
@@ -68,6 +77,13 @@ export default async function BlogPostPage({
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+      />
+      <BreadcrumbSchema
+        items={[
+          { name: "Inicio", path: "/" },
+          { name: "Blog", path: "/blog" },
+          { name: post.title, path: `/blog/${post.slug}` },
+        ]}
       />
       <Navbar />
       <main className="relative z-10">

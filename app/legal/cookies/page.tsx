@@ -1,9 +1,12 @@
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
-  title: "Política de Cookies | Propus",
+  title: "Política de Cookies",
   description:
     "Política de cookies de Propus. Información sobre las cookies que utilizamos y cómo gestionarlas.",
+  alternates: {
+    canonical: "/legal/cookies",
+  },
 }
 
 export default function CookiesPage() {
@@ -160,7 +163,7 @@ export default function CookiesPage() {
       <p className="mb-4 leading-relaxed text-muted-foreground">
         Si tienes alguna pregunta sobre nuestra política de cookies, puedes
         contactarnos en{" "}
-        <strong className="text-foreground">salesteam@alt4ir.com</strong>.
+        <strong className="text-foreground">team@propus.ink</strong>.
       </p>
 
       <p className="mt-16 text-sm text-muted-foreground">

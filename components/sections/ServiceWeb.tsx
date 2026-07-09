@@ -190,9 +190,9 @@ function BrowserMockup() {
             </div>
 
             {/* Titular serif italic */}
-            <h1 className="font-display-serif italic text-white text-[26px] leading-[0.85] tracking-tight max-w-57.5">
+            <p className="font-display-serif italic text-white text-[26px] leading-[0.85] tracking-tight max-w-57.5">
               Viaja más allá de nuestro cielo, a través del universo
-            </h1>
+            </p>
 
             {/* Subtítulo */}
             <p className="text-[6.5px] font-light text-white/80 leading-snug max-w-50">

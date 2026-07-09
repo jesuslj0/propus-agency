@@ -7,9 +7,12 @@ import Navbar from "@/components/layout/Navbar"
 import Footer from "@/components/layout/Footer"
 
 export const metadata: Metadata = {
-  title: "Blog — Propus | IA y Automatización en Albacete",
+  title: "Blog | IA y Automatización en Albacete",
   description:
     "Artículos sobre inteligencia artificial, automatización de procesos y transformación digital para empresas en Albacete y Castilla-La Mancha.",
+  alternates: {
+    canonical: "/blog",
+  },
   openGraph: {
     title: "Blog — Propus | IA y Automatización en Albacete",
     description:

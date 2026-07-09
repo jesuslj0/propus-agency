@@ -6,6 +6,7 @@ import { cn } from "@/lib/utils"
 import { ThemeProvider } from "next-themes"
 import AuroraBackground from "@/components/ui/aurora-background"
 import ServiceWorkerRegister from "@/components/pwa/service-worker-register"
+import OrganizationSchema from "@/components/seo/OrganizationSchema"
 
 // Cuerpo de texto — Satoshi (Fontshare, auto-hospedada)
 const satoshi = localFont({
@@ -40,7 +41,11 @@ const instrumentSerif = Instrument_Serif({
 })
 
 export const metadata: Metadata = {
-  title: "Propus — Automatización e IA para tu negocio",
+  metadataBase: new URL("https://propus.ink"),
+  title: {
+    default: "Propus — Automatización e IA para tu negocio",
+    template: "%s — Propus",
+  },
   description:
     "Automatizamos tareas repetitivas y damos valor a los negocios con la ayuda de la IA. Desarrollo de aplicaciones, automatización de procesos e integración de agentes inteligentes.",
   applicationName: "Propus",
@@ -58,6 +63,23 @@ export const metadata: Metadata = {
       { rel: "icon", url: "/favicons/favicon-32x32.png", sizes: "32x32", type: "image/png" },
       { rel: "icon", url: "/favicons/android-chrome-192x192.png", sizes: "192x192", type: "image/png" },
     ],
+  },
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    siteName: "Propus",
+    type: "website",
+    locale: "es_ES",
+    title: "Propus — Automatización e IA para tu negocio",
+    description:
+      "Automatizamos tareas repetitivas y damos valor a los negocios con la ayuda de la IA. Desarrollo de aplicaciones, automatización de procesos e integración de agentes inteligentes.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Propus — Automatización e IA para tu negocio",
+    description:
+      "Automatizamos tareas repetitivas y damos valor a los negocios con la ayuda de la IA.",
   },
 }
 
@@ -81,6 +103,7 @@ export default function RootLayout({
       className={cn("h-full antialiased", satoshi.variable, clashDisplay.variable, instrumentSerif.variable)}
     >
       <body className="min-h-full flex flex-col font-sans">
+        <OrganizationSchema />
         <ThemeProvider attribute="class" defaultTheme="dark" disableTransitionOnChange>
           <AuroraBackground />
           {children}

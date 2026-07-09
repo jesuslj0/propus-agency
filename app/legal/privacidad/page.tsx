@@ -2,9 +2,12 @@ import type { Metadata } from "next"
 import Link from "next/link"
 
 export const metadata: Metadata = {
-  title: "Política de Privacidad | Propus",
+  title: "Política de Privacidad",
   description:
     "Política de privacidad de Propus. Información sobre el tratamiento de datos personales conforme al RGPD.",
+  alternates: {
+    canonical: "/legal/privacidad",
+  },
 }
 
 export default function PrivacidadPage() {
@@ -36,7 +39,7 @@ export default function PrivacidadPage() {
         </li>
         <li>
           <strong className="text-foreground">Correo electrónico:</strong>{" "}
-          salesteam@alt4ir.com
+          team@propus.ink
         </li>
       </ul>
 
@@ -176,7 +179,7 @@ export default function PrivacidadPage() {
       </ul>
       <p className="mb-4 leading-relaxed text-muted-foreground">
         Para ejercer cualquiera de estos derechos, envía un correo electrónico a{" "}
-        <strong className="text-foreground">salesteam@alt4ir.com</strong>{" "}
+        <strong className="text-foreground">team@propus.ink</strong>{" "}
         indicando el derecho que deseas ejercer y adjuntando una copia de tu
         documento de identidad.
       </p>

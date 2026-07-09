@@ -4,6 +4,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion"
+import FAQSchema from "@/components/seo/FAQSchema"
 
 const faqs = [
   {
@@ -41,6 +42,7 @@ const faqs = [
 export default function FAQ() {
   return (
     <section id="faq" className="py-20 md:py-28">
+      <FAQSchema faqs={faqs} />
       <div className="max-w-6xl mx-auto px-4">
         <div className="text-center mb-14">
           <h2 className="text-4xl font-semibold tracking-tight md:text-5xl">
