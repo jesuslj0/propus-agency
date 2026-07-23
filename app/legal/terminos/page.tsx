@@ -28,11 +28,12 @@ export default function TerminosPage() {
       </h2>
       <ul className="mb-4 list-disc space-y-2 pl-6 text-muted-foreground">
         <li>
-          <strong className="text-foreground">Denominación:</strong> Propus
+          <strong className="text-foreground">Denominación:</strong> Iberium
+          Group LLC (marca comercial: Propus)
         </li>
         <li>
-          <strong className="text-foreground">Domicilio:</strong> Albacete,
-          España
+          <strong className="text-foreground">Domicilio:</strong> 1209 Mountain
+          Road PL NE STE R, Albuquerque, New Mexico 87110, EE. UU.
         </li>
         <li>
           <strong className="text-foreground">Correo electrónico:</strong>{" "}

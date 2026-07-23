@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import Link from "next/link"
+import { ArrowRightIcon } from "lucide-react"
 import { getAllPosts } from "@/lib/blog"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
@@ -64,9 +65,20 @@ export default function BlogPage() {
             ) : (
               <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
                 {posts.map((post) => (
-                  <Link key={post.slug} href={`/blog/${post.slug}`}>
-                    <Card className="h-full border-border bg-card transition-shadow hover:shadow-lg">
-                      <CardContent className="flex h-full flex-col pt-6">
+                  <Link
+                    key={post.slug}
+                    href={`/blog/${post.slug}`}
+                    className="group block h-full"
+                  >
+                    <Card className="relative h-full overflow-hidden border-border bg-card transition-all duration-300 group-hover:-translate-y-1.5 group-hover:border-brand-teal/50 group-hover:shadow-xl group-hover:shadow-brand-teal/10">
+                      {/* Línea de acento superior */}
+                      <span className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-brand-teal/70 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                      {/* Glow radial sutil al hacer hover */}
+                      <span
+                        aria-hidden
+                        className="pointer-events-none absolute -right-16 -top-16 size-40 rounded-full bg-brand-teal/20 opacity-0 blur-3xl transition-opacity duration-500 group-hover:opacity-100"
+                      />
+                      <CardContent className="relative flex h-full flex-col pt-6">
                         <div className="mb-3 flex flex-wrap gap-2">
                           {post.tags.map((tag) => (
                             <Badge
@@ -78,7 +90,7 @@ export default function BlogPage() {
                             </Badge>
                           ))}
                         </div>
-                        <h2 className="mb-2 text-lg font-semibold leading-tight">
+                        <h2 className="mb-2 text-lg font-semibold leading-tight transition-colors duration-300 group-hover:text-brand-teal">
                           {post.title}
                         </h2>
                         <p className="mb-4 line-clamp-3 text-sm leading-relaxed text-muted-foreground">
@@ -90,8 +102,9 @@ export default function BlogPage() {
                           </time>
                           <span>{post.readingTime}</span>
                         </div>
-                        <span className="mt-4 text-sm font-medium text-brand-teal">
-                          Leer más →
+                        <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-brand-teal">
+                          Leer más
+                          <ArrowRightIcon className="size-4 transition-transform duration-300 group-hover:translate-x-1" />
                         </span>
                       </CardContent>
                     </Card>

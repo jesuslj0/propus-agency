@@ -10,6 +10,8 @@ import { cn } from "@/lib/utils"
 export interface ShowcaseProject {
   /** Nombre del proyecto / cliente */
   title: string
+  /** Ancla opcional para enlaces profundos (p. ej. desde la sección Resultados) */
+  id?: string
   /** URL pública de la landing (se muestra en la barra del navegador y enlaza la card) */
   url?: string
   /** Texto que se muestra en la barra de direcciones del marco */
@@ -105,10 +107,12 @@ function ProjectCard({ project, index }: { project: ShowcaseProject; index: numb
 
   return (
     <motion.div
+      id={project.id}
       custom={index}
       variants={cardVariants}
       initial="hidden"
       animate="visible"
+      className="scroll-mt-28"
     >
       <Wrapper
         {...wrapperProps}

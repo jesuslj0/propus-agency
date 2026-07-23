@@ -21,9 +21,10 @@ const footerLinks: FooterSection[] = [
   {
     label: 'Producto',
     links: [
-      { href: '#servicios', label: 'Servicios' },
-      { href: '#proceso', label: 'Proceso' },
-      { href: '#precios', label: 'Precios' },
+      { href: '/#servicios', label: 'Servicios' },
+      { href: '/#proceso', label: 'Proceso' },
+      { href: '/#precios', label: 'Precios' },
+      { href: '/#resultados', label: 'Resultados' },
     ],
   },
   {
@@ -73,7 +74,10 @@ export default function Footer() {
             Automatizamos procesos y desarrollamos aplicaciones con IA para que tu negocio escale más rápido.
           </p>
           <p className="text-muted-foreground text-sm">
-            © {new Date().getFullYear()} Propus. Todos los derechos reservados.
+            © {new Date().getFullYear()} Propus, una marca de Iberium Group LLC. Todos los derechos reservados.
+          </p>
+          <p className="text-muted-foreground/80 text-xs leading-relaxed">
+            Iberium Group LLC · 1209 Mountain Road PL NE STE R, Albuquerque, New Mexico 87110, EE. UU.
           </p>
         </AnimatedContainer>
 

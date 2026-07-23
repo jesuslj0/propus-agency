@@ -1,4 +1,4 @@
-import { HeartPulseIcon, ActivityIcon, StethoscopeIcon, StarIcon } from "lucide-react"
+import { HeartPulseIcon, FootprintsIcon, ActivityIcon, StethoscopeIcon, StarIcon } from "lucide-react"
 
 const metrics = [
   { value: "24/7", label: "Disponibilidad del agente" },
@@ -13,6 +13,13 @@ const sectors = [
     title: "Clínicas dentales",
     description:
       "Nuestro caso de uso principal. Agenda de higienistas, ortodoncistas y cirujanos bajo un solo agente, con información detallada de cada profesional y tratamiento.",
+    featured: true,
+  },
+  {
+    icon: FootprintsIcon,
+    title: "Clínicas de podología",
+    description:
+      "Nuestro segundo nicho principal, ya en pruebas con una clínica de podología en Albacete y configurándose a medida: quiropodias, estudios biomecánicos y tratamientos recurrentes con recordatorios que mantienen alta la asistencia.",
     featured: true,
   },
   {
@@ -63,7 +70,7 @@ export default function WhaUseCases() {
         </div>
 
         {/* Grid de sectores */}
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {sectors.map((s) => {
             const Icon = s.icon
             return (

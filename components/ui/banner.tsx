@@ -1,10 +1,17 @@
 "use client";
-import { type HTMLAttributes, useEffect, useState } from "react";
+import { type HTMLAttributes, useSyncExternalStore } from "react";
 import { X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { buttonVariants } from "@/components/ui/button";
 
 type BannerVariant = "rainbow" | "normal";
+
+// El estado "cerrado" vive en localStorage (externo a React). El botón de
+// cierre dispara "banner-status-changed", que re-lee el snapshot.
+function subscribeBannerStatus(onStoreChange: () => void) {
+  window.addEventListener("banner-status-changed", onStoreChange);
+  return () => window.removeEventListener("banner-status-changed", onStoreChange);
+}
 
 export function Banner({
   id,
@@ -26,12 +33,14 @@ export function Banner({
   rainbowColors?: string[];
   changeLayout?: boolean;
 }) {
-  const [open, setOpen] = useState(true);
   const globalKey = id ? `nd-banner-${id}` : null;
 
-  useEffect(() => {
-    if (globalKey) setOpen(localStorage.getItem(globalKey) !== "true");
-  }, [globalKey]);
+  const dismissed = useSyncExternalStore(
+    subscribeBannerStatus,
+    () => (globalKey ? localStorage.getItem(globalKey) === "true" : false),
+    () => false, // en el servidor el banner se renderiza (el <script> inline lo oculta si procede)
+  );
+  const open = !dismissed;
 
   if (!open) return null;
 
@@ -69,7 +78,6 @@ export function Banner({
           type="button"
           aria-label="Close Banner"
           onClick={() => {
-            setOpen(false);
             if (globalKey) {
               localStorage.setItem(globalKey, "true");
               window.dispatchEvent(new Event("banner-status-changed"));

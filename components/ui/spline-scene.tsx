@@ -24,20 +24,21 @@ interface SplineSceneProps {
 export function SplineScene({ scene, className }: SplineSceneProps) {
   const canvasRef = useRef<HTMLCanvasElement | null>(null)
   const [app, setApp] = useState<Application | null>(null)
-  const [reducedMotion, setReducedMotion] = useState(false)
+
+  // Accesibilidad + rendimiento: si el usuario pide menos movimiento, no
+  // se instancia la escena 3D (queda el fondo estático de la página). Se
+  // evalúa en el inicializador (no en un efecto) para evitar un render extra;
+  // la guarda `typeof window` mantiene el valor a false durante el SSR.
+  const [reducedMotion] = useState(
+    () =>
+      typeof window !== "undefined" &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches
+  )
 
   // Precarga la escena en paralelo con el runtime: React hoistea el <link
   // rel="preload"> al <head>, así el .splinecode ya está en caché cuando el
   // runtime lo pide (antes se descargaba en serie, después del runtime).
   preload(scene, { as: "fetch", crossOrigin: "anonymous" })
-
-  // Accesibilidad + rendimiento: si el usuario pide menos movimiento, no
-  // se instancia la escena 3D (queda el fondo estático de la página).
-  useEffect(() => {
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      setReducedMotion(true)
-    }
-  }, [])
 
   // Reenvía el movimiento del ratón al canvas (que tiene pointer-events:
   // none). Solo en dispositivos con hover real y como máximo una vez por

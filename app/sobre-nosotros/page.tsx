@@ -255,6 +255,10 @@ export default function SobreNosotrosPage() {
             <p className="mb-8 text-muted-foreground">
               team@propus.ink
             </p>
+            <p className="mx-auto mb-8 max-w-2xl text-sm text-muted-foreground/80">
+              Propus es la marca comercial de Iberium Group LLC, con domicilio en
+              1209 Mountain Road PL NE STE R, Albuquerque, New Mexico 87110, EE. UU.
+            </p>
             <Button
               size="lg"
               className="bg-brand-emerald text-background font-semibold hover:bg-brand-teal"

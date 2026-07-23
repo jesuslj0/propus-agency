@@ -410,6 +410,98 @@ export const blogPosts: BlogPost[] = [
       </p>
     `,
   },
+  {
+    slug: "recepcionista-virtual-clinica-podologia",
+    title: "AutoClinic para clínicas de podología: recepcionista virtual por WhatsApp",
+    description:
+      "Cómo AutoClinic se adapta a las clínicas de podología —quiropodias, estudios biomecánicos y tratamientos recurrentes— para gestionar la agenda por WhatsApp. Ya en pruebas con una clínica de Albacete.",
+    date: "2026-07-13",
+    readingTime: "7 min de lectura",
+    tags: ["Clínicas de podología", "WhatsApp", "IA", "AutoClinic"],
+    content: `
+      <p class="text-muted-foreground leading-relaxed mb-4">
+        Las clínicas de podología comparten un problema con el resto del sector salud: la mayor parte de las citas se pierden o se retrasan por teléfono, fuera de horario o cuando la recepción está ocupada atendiendo en gabinete. Por eso hemos convertido a la podología en el segundo nicho principal de AutoClinic, nuestro agente recepcionista de WhatsApp, y lo estamos configurando a medida junto a una clínica de podología en Albacete que ya lo está probando en su día a día.
+      </p>
+
+      <h2 class="text-xl md:text-2xl font-semibold mt-10 mb-4 text-foreground">Por qué la podología encaja tan bien</h2>
+      <p class="text-muted-foreground leading-relaxed mb-4">
+        La podología trabaja íntegramente por cita y con una fuerte componente de tratamientos recurrentes: una quiropodia se repite cada pocas semanas, un tratamiento de una onicomicosis o de una verruga plantar requiere varias sesiones de seguimiento, y un estudio biomecánico deriva en revisiones posteriores de las plantillas. Ese patrón de "citas que vuelven" es justo donde un agente automatizado aporta más, porque puede recordar al paciente cuándo toca la siguiente visita sin que nadie tenga que revisarlo a mano.
+      </p>
+
+      <h2 class="text-xl md:text-2xl font-semibold mt-10 mb-4 text-foreground">Qué gestiona el agente en una clínica de podología</h2>
+      <ul class="list-disc pl-6 space-y-2 text-muted-foreground mb-4">
+        <li><strong class="text-foreground font-medium">Agenda por tipo de tratamiento:</strong> distingue la duración real de una quiropodia, un estudio biomecánico o una primera valoración, y ofrece solo huecos coherentes con cada servicio.</li>
+        <li><strong class="text-foreground font-medium">Citas recurrentes:</strong> propone la siguiente sesión al paciente que sigue un tratamiento por fases, sin que la recepción tenga que perseguirlo.</li>
+        <li><strong class="text-foreground font-medium">Recordatorios que reducen ausencias:</strong> avisos previos por WhatsApp que mantienen alta la asistencia, especialmente en tratamientos de varias sesiones.</li>
+        <li><strong class="text-foreground font-medium">Preguntas frecuentes propias del sector:</strong> precios de la quiropodia, cuidados posteriores, si hace falta acudir con las uñas sin pintar, tiempos de entrega de plantillas a medida…</li>
+      </ul>
+
+      <h2 class="text-xl md:text-2xl font-semibold mt-10 mb-4 text-foreground">Configurado a medida, no una plantilla genérica</h2>
+      <p class="text-muted-foreground leading-relaxed mb-4">
+        La adaptación al sector no consiste en cambiar cuatro palabras. Estamos alimentando la base de conocimiento del agente con los tratamientos reales de la clínica, sus duraciones, sus precios y sus políticas, exactamente igual que hicimos al llevar la tecnología del ámbito dental al de estética. Contamos ese proceso de adaptación entre sectores en nuestro artículo sobre
+        <a href="/blog/automatizar-recepcion-clinica-estetica" class="text-foreground underline underline-offset-4 hover:text-brand-teal">cómo automatizamos la recepción de un centro de estética</a>.
+      </p>
+
+      <h2 class="text-xl md:text-2xl font-semibold mt-10 mb-4 text-foreground">La misma base técnica probada en dental</h2>
+      <p class="text-muted-foreground leading-relaxed mb-4">
+        Por dentro, el agente de podología funciona sobre la misma arquitectura que describimos en nuestra
+        <a href="/blog/recepcionista-virtual-clinica-dental" class="text-foreground underline underline-offset-4 hover:text-brand-teal">guía completa de recepcionista virtual para clínica dental</a>:
+        comprensión del lenguaje natural, consulta a la agenda en tiempo real, confirmación automática y reglas claras de derivación a una persona. Puedes ver el detalle de cada fase en nuestro
+        <a href="/blog/chatbot-whatsapp-citas-clinica" class="text-foreground underline underline-offset-4 hover:text-brand-teal">artículo técnico sobre chatbots de WhatsApp para citas médicas</a>.
+      </p>
+
+      <h2 class="text-xl md:text-2xl font-semibold mt-10 mb-4 text-foreground">Siguiente paso</h2>
+      <p class="text-muted-foreground leading-relaxed mb-4">
+        Si diriges una clínica de podología y quieres ver cómo encajaría AutoClinic en tu agenda, puedes conocer
+        <a href="/soluciones/clinicas" class="text-foreground underline underline-offset-4 hover:text-brand-teal">nuestra solución de agente y CRM para clínicas</a>
+        o agendar una llamada de 30 minutos para revisar tu caso concreto sin compromiso.
+      </p>
+    `,
+  },
+  {
+    slug: "automatizar-agenda-podologo-ia-albacete",
+    title: "Cómo automatizamos la agenda de un podólogo con IA (caso Albacete)",
+    description:
+      "Caso real en curso: cómo estamos configurando AutoClinic para una clínica de podología en Albacete, con agenda por tratamiento, seguimiento de sesiones y recordatorios por WhatsApp.",
+    date: "2026-07-20",
+    readingTime: "6 min de lectura",
+    tags: ["Clínicas de podología", "Automatización", "Caso real", "Albacete"],
+    content: `
+      <p class="text-muted-foreground leading-relaxed mb-4">
+        Este artículo cuenta un caso real que tenemos en marcha: la puesta a punto de AutoClinic para una clínica de podología en Albacete. No es un caso cerrado con métricas finales, sino un proyecto en fase de pruebas y ajuste fino, y precisamente por eso resulta útil para entender cómo se adapta un agente recepcionista a un sector nuevo paso a paso.
+      </p>
+
+      <h2 class="text-xl md:text-2xl font-semibold mt-10 mb-4 text-foreground">El punto de partida</h2>
+      <p class="text-muted-foreground leading-relaxed mb-4">
+        La clínica gestionaba las citas por teléfono y mensajes sueltos, con el problema habitual: llamadas perdidas fuera de horario, pacientes que olvidaban la revisión de seguimiento y una recepción que interrumpía la atención en gabinete cada vez que sonaba el móvil. El objetivo no era sustituir a nadie, sino quitar de encima la parte repetitiva de gestionar la agenda.
+      </p>
+
+      <h2 class="text-xl md:text-2xl font-semibold mt-10 mb-4 text-foreground">Mapear los tratamientos y sus tiempos</h2>
+      <p class="text-muted-foreground leading-relaxed mb-4">
+        El primer paso fue traducir los servicios de la clínica a la agenda del agente: cuánto dura realmente una quiropodia, una primera valoración, un estudio biomecánico o la revisión de unas plantillas. Sin este mapa, un agente ofrecería huecos irreales; con él, cada tipo de cita reserva el tiempo que de verdad ocupa.
+      </p>
+
+      <h2 class="text-xl md:text-2xl font-semibold mt-10 mb-4 text-foreground">Seguimiento de tratamientos por fases</h2>
+      <p class="text-muted-foreground leading-relaxed mb-4">
+        La particularidad de la podología frente al caso dental está en el peso de los tratamientos que se prolongan varias sesiones. Configuramos el sistema para que, al cerrar una visita de seguimiento, el agente pueda proponer la siguiente cita dentro del intervalo recomendado, de forma parecida al control de sesiones que implementamos para un centro de estética y que explicamos en
+        <a href="/blog/automatizar-recepcion-clinica-estetica" class="text-foreground underline underline-offset-4 hover:text-brand-teal">este caso</a>.
+      </p>
+
+      <h2 class="text-xl md:text-2xl font-semibold mt-10 mb-4 text-foreground">Recordatorios para no perder la revisión</h2>
+      <p class="text-muted-foreground leading-relaxed mb-4">
+        Igual que en el resto de clínicas, los recordatorios automáticos por WhatsApp son la pieza que más impacto tiene sobre las ausencias. Explicamos el patrón de doble recordatorio —24 horas y 3 horas antes— y por qué funciona mejor por WhatsApp que por SMS en nuestro artículo sobre
+        <a href="/blog/reducir-no-shows-clinica-recordatorios" class="text-foreground underline underline-offset-4 hover:text-brand-teal">cómo reducir las ausencias en tu clínica con recordatorios automáticos</a>.
+      </p>
+
+      <h2 class="text-xl md:text-2xl font-semibold mt-10 mb-4 text-foreground">Qué viene ahora</h2>
+      <p class="text-muted-foreground leading-relaxed mb-4">
+        Estamos en la fase de revisar las conversaciones reales del agente y afinar su base de conocimiento con las preguntas concretas que hacen los pacientes de podología. Es el mismo método de validación previa que aplicamos siempre: el agente se prueba y se aprueba antes de gestionar la agenda con total autonomía. Si quieres seguir el enfoque completo, empieza por nuestra
+        <a href="/blog/recepcionista-virtual-clinica-podologia" class="text-foreground underline underline-offset-4 hover:text-brand-teal">guía de AutoClinic para clínicas de podología</a>
+        y conoce
+        <a href="/soluciones/clinicas" class="text-foreground underline underline-offset-4 hover:text-brand-teal">nuestra solución de agente y CRM para clínicas</a>.
+      </p>
+    `,
+  },
 ]
 
 export function getPostBySlug(slug: string): BlogPost | undefined {

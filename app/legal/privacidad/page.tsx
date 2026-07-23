@@ -31,11 +31,12 @@ export default function PrivacidadPage() {
       </h2>
       <ul className="mb-4 list-disc space-y-2 pl-6 text-muted-foreground">
         <li>
-          <strong className="text-foreground">Identidad:</strong> Propus
+          <strong className="text-foreground">Identidad:</strong> Iberium Group
+          LLC (marca comercial: Propus)
         </li>
         <li>
-          <strong className="text-foreground">Domicilio:</strong> Albacete,
-          España
+          <strong className="text-foreground">Domicilio:</strong> 1209 Mountain
+          Road PL NE STE R, Albuquerque, New Mexico 87110, EE. UU.
         </li>
         <li>
           <strong className="text-foreground">Correo electrónico:</strong>{" "}
@@ -48,20 +49,21 @@ export default function PrivacidadPage() {
       </h2>
       <p className="mb-4 leading-relaxed text-muted-foreground">
         Recopilamos únicamente los datos que nos proporcionas voluntariamente a
-        través de nuestros formularios de contacto y los datos técnicos
-        necesarios para el funcionamiento del sitio web:
+        través de nuestros formularios de contacto:
       </p>
       <ul className="mb-4 list-disc space-y-2 pl-6 text-muted-foreground">
         <li>
           <strong className="text-foreground">Datos de contacto:</strong>{" "}
           nombre, dirección de correo electrónico, número de teléfono y mensaje.
         </li>
-        <li>
-          <strong className="text-foreground">Datos técnicos:</strong> dirección
-          IP, tipo de navegador, sistema operativo, páginas visitadas y duración
-          de la visita.
-        </li>
       </ul>
+      <p className="mb-4 leading-relaxed text-muted-foreground">
+        No utilizamos herramientas de analítica ni de perfilado en este sitio
+        web. Nuestro proveedor de alojamiento puede registrar de forma
+        automática datos técnicos de conexión (como la dirección IP) únicamente
+        con fines de seguridad y correcto funcionamiento del servicio, sin que
+        Propus los emplee para identificarte ni con ninguna otra finalidad.
+      </p>
 
       <h2 className="mt-12 mb-4 text-xl font-semibold md:text-2xl">
         Finalidad del tratamiento

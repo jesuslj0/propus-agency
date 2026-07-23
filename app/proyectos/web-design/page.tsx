@@ -23,6 +23,7 @@ export const metadata: Metadata = {
 const projects: ShowcaseProject[] = [
   {
     title: "El Rincón de Héctor",
+    id: "el-rincon-de-hector",
     url: "https://elrincondehector.com",
     domain: "elrincondehector.com",
     description:
@@ -32,6 +33,7 @@ const projects: ShowcaseProject[] = [
   },
   {
     title: "El Casino",
+    id: "casino-el-bonillo",
     url: "https://casinoelbonillo.com",
     domain: "casinoelbonillo.com",
     description:
@@ -41,6 +43,7 @@ const projects: ShowcaseProject[] = [
   },
   {
     title: "Lío Music Pub",
+    id: "lio-el-bonillo",
     url: "https://liopub.com",
     domain: "liopub.com",
     description:
@@ -52,6 +55,7 @@ const projects: ShowcaseProject[] = [
   },
   {
     title: "Golosea",
+    id: "golosea",
     url: "https://golosea.com",
     domain: "golosea.com",
     description:

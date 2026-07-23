@@ -8,6 +8,7 @@ const stack = [
   { name: "PostgreSQL",   domain: "postgresql.org" },
   { name: "TypeScript",   domain: "typescriptlang.org" },
   { name: "Next.js",      domain: "nextjs.org" },
+  { name: "Astro",        domain: "astro.build" },
   { name: "Coolify",      domain: "coolify.io" },
   { name: "DigitalOcean", domain: "digitalocean.com" },
   { name: "Tailwind",     domain: "tailwindcss.com" },
