@@ -21,6 +21,10 @@ import { cn } from "@/lib/utils"
  * de fondo que trae el CTA. Se animan solo transform y box-shadow, nunca
  * layout, y se degradan a un hover plano sin hover real o con
  * `prefers-reduced-motion`.
+ *
+ * Todas las variables van con prefijo `--tilt-` para que nada de fuera pueda
+ * pisarlas: son propiedades personalizadas sin registrar, así que heredan, y
+ * un `--press` suelto en cualquier ancestro colapsaría el botón.
  */
 
 const MAX_TILT_Y = 16 // grados sobre el eje vertical (cursor izquierda ↔ derecha)
@@ -35,14 +39,24 @@ const TONES = {
 
 type Tone = keyof typeof TONES
 
+// El tilt necesita `perspective()`, y eso promueve el botón a su propia capa
+// de composición. Junto a un filtro SVG animado —el `EtheralShadow` del CTA
+// final— Chrome deja de pintar la capa y el botón desaparece. `flat` conserva
+// elevación, extrusión, halo y especular, y renuncia solo a la inclinación.
+const TRANSFORM_3D =
+  "transform-[perspective(600px)_rotateX(var(--tilt-rx,0deg))_rotateY(var(--tilt-ry,0deg))_translateY(var(--tilt-lift,0px))_scale(var(--tilt-press,1))]"
+const TRANSFORM_FLAT =
+  "transform-[translateY(var(--tilt-lift,0px))_scale(var(--tilt-press,1))]"
+
 function TiltCtaButton({
   className,
   tone = "emerald",
+  flat = false,
   onPointerMove,
   onPointerLeave,
   style,
   ...props
-}: React.ComponentProps<typeof Button> & { tone?: Tone }) {
+}: React.ComponentProps<typeof Button> & { tone?: Tone; flat?: boolean }) {
   const frameRef = React.useRef(0)
   // `null` = aún sin evaluar. Se resuelve en el primer puntero, ya en cliente.
   const tiltAllowedRef = React.useRef<boolean | null>(null)
@@ -70,10 +84,11 @@ function TiltCtaButton({
       const rect = element.getBoundingClientRect()
       const x = (clientX - rect.left) / rect.width
       const y = (clientY - rect.top) / rect.height
-      element.style.setProperty("--mx", `${x * 100}%`)
-      element.style.setProperty("--my", `${y * 100}%`)
-      element.style.setProperty("--ry", `${(x - 0.5) * MAX_TILT_Y}deg`)
-      element.style.setProperty("--rx", `${(0.5 - y) * MAX_TILT_X}deg`)
+      element.style.setProperty("--tilt-mx", `${x * 100}%`)
+      element.style.setProperty("--tilt-my", `${y * 100}%`)
+      if (flat) return
+      element.style.setProperty("--tilt-ry", `${(x - 0.5) * MAX_TILT_Y}deg`)
+      element.style.setProperty("--tilt-rx", `${(0.5 - y) * MAX_TILT_X}deg`)
     })
   }
 
@@ -84,8 +99,8 @@ function TiltCtaButton({
       frameRef.current = 0
     }
     // La transición de 200ms hace el retorno a plano; no hay que animarlo a mano.
-    event.currentTarget.style.setProperty("--rx", "0deg")
-    event.currentTarget.style.setProperty("--ry", "0deg")
+    event.currentTarget.style.setProperty("--tilt-rx", "0deg")
+    event.currentTarget.style.setProperty("--tilt-ry", "0deg")
   }
 
   React.useEffect(
@@ -110,19 +125,19 @@ function TiltCtaButton({
         } as React.CSSProperties
       }
       className={cn(
-        // `isolate` acota el mix-blend del especular al propio botón y hace
-        // que el ::before con z negativo se pinte sobre el fondo del CTA
-        // pero por debajo de su texto.
-        "relative isolate cursor-pointer duration-200 ease-out",
-        "transform-[perspective(600px)_rotateX(var(--rx,0deg))_rotateY(var(--ry,0deg))_translateY(var(--lift,0px))_scale(var(--press,1))]",
+        // `relative` para anclar el ::before. El propio transform ya crea el
+        // contexto de apilado que contiene el z negativo y aísla el blend, así
+        // que no hace falta `isolate`.
+        "relative cursor-pointer duration-200 ease-out",
+        flat ? TRANSFORM_FLAT : TRANSFORM_3D,
         "shadow-[inset_0_1px_0_0_rgba(255,255,255,0.45),0_2px_0_0_var(--edge),0_4px_0_0_var(--edge-deep),0_8px_18px_-8px_var(--bloom)]",
-        "hover:[--lift:-3px] hover:shadow-[inset_0_1px_0_0_rgba(255,255,255,0.6),0_3px_0_0_var(--edge),0_7px_0_0_var(--edge-deep),0_20px_32px_-10px_var(--bloom)]",
-        "active:[--press:0.98] active:shadow-[inset_0_1px_0_0_rgba(255,255,255,0.35),0_1px_0_0_var(--edge),0_2px_0_0_var(--edge-deep),0_6px_12px_-8px_var(--bloom)]",
+        "hover:[--tilt-lift:-3px] hover:shadow-[inset_0_1px_0_0_rgba(255,255,255,0.6),0_3px_0_0_var(--edge),0_7px_0_0_var(--edge-deep),0_20px_32px_-10px_var(--bloom)]",
+        "active:[--tilt-press:0.98] active:shadow-[inset_0_1px_0_0_rgba(255,255,255,0.35),0_1px_0_0_var(--edge),0_2px_0_0_var(--edge-deep),0_6px_12px_-8px_var(--bloom)]",
         'before:pointer-events-none before:absolute before:inset-0 before:-z-10 before:rounded-[inherit] before:content-[""]',
-        "before:bg-[radial-gradient(circle_90px_at_var(--mx,50%)_var(--my,50%),rgba(255,255,255,0.75),transparent_70%)]",
+        "before:bg-[radial-gradient(circle_90px_at_var(--tilt-mx,50%)_var(--tilt-my,50%),rgba(255,255,255,0.75),transparent_70%)]",
         "before:opacity-0 before:mix-blend-overlay before:transition-opacity before:duration-200",
         "hover:before:opacity-100",
-        "motion-reduce:hover:[--lift:0px] motion-reduce:active:[--press:1] motion-reduce:before:hidden",
+        "motion-reduce:hover:[--tilt-lift:0px] motion-reduce:active:[--tilt-press:1] motion-reduce:before:hidden",
         className
       )}
       {...props}

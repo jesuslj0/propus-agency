@@ -27,7 +27,11 @@ export default function CTABanner() {
             </p>
 
             <div className="mt-10 flex justify-center">
+              {/* `flat`: sin perspective(). El EtheralShadow de esta tarjeta
+                  aplica un filtro SVG animado, y el botón promovido a capa 3D
+                  dejaba de pintarse. Conserva el resto del hover. */}
               <TiltCtaButton
+                flat
                 className="bg-linear-to-r from-brand-emerald to-brand-green hover:from-brand-teal hover:to-brand-spring text-background gap-2 h-11 px-8 font-semibold text-base"
                 asChild
               >
