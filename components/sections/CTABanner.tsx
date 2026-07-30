@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { Button } from "@/components/ui/button"
+import { TiltCtaButton } from "@/components/ui/tilt-cta-button"
 import { ArrowRightIcon } from "lucide-react"
 import { EtheralShadow } from "@/components/ui/etheral-shadow"
 
@@ -27,7 +27,7 @@ export default function CTABanner() {
             </p>
 
             <div className="mt-10 flex justify-center">
-              <Button
+              <TiltCtaButton
                 className="bg-linear-to-r from-brand-emerald to-brand-green hover:from-brand-teal hover:to-brand-spring text-background gap-2 h-11 px-8 font-semibold text-base"
                 asChild
               >
@@ -35,7 +35,7 @@ export default function CTABanner() {
                   Agendar llamada
                   <ArrowRightIcon className="size-4" />
                 </Link>
-              </Button>
+              </TiltCtaButton>
             </div>
 
             <p className="mt-4 text-xs text-neutral-400">

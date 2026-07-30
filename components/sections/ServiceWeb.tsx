@@ -1,6 +1,6 @@
 import Link from "next/link"
 import { ArrowRightIcon, MonitorXIcon, SearchXIcon, TimerOffIcon, TrendingDownIcon, CheckCircle2Icon } from "lucide-react"
-import { Button } from "@/components/ui/button"
+import { TiltCtaButton } from "@/components/ui/tilt-cta-button"
 
 const painPoints = [
   {
@@ -65,9 +65,9 @@ export default function ServiceWeb() {
                 return (
                   <li
                     key={p.text}
-                    className="flex items-start gap-4 rounded-xl border border-white/8 bg-white/4 px-5 py-4 backdrop-blur-sm"
+                    className="group flex items-start gap-4 rounded-xl border border-white/8 bg-white/4 px-5 py-4 backdrop-blur-sm transition-[background-color,border-color,transform,box-shadow] duration-200 ease-out hover:-translate-y-px hover:border-brand-sky/25 hover:bg-white/8 hover:shadow-lg hover:shadow-brand-sky/10 motion-reduce:hover:translate-y-0"
                   >
-                    <div className="shrink-0 mt-0.5 size-8 rounded-lg bg-red-500/15 flex items-center justify-center">
+                    <div className="shrink-0 mt-0.5 size-8 rounded-lg bg-red-500/15 flex items-center justify-center transition-colors duration-200 group-hover:bg-red-500/25">
                       <Icon className="size-4 text-red-400" />
                     </div>
                     <span className="text-sm text-slate-300 leading-snug">{p.text}</span>
@@ -86,16 +86,17 @@ export default function ServiceWeb() {
               </p>
             </div>
 
-            <Button
+            <TiltCtaButton
+              tone="sky"
               size="lg"
-              className="self-start bg-brand-sky hover:bg-brand-teal text-background font-semibold px-7 gap-2"
+              className="self-start bg-brand-sky hover:bg-[color-mix(in_oklab,var(--cta-tint),white_18%)] text-background font-semibold h-11 px-8 text-base gap-2 [&_svg]:transition-transform hover:[&_svg]:translate-x-1"
               asChild
             >
               <Link href="/proyectos/web-design">
                 Ver ejemplos de webs
                 <ArrowRightIcon className="size-4" />
               </Link>
-            </Button>
+            </TiltCtaButton>
           </div>
 
           {/* Columna derecha — browser mockup */}

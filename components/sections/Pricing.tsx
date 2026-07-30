@@ -1,6 +1,7 @@
 import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from "@/components/ui/card"
 import { GlowCard } from "@/components/ui/glow-card"
 import { Button } from "@/components/ui/button"
+import { TiltCtaButton } from "@/components/ui/tilt-cta-button"
 import { Badge } from "@/components/ui/badge"
 import { CheckIcon, GlobeIcon, FileTextIcon, MessageCircleIcon } from "lucide-react"
 import type { LucideIcon } from "lucide-react"
@@ -144,17 +145,22 @@ export default function Pricing() {
               </CardContent>
 
               <CardFooter className="mt-auto pt-6">
-                <Button
-                  className={
-                    plan.highlighted
-                      ? "w-full bg-brand-emerald hover:bg-brand-teal text-background font-semibold"
-                      : "w-full border-brand-sky shadow-[0_0_10px_rgba(0,172,253,0.4)] hover:shadow-[0_0_20px_rgba(0,253,202,0.7)] hover:border-brand-teal transition-shadow duration-300"
-                  }
-                  variant={plan.highlighted ? "default" : "outline"}
-                  asChild
-                >
-                  <Link href={plan.href} target="_blank" rel="noopener noreferrer">{plan.cta}</Link>
-                </Button>
+                {plan.highlighted ? (
+                  <TiltCtaButton
+                    className="w-full bg-brand-emerald hover:bg-brand-teal text-background font-semibold"
+                    asChild
+                  >
+                    <Link href={plan.href} target="_blank" rel="noopener noreferrer">{plan.cta}</Link>
+                  </TiltCtaButton>
+                ) : (
+                  <Button
+                    className="w-full border-brand-sky shadow-[0_0_10px_rgba(0,172,253,0.4)] hover:shadow-[0_0_20px_rgba(0,253,202,0.7)] hover:border-brand-teal transition-shadow duration-300"
+                    variant="outline"
+                    asChild
+                  >
+                    <Link href={plan.href} target="_blank" rel="noopener noreferrer">{plan.cta}</Link>
+                  </Button>
+                )}
               </CardFooter>
             </Card>
             </GlowCard>

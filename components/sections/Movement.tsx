@@ -1,7 +1,7 @@
 import { Fragment } from "react"
 import Link from "next/link"
 import { TrendingUpIcon, ArrowRightIcon } from "lucide-react"
-import { Button } from "@/components/ui/button"
+import { TiltCtaButton } from "@/components/ui/tilt-cta-button"
 
 const stats = [
   { value: "+15h", label: "recuperadas al mes de media automatizando tareas repetitivas" },
@@ -56,7 +56,7 @@ export default function Movement() {
 
         {/* CTA */}
         <div className="flex flex-col items-center gap-3">
-          <Button
+          <TiltCtaButton
             size="lg"
             className="bg-brand-emerald hover:bg-brand-teal text-background font-semibold px-8 gap-2"
             asChild
@@ -65,7 +65,7 @@ export default function Movement() {
               Descubrir mis opciones
               <ArrowRightIcon className="size-4" />
             </Link>
-          </Button>
+          </TiltCtaButton>
           <span className="text-xs text-slate-500">Sin compromiso · Consultoría gratuita</span>
         </div>
 

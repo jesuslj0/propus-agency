@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { ArrowRightIcon, SparklesIcon, BotIcon, MonitorIcon, TrendingUpIcon, SearchIcon, LightbulbIcon, RocketIcon } from "lucide-react"
 import { SplineScene } from "@/components/ui/spline-scene"
+import { TiltCtaButton } from "@/components/ui/tilt-cta-button"
 
 export default function Hero() {
   return (
@@ -51,7 +52,7 @@ export default function Hero() {
             </p>
 
             <div className="mt-10 flex flex-col sm:flex-row items-center md:items-start gap-4">
-              <Button
+              <TiltCtaButton
                 size="lg"
                 className="bg-brand-emerald hover:bg-brand-teal text-background font-semibold gap-2 h-11 px-6"
                 asChild
@@ -60,7 +61,7 @@ export default function Hero() {
                   Ver cómo funciona
                   <ArrowRightIcon className="size-4" />
                 </Link>
-              </Button>
+              </TiltCtaButton>
               <Button variant="outline" size="lg" className="h-11 px-6" asChild>
                 <Link href="/#contacto">Habla con nosotros</Link>
               </Button>

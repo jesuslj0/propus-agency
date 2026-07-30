@@ -3,6 +3,7 @@
 import Link from "next/link"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
+import { TiltCtaButton } from "@/components/ui/tilt-cta-button"
 import {
   Sheet,
   SheetContent,
@@ -107,13 +108,12 @@ export default function Navbar() {
         </nav>
 
         <div className="hidden md:flex items-center gap-3">
-          <Button
-            size="sm"
-            className="bg-brand-emerald hover:bg-brand-teal text-background font-semibold"
+          <TiltCtaButton
+            className="h-9 px-5 text-sm bg-brand-emerald hover:bg-brand-teal text-background font-semibold"
             asChild
           >
             <Link href="https://calendar.app.google/CNBch8s1Q8iqoqdE9" target="_blank" rel="noopener noreferrer">Agendar llamada</Link>
-          </Button>
+          </TiltCtaButton>
         </div>
 
         {/* Mobile nav */}
@@ -185,12 +185,12 @@ export default function Navbar() {
             </nav>
             <div className="mt-auto">
               <SheetClose asChild>
-                <Button
-                  className="w-full bg-brand-emerald hover:bg-brand-teal text-background font-semibold"
+                <TiltCtaButton
+                  className="h-11 w-full text-base bg-brand-emerald hover:bg-brand-teal text-background font-semibold"
                   asChild
                 >
                   <Link href="https://calendar.app.google/CNBch8s1Q8iqoqdE9" target="_blank" rel="noopener noreferrer">Agendar llamada</Link>
-                </Button>
+                </TiltCtaButton>
               </SheetClose>
             </div>
           </SheetContent>

@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import { ArrowRightIcon, CheckCircle2Icon, PhoneMissedIcon, ClockIcon, BellOffIcon, MessageCircleWarningIcon } from "lucide-react"
-import { Button } from "@/components/ui/button"
+import { TiltCtaButton } from "@/components/ui/tilt-cta-button"
 
 const painPoints = [
   {
@@ -32,7 +32,7 @@ const chatMessages = [
   },
   {
     role: "agent",
-    text: "¡Hola María! 👋 Soy el asistente de la Clínica DentaPlus. Claro, puedo ayudarte a reservar ahora mismo.\n\n¿Prefieres mañana martes o el jueves?",
+    text: "¡Hola María! 👋 Soy el asistente de la Clínica Pasitos. Claro, puedo ayudarte a reservar ahora mismo.\n\n¿Prefieres mañana martes o el jueves?",
     time: "22:14",
   },
   {
@@ -54,7 +54,7 @@ const chatMessages = [
   },
   {
     role: "agent",
-    text: "✅ Cita confirmada:\n📅 Jueves 5 de junio · 17:00h\n🦷 Revisión general\n📍 Clínica DentaPlus\n\nTe enviaré un recordatorio 24h antes. ¡Hasta el jueves!",
+    text: "✅ Cita confirmada:\n📅 Jueves 5 de junio · 17:00h\n🦶 Revisión podológica\n📍 Clínica Pasitos\n\nTe enviaré un recordatorio 24h antes. ¡Hasta el jueves!",
     time: "22:16",
     isConfirmation: true,
   },
@@ -78,7 +78,7 @@ export default function ServiceWhatsapp() {
         <div className="mb-14 max-w-2xl">
           <span className="inline-flex items-center gap-1.5 rounded-full border border-brand-spring/30 bg-brand-spring/10 px-3 py-1 text-xs font-semibold text-brand-spring mb-4">
             <span className="size-1.5 rounded-full bg-brand-spring animate-pulse" />
-            Para clínicas dentales
+            Para Podólogos
           </span>
           <h2 className="text-3xl md:text-5xl font-semibold tracking-tight leading-tight text-white">
             Nunca más pierdas una cita{" "}
@@ -108,9 +108,9 @@ export default function ServiceWhatsapp() {
                 return (
                   <li
                     key={p.text}
-                    className="flex items-start gap-4 rounded-xl border border-white/8 bg-white/4 px-5 py-4 backdrop-blur-sm"
+                    className="group flex items-start gap-4 rounded-xl border border-white/8 bg-white/4 px-5 py-4 backdrop-blur-sm transition-[background-color,border-color,transform,box-shadow] duration-200 ease-out hover:-translate-y-px hover:border-brand-spring/25 hover:bg-white/8 hover:shadow-lg hover:shadow-brand-spring/10 motion-reduce:hover:translate-y-0"
                   >
-                    <div className="shrink-0 mt-0.5 size-8 rounded-lg bg-red-500/15 flex items-center justify-center">
+                    <div className="shrink-0 mt-0.5 size-8 rounded-lg bg-red-500/15 flex items-center justify-center transition-colors duration-200 group-hover:bg-red-500/25">
                       <Icon className="size-4 text-red-400" />
                     </div>
                     <span className="text-sm text-slate-300 leading-snug">{p.text}</span>
@@ -129,16 +129,17 @@ export default function ServiceWhatsapp() {
               </p>
             </div>
 
-            <Button
+            <TiltCtaButton
+              tone="spring"
               size="lg"
-              className="self-start bg-brand-spring hover:bg-brand-teal text-background font-semibold px-7 gap-2"
+              className="self-start bg-brand-spring hover:bg-[color-mix(in_oklab,var(--cta-tint),white_18%)] text-background font-semibold h-11 px-8 text-base gap-2 [&_svg]:transition-transform hover:[&_svg]:translate-x-1"
               asChild
             >
               <Link href="/proyectos/agente-whatsapp">
                 Ver demo del agente
                 <ArrowRightIcon className="size-4" />
               </Link>
-            </Button>
+            </TiltCtaButton>
           </div>
 
           {/* Columna derecha — mockup WhatsApp */}
@@ -171,10 +172,10 @@ function WhatsAppMockup() {
           <svg viewBox="0 0 24 24" className="size-5 fill-current"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
         </button>
         <div className="size-10 rounded-full bg-gradient-to-br from-brand-teal to-brand-spring flex items-center justify-center text-background font-bold text-sm shrink-0">
-          DP
+          CP
         </div>
         <div className="flex-1 min-w-0">
-          <p className="text-sm font-semibold text-white truncate">Clínica DentaPlus</p>
+          <p className="text-sm font-semibold text-white truncate">Clínica Pasitos</p>
           <p className="text-[11px] text-[#00a884] leading-none mt-0.5">en línea</p>
         </div>
         <div className="flex items-center gap-4 text-[#aebac1]">
