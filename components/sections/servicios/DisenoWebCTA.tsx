@@ -1,6 +1,6 @@
 import Link from "next/link"
 import { ArrowRightIcon } from "lucide-react"
-import { Button } from "@/components/ui/button"
+import { TiltCtaButton } from "@/components/ui/tilt-cta-button"
 
 export default function DisenoWebCTA() {
   return (
@@ -12,16 +12,16 @@ export default function DisenoWebCTA() {
         <p className="mx-auto mb-6 max-w-xl text-muted-foreground">
           Cuéntanos cómo es tu clínica hoy y qué quieres conseguir con la web. Sin compromiso.
         </p>
-        <Button
+        <TiltCtaButton
           size="lg"
-          className="bg-brand-emerald text-background font-semibold hover:bg-brand-teal gap-2"
+          className="bg-brand-emerald text-background font-semibold hover:bg-brand-teal gap-2 [&_svg]:transition-transform hover:[&_svg]:translate-x-1"
           asChild
         >
           <Link href="https://calendar.app.google/CNBch8s1Q8iqoqdE9" target="_blank" rel="noopener noreferrer">
             Agendar llamada
             <ArrowRightIcon className="size-4" />
           </Link>
-        </Button>
+        </TiltCtaButton>
       </div>
     </section>
   )

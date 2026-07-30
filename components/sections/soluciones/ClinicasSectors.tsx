@@ -1,5 +1,7 @@
 import { HeartPulseIcon, SparklesIcon, ActivityIcon, StarIcon } from "lucide-react"
 
+import { cn } from "@/lib/utils"
+
 const sectors = [
   {
     icon: HeartPulseIcon,
@@ -49,11 +51,15 @@ export default function ClinicasSectors() {
             return (
               <div
                 key={s.title}
-                className={`relative flex flex-col gap-3 rounded-2xl border p-6 backdrop-blur-sm transition-colors ${
+                className={cn(
+                  "group relative flex flex-col gap-3 rounded-2xl border p-6 backdrop-blur-sm",
+                  "transition-[background-color,border-color,transform,box-shadow] duration-200 ease-out",
+                  "hover:-translate-y-px motion-reduce:hover:translate-y-0",
                   s.featured
-                    ? "border-wha/40 bg-linear-to-br from-wha/10 via-wha-card to-wha-teal/10 shadow-lg shadow-wha/10"
-                    : "border-white/8 bg-wha-card/60 hover:border-wha/25"
-                }`}
+                    ? // Ya parte con relieve: en hover lo intensifica en vez de estrenarlo.
+                      "border-wha/40 bg-linear-to-br from-wha/10 via-wha-card to-wha-teal/10 shadow-lg shadow-wha/10 hover:border-wha/60 hover:shadow-xl hover:shadow-wha/20"
+                    : "border-white/8 bg-wha-card/60 hover:border-wha/25 hover:bg-wha-card hover:shadow-lg hover:shadow-wha/10"
+                )}
               >
                 {s.featured && (
                   <span className="absolute right-4 top-4 inline-flex items-center gap-1 rounded-full bg-wha/15 px-2.5 py-1 text-[10px] font-semibold text-wha">
@@ -61,7 +67,7 @@ export default function ClinicasSectors() {
                     Nicho principal
                   </span>
                 )}
-                <div className="flex size-11 items-center justify-center rounded-xl bg-linear-to-br from-wha to-wha-teal shadow-md shadow-wha/30">
+                <div className="flex size-11 items-center justify-center rounded-xl bg-linear-to-br from-wha to-wha-teal shadow-md shadow-wha/30 transition-shadow duration-200 group-hover:shadow-lg group-hover:shadow-wha/50">
                   <Icon className="size-5 text-white" />
                 </div>
                 <h3 className={`font-semibold text-wha-fg ${s.featured ? "text-lg" : ""}`}>{s.title}</h3>

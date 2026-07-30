@@ -1,6 +1,7 @@
 import Link from "next/link"
 import { ArrowRightIcon, MessageCircleIcon } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { TiltCtaButton } from "@/components/ui/tilt-cta-button"
 
 export default function ClinicasHero() {
   return (
@@ -26,16 +27,19 @@ export default function ClinicasHero() {
         </p>
 
         <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
-          <Button
+          {/* `flat` = modo seguro, como el resto de CTA con fondo en degradado. */}
+          <TiltCtaButton
+            tone="wha"
+            flat
             size="lg"
-            className="h-11 gap-2 bg-linear-to-r from-wha via-wha-alt to-wha-teal px-7 font-semibold text-white hover:opacity-90"
+            className="h-11 gap-2 bg-linear-to-r from-wha via-wha-alt to-wha-teal px-7 font-semibold text-white hover:opacity-90 [&_svg]:transition-transform hover:[&_svg]:translate-x-1"
             asChild
           >
             <Link href="https://calendar.app.google/CNBch8s1Q8iqoqdE9" target="_blank" rel="noopener noreferrer">
               Agendar llamada
               <ArrowRightIcon className="size-4" />
             </Link>
-          </Button>
+          </TiltCtaButton>
           <Button
             variant="outline"
             size="lg"

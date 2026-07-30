@@ -1,6 +1,7 @@
 import Link from "next/link"
 import { ArrowRightIcon, MessageCircleIcon, CalendarCheckIcon, BellRingIcon, ZapIcon } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { TiltCtaButton } from "@/components/ui/tilt-cta-button"
 
 const liveActivity = [
   { icon: CalendarCheckIcon, text: "Cita confirmada · Marta R.", time: "hace 2 min", color: "text-wha-teal" },
@@ -34,16 +35,19 @@ export default function WhaHero() {
             </p>
 
             <div className="mt-10 flex flex-col gap-4 sm:flex-row">
-              <Button
+              {/* `flat` = modo seguro, como el resto de CTA con fondo en degradado. */}
+              <TiltCtaButton
+                tone="wha"
+                flat
                 size="lg"
-                className="h-11 gap-2 bg-linear-to-r from-wha via-wha-alt to-wha-teal px-7 font-semibold text-white hover:opacity-90"
+                className="h-11 gap-2 bg-linear-to-r from-wha via-wha-alt to-wha-teal px-7 font-semibold text-white hover:opacity-90 [&_svg]:transition-transform hover:[&_svg]:translate-x-1"
                 asChild
               >
                 <Link href="#demo">
                   Solicita una demo
                   <ArrowRightIcon className="size-4" />
                 </Link>
-              </Button>
+              </TiltCtaButton>
               <Button
                 variant="outline"
                 size="lg"

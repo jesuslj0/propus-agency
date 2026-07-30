@@ -35,18 +35,49 @@ const TONES = {
   spring: "var(--color-brand-spring)",
   sky: "var(--color-brand-sky)",
   facturia: "var(--color-facturia)",
+  // Los CTA de /soluciones/clinicas van con degradado wha → wha-alt → wha-teal.
+  // Se toma el color central: un canto derivado del rosa o del teal chirriaría
+  // en el extremo opuesto del degradado.
+  wha: "var(--color-wha-alt)",
 } as const
 
 type Tone = keyof typeof TONES
 
-// El tilt necesita `perspective()`, y eso promueve el botón a su propia capa
-// de composición. Junto a un filtro SVG animado —el `EtheralShadow` del CTA
-// final— Chrome deja de pintar la capa y el botón desaparece. `flat` conserva
-// elevación, extrusión, halo y especular, y renuncia solo a la inclinación.
 const TRANSFORM_3D =
   "transform-[perspective(600px)_rotateX(var(--tilt-rx,0deg))_rotateY(var(--tilt-ry,0deg))_translateY(var(--tilt-lift,0px))_scale(var(--tilt-press,1))]"
-const TRANSFORM_FLAT =
-  "transform-[translateY(var(--tilt-lift,0px))_scale(var(--tilt-press,1))]"
+
+/**
+ * Efecto completo: tilt 3D, extrusión, halo y especular que sigue al cursor.
+ * Requiere `transform` y un ::before con z negativo y `mix-blend-mode`.
+ */
+const EFFECT_FULL = [
+  // `relative` ancla el ::before; el transform ya crea el contexto de apilado
+  // que contiene el z negativo y aísla el blend.
+  "relative",
+  TRANSFORM_3D,
+  'before:pointer-events-none before:absolute before:inset-0 before:-z-10 before:rounded-[inherit] before:content-[""]',
+  "before:bg-[radial-gradient(circle_90px_at_var(--tilt-mx,50%)_var(--tilt-my,50%),rgba(255,255,255,0.75),transparent_70%)]",
+  "before:opacity-0 before:mix-blend-overlay before:transition-opacity before:duration-200",
+  "hover:before:opacity-100",
+  "hover:[--tilt-lift:-3px] active:[--tilt-press:0.98]",
+  "motion-reduce:hover:[--tilt-lift:0px] motion-reduce:active:[--tilt-press:1] motion-reduce:before:hidden",
+].join(" ")
+
+/**
+ * Modo a prueba de balas. En reposo el botón solo lleva `box-shadow`: ni
+ * transform, ni pseudo-elemento, ni z-index negativo, ni mix-blend-mode — o
+ * sea, ninguna construcción capaz de dejar de pintar el elemento. La elevación
+ * y el aplastado usan las propiedades independientes `translate` y `scale` de
+ * Tailwind v4, que no son `transform` y no crean contexto de apilado en reposo.
+ *
+ * Si algo de esto no lo soporta un navegador, lo peor que pasa es que el botón
+ * se quede sin sombra. Nunca invisible. Es el modo para los CTA con fondo en
+ * degradado, que es donde se han dado los problemas.
+ */
+const EFFECT_SAFE = [
+  "hover:-translate-y-[3px] active:scale-[0.98]",
+  "motion-reduce:hover:translate-y-0 motion-reduce:active:scale-100",
+].join(" ")
 
 function TiltCtaButton({
   className,
@@ -72,7 +103,8 @@ function TiltCtaButton({
 
   const handlePointerMove = (event: React.PointerEvent<HTMLButtonElement>) => {
     onPointerMove?.(event)
-    if (!isTiltAllowed()) return
+    // En modo seguro no hay tilt ni especular: nada lee estas variables.
+    if (flat || !isTiltAllowed()) return
 
     const element = event.currentTarget
     const { clientX, clientY } = event
@@ -86,7 +118,6 @@ function TiltCtaButton({
       const y = (clientY - rect.top) / rect.height
       element.style.setProperty("--tilt-mx", `${x * 100}%`)
       element.style.setProperty("--tilt-my", `${y * 100}%`)
-      if (flat) return
       element.style.setProperty("--tilt-ry", `${(x - 0.5) * MAX_TILT_Y}deg`)
       element.style.setProperty("--tilt-rx", `${(0.5 - y) * MAX_TILT_X}deg`)
     })
@@ -125,19 +156,13 @@ function TiltCtaButton({
         } as React.CSSProperties
       }
       className={cn(
-        // `relative` para anclar el ::before. El propio transform ya crea el
-        // contexto de apilado que contiene el z negativo y aísla el blend, así
-        // que no hace falta `isolate`.
-        "relative cursor-pointer duration-200 ease-out",
-        flat ? TRANSFORM_FLAT : TRANSFORM_3D,
+        "cursor-pointer duration-200 ease-out",
+        // La extrusión y el halo son solo box-shadow: comunes a los dos modos
+        // y sin riesgo de ocultar nada.
         "shadow-[inset_0_1px_0_0_rgba(255,255,255,0.45),0_2px_0_0_var(--edge),0_4px_0_0_var(--edge-deep),0_8px_18px_-8px_var(--bloom)]",
-        "hover:[--tilt-lift:-3px] hover:shadow-[inset_0_1px_0_0_rgba(255,255,255,0.6),0_3px_0_0_var(--edge),0_7px_0_0_var(--edge-deep),0_20px_32px_-10px_var(--bloom)]",
-        "active:[--tilt-press:0.98] active:shadow-[inset_0_1px_0_0_rgba(255,255,255,0.35),0_1px_0_0_var(--edge),0_2px_0_0_var(--edge-deep),0_6px_12px_-8px_var(--bloom)]",
-        'before:pointer-events-none before:absolute before:inset-0 before:-z-10 before:rounded-[inherit] before:content-[""]',
-        "before:bg-[radial-gradient(circle_90px_at_var(--tilt-mx,50%)_var(--tilt-my,50%),rgba(255,255,255,0.75),transparent_70%)]",
-        "before:opacity-0 before:mix-blend-overlay before:transition-opacity before:duration-200",
-        "hover:before:opacity-100",
-        "motion-reduce:hover:[--tilt-lift:0px] motion-reduce:active:[--tilt-press:1] motion-reduce:before:hidden",
+        "hover:shadow-[inset_0_1px_0_0_rgba(255,255,255,0.6),0_3px_0_0_var(--edge),0_7px_0_0_var(--edge-deep),0_20px_32px_-10px_var(--bloom)]",
+        "active:shadow-[inset_0_1px_0_0_rgba(255,255,255,0.35),0_1px_0_0_var(--edge),0_2px_0_0_var(--edge-deep),0_6px_12px_-8px_var(--bloom)]",
+        flat ? EFFECT_SAFE : EFFECT_FULL,
         className
       )}
       {...props}

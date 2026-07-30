@@ -45,9 +45,9 @@ export default function ClinicasProblem() {
             return (
               <div
                 key={p.title}
-                className="flex items-start gap-4 rounded-2xl border border-white/8 bg-wha-card/60 px-6 py-6 backdrop-blur-sm transition-colors hover:border-wha/25"
+                className="group flex items-start gap-4 rounded-2xl border border-white/8 bg-wha-card/60 px-6 py-6 backdrop-blur-sm transition-[background-color,border-color,transform,box-shadow] duration-200 ease-out hover:-translate-y-px hover:border-wha/25 hover:bg-wha-card hover:shadow-lg hover:shadow-wha/10 motion-reduce:hover:translate-y-0"
               >
-                <div className="mt-0.5 flex size-11 shrink-0 items-center justify-center rounded-xl bg-rose-500/15">
+                <div className="mt-0.5 flex size-11 shrink-0 items-center justify-center rounded-xl bg-rose-500/15 transition-colors duration-200 group-hover:bg-rose-500/25">
                   <Icon className="size-5 text-rose-400" />
                 </div>
                 <div>

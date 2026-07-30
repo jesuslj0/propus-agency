@@ -44,9 +44,9 @@ export default function ClinicasFeatures() {
             return (
               <div
                 key={f.title}
-                className="flex flex-col gap-4 rounded-2xl border border-white/8 bg-wha-card/60 p-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-wha/30 hover:shadow-xl hover:shadow-wha/5"
+                className="group flex flex-col gap-4 rounded-2xl border border-white/8 bg-wha-card/60 p-6 backdrop-blur-sm transition-[background-color,border-color,transform,box-shadow] duration-200 ease-out hover:-translate-y-px hover:border-wha/25 hover:bg-wha-card hover:shadow-lg hover:shadow-wha/10 motion-reduce:hover:translate-y-0"
               >
-                <div className="flex size-11 items-center justify-center rounded-xl bg-wha/12">
+                <div className="flex size-11 items-center justify-center rounded-xl bg-wha/12 transition-colors duration-200 group-hover:bg-wha/25">
                   <Icon className="size-5 text-wha" />
                 </div>
                 <h3 className="text-base font-semibold leading-tight text-wha-fg">{f.title}</h3>

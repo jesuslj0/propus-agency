@@ -63,7 +63,7 @@ export default function ClinicasFAQ() {
               <AccordionItem
                 key={index}
                 value={`item-${index}`}
-                className="rounded-xl border border-wha/20 bg-wha-card/60 px-5 overflow-hidden"
+                className="rounded-xl border border-wha/20 bg-wha-card/60 px-5 overflow-hidden transition-[background-color,border-color] duration-200 ease-out hover:border-wha/40 hover:bg-wha-card"
               >
                 <AccordionTrigger className="text-left text-base font-medium text-wha-fg py-4 hover:no-underline">
                   {faq.question}

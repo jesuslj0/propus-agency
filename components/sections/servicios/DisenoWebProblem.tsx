@@ -46,9 +46,12 @@ export default function DisenoWebProblem() {
 
         <div className="grid gap-6 sm:grid-cols-2">
           {problems.map((item) => (
-            <Card key={item.title} className="border-border bg-card">
+            <Card
+              key={item.title}
+              className="group border-border bg-card transition-[background-color,border-color,transform,box-shadow] duration-200 ease-out hover:-translate-y-px hover:border-brand-teal/25 hover:shadow-lg hover:shadow-brand-teal/10 motion-reduce:hover:translate-y-0"
+            >
               <CardContent className="flex items-start gap-4 pt-6">
-                <div className="mt-0.5 flex size-11 shrink-0 items-center justify-center rounded-xl bg-brand-teal/10">
+                <div className="mt-0.5 flex size-11 shrink-0 items-center justify-center rounded-xl bg-brand-teal/10 transition-colors duration-200 group-hover:bg-brand-teal/20">
                   <item.icon className="size-5 text-brand-teal" />
                 </div>
                 <div>

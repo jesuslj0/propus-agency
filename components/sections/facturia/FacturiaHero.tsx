@@ -2,6 +2,7 @@ import Link from "next/link"
 import Image from "next/image"
 import { ArrowRightIcon, ScanLineIcon } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { TiltCtaButton } from "@/components/ui/tilt-cta-button"
 
 export default function FacturiaHero() {
   return (
@@ -36,16 +37,20 @@ export default function FacturiaHero() {
             </p>
 
             <div className="mt-10 flex flex-col gap-4 sm:flex-row">
-              <Button
+              {/* `flat` = modo seguro. Todos los CTA con fondo en degradado van
+                  así: son los que se quedaban invisibles. */}
+              <TiltCtaButton
+                tone="facturia"
+                flat
                 size="lg"
-                className="h-11 gap-2 bg-linear-to-r from-facturia to-facturia-dark px-7 font-semibold text-white hover:opacity-90"
+                className="h-11 gap-2 bg-linear-to-r from-facturia to-facturia-dark px-7 font-semibold text-white hover:opacity-90 [&_svg]:transition-transform hover:[&_svg]:translate-x-1"
                 asChild
               >
                 <Link href="#demo">
                   Solicita una demo
                   <ArrowRightIcon className="size-4" />
                 </Link>
-              </Button>
+              </TiltCtaButton>
               <Button variant="outline" size="lg" className="h-11 px-7" asChild>
                 <Link href="#funcionalidades">Ver funcionalidades</Link>
               </Button>

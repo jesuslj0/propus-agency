@@ -55,7 +55,7 @@ export default function DisenoWebFAQ() {
               <AccordionItem
                 key={index}
                 value={`item-${index}`}
-                className="rounded-xl border border-brand-teal/20 bg-brand-teal/5 backdrop-blur-sm px-5 overflow-hidden"
+                className="rounded-xl border border-brand-teal/20 bg-brand-teal/5 backdrop-blur-sm px-5 overflow-hidden transition-[background-color,border-color] duration-200 ease-out hover:border-brand-teal/40 hover:bg-brand-teal/10"
               >
                 <AccordionTrigger className="text-left text-base font-medium py-4 hover:no-underline">
                   {faq.question}

@@ -43,10 +43,10 @@ export default function DisenoWebFeatures() {
           {features.map((item) => (
             <Card
               key={item.title}
-              className="group border-border bg-card transition-all duration-300 hover:scale-105 hover:border-brand-teal/60 hover:bg-linear-to-br hover:from-brand-teal/20 hover:to-brand-green/20"
+              className="group border-border bg-card transition-[background-color,border-color,transform,box-shadow] duration-200 ease-out hover:-translate-y-px hover:border-brand-teal/25 hover:shadow-lg hover:shadow-brand-teal/10 motion-reduce:hover:translate-y-0"
             >
               <CardContent className="pt-6">
-                <item.icon className="mb-4 size-8 text-brand-teal transition-colors duration-300 group-hover:text-white" />
+                <item.icon className="mb-4 size-8 text-brand-teal transition-colors duration-200 group-hover:text-brand-green" />
                 <h3 className="mb-2 text-lg font-semibold">{item.title}</h3>
                 <p className="text-sm leading-relaxed text-muted-foreground">
                   {item.description}

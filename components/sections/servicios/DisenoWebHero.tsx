@@ -1,6 +1,7 @@
 import Link from "next/link"
 import { ArrowRightIcon, MonitorIcon } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { TiltCtaButton } from "@/components/ui/tilt-cta-button"
 import { Badge } from "@/components/ui/badge"
 
 export default function DisenoWebHero() {
@@ -29,16 +30,16 @@ export default function DisenoWebHero() {
         </p>
 
         <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
-          <Button
+          <TiltCtaButton
             size="lg"
-            className="bg-brand-emerald hover:bg-brand-teal text-background font-semibold gap-2 h-11 px-6"
+            className="bg-brand-emerald hover:bg-brand-teal text-background font-semibold gap-2 h-11 px-6 [&_svg]:transition-transform hover:[&_svg]:translate-x-1"
             asChild
           >
             <Link href="https://calendar.app.google/CNBch8s1Q8iqoqdE9" target="_blank" rel="noopener noreferrer">
               Agendar llamada
               <ArrowRightIcon className="size-4" />
             </Link>
-          </Button>
+          </TiltCtaButton>
           <Button variant="outline" size="lg" className="h-11 px-6" asChild>
             <Link href="/proyectos/web-design">Ver portfolio</Link>
           </Button>

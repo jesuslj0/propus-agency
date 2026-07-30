@@ -1,6 +1,6 @@
 import Link from "next/link"
 import { ArrowRightIcon } from "lucide-react"
-import { Button } from "@/components/ui/button"
+import { TiltCtaButton } from "@/components/ui/tilt-cta-button"
 
 export default function ClinicasCTA() {
   return (
@@ -24,16 +24,21 @@ export default function ClinicasCTA() {
             </p>
 
             <div className="mt-10 flex justify-center">
-              <Button
+              {/* `flat`: mismo patrón que el CTA final del index — botón dentro
+                  de una tarjeta con overlays difuminados. Sin perspective() no
+                  se promueve a capa 3D y no hay riesgo de que deje de pintarse. */}
+              <TiltCtaButton
+                tone="wha"
+                flat
                 size="lg"
-                className="h-11 gap-2 bg-linear-to-r from-wha via-wha-alt to-wha-teal px-8 text-base font-semibold text-white hover:opacity-90"
+                className="h-11 gap-2 bg-linear-to-r from-wha via-wha-alt to-wha-teal px-8 text-base font-semibold text-white hover:opacity-90 [&_svg]:transition-transform hover:[&_svg]:translate-x-1"
                 asChild
               >
                 <Link href="https://calendar.app.google/CNBch8s1Q8iqoqdE9" target="_blank" rel="noopener noreferrer">
                   Agendar llamada
                   <ArrowRightIcon className="size-4" />
                 </Link>
-              </Button>
+              </TiltCtaButton>
             </div>
           </div>
         </div>
