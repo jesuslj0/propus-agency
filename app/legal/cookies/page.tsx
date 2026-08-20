@@ -1,4 +1,5 @@
 import type { Metadata } from "next"
+import { contact } from "@/lib/site"
 
 export const metadata: Metadata = {
   title: "Política de Cookies",
@@ -163,7 +164,9 @@ export default function CookiesPage() {
       <p className="mb-4 leading-relaxed text-muted-foreground">
         Si tienes alguna pregunta sobre nuestra política de cookies, puedes
         contactarnos en{" "}
-        <strong className="text-foreground">team@propus.ink</strong>.
+        <strong className="text-foreground">{contact.email}</strong> o en el
+        teléfono{" "}
+        <strong className="text-foreground">{contact.phoneDisplay}</strong>.
       </p>
 
       <p className="mt-16 text-sm text-muted-foreground">

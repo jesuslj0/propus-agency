@@ -1,3 +1,5 @@
+import { contact } from "@/lib/site"
+
 export default function LocalBusinessSchema() {
   const schema = {
     "@context": "https://schema.org",
@@ -6,7 +8,8 @@ export default function LocalBusinessSchema() {
     description:
       "Agencia de inteligencia artificial y automatización en Albacete",
     url: "https://propus.ink",
-    email: "team@propus.ink",
+    email: contact.email,
+    telephone: contact.phone,
     address: {
       "@type": "PostalAddress",
       addressLocality: "Albacete",

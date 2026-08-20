@@ -1,4 +1,5 @@
 import type { Metadata } from "next"
+import { contact } from "@/lib/site"
 
 export const metadata: Metadata = {
   title: "Términos y Condiciones",
@@ -37,7 +38,15 @@ export default function TerminosPage() {
         </li>
         <li>
           <strong className="text-foreground">Correo electrónico:</strong>{" "}
-          team@propus.ink
+          <a href={contact.emailHref} className="text-foreground underline underline-offset-4">
+            {contact.email}
+          </a>
+        </li>
+        <li>
+          <strong className="text-foreground">Teléfono:</strong>{" "}
+          <a href={contact.phoneHref} className="text-foreground underline underline-offset-4">
+            {contact.phoneDisplay}
+          </a>
         </li>
       </ul>
 

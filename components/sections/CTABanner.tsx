@@ -1,7 +1,8 @@
 import Link from "next/link"
 import { TiltCtaButton } from "@/components/ui/tilt-cta-button"
-import { ArrowRightIcon } from "lucide-react"
+import { ArrowRightIcon, Mail, Phone } from "lucide-react"
 import { EtheralShadow } from "@/components/ui/etheral-shadow"
+import { contact } from "@/lib/site"
 
 export default function CTABanner() {
   return (
@@ -45,6 +46,23 @@ export default function CTABanner() {
             <p className="mt-4 text-xs text-neutral-400">
               Te atenderemos sin compromiso alguno. De emprendedores a emprendedores.
             </p>
+
+            <address className="mt-8 flex not-italic flex-col items-center justify-center gap-3 text-sm text-neutral-300 sm:flex-row sm:gap-8">
+              <a
+                href={contact.phoneHref}
+                className="inline-flex items-center gap-2 transition-colors duration-300 hover:text-white"
+              >
+                <Phone className="size-4 text-brand-spring" />
+                {contact.phoneDisplay}
+              </a>
+              <a
+                href={contact.emailHref}
+                className="inline-flex items-center gap-2 transition-colors duration-300 hover:text-white"
+              >
+                <Mail className="size-4 text-brand-spring" />
+                {contact.email}
+              </a>
+            </address>
           </div>
         </div>
       </div>

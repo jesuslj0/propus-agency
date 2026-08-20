@@ -4,6 +4,8 @@ import React from 'react';
 import type { ComponentProps, ReactNode } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 import Link from 'next/link';
+import { Mail, Phone } from 'lucide-react';
+import { contact } from '@/lib/site';
 
 interface FooterLink {
   label: string;
@@ -73,6 +75,23 @@ export default function Footer() {
           <p className="text-sm text-muted-foreground max-w-xs leading-relaxed">
             Automatizamos procesos y desarrollamos aplicaciones con IA para que tu negocio escale más rápido.
           </p>
+          <address className="flex not-italic flex-col items-start gap-2 text-sm">
+            <a
+              href={contact.phoneHref}
+              className="text-muted-foreground hover:text-foreground inline-flex items-center gap-2 transition-colors duration-300"
+            >
+              <Phone className="size-4 text-brand-teal" />
+              {contact.phoneDisplay}
+            </a>
+            <a
+              href={contact.emailHref}
+              className="text-muted-foreground hover:text-foreground inline-flex items-center gap-2 transition-colors duration-300"
+            >
+              <Mail className="size-4 text-brand-teal" />
+              {contact.email}
+            </a>
+          </address>
+
           <p className="text-muted-foreground text-sm">
             © {new Date().getFullYear()} Propus, una marca de Iberium Group LLC. Todos los derechos reservados.
           </p>

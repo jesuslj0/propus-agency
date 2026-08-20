@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import Link from "next/link"
-import { Brain, Cpu, Workflow, Zap, MapPin, TrendingUp, Code, Handshake, Users, Rocket } from "lucide-react"
+import { Brain, Cpu, Workflow, Zap, MapPin, Mail, Phone, TrendingUp, Code, Handshake, Users, Rocket } from "lucide-react"
+import { contact } from "@/lib/site"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { GlowCard } from "@/components/ui/glow-card"
@@ -252,9 +253,22 @@ export default function SobreNosotrosPage() {
               <MapPin className="size-5 text-brand-teal" />
               <span>Albacete, Castilla-La Mancha, España</span>
             </div>
-            <p className="mb-8 text-muted-foreground">
-              team@propus.ink
-            </p>
+            <address className="mb-8 flex not-italic flex-col items-center justify-center gap-3 text-muted-foreground sm:flex-row sm:gap-8">
+              <a
+                href={contact.phoneHref}
+                className="inline-flex items-center gap-2 transition-colors hover:text-foreground"
+              >
+                <Phone className="size-5 text-brand-teal" />
+                {contact.phoneDisplay}
+              </a>
+              <a
+                href={contact.emailHref}
+                className="inline-flex items-center gap-2 transition-colors hover:text-foreground"
+              >
+                <Mail className="size-5 text-brand-teal" />
+                {contact.email}
+              </a>
+            </address>
             <p className="mx-auto mb-8 max-w-2xl text-sm text-muted-foreground/80">
               Propus es la marca comercial de Iberium Group LLC, con domicilio en
               1209 Mountain Road PL NE STE R, Albuquerque, New Mexico 87110, EE. UU.

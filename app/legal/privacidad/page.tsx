@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import Link from "next/link"
+import { contact } from "@/lib/site"
 
 export const metadata: Metadata = {
   title: "Política de Privacidad",
@@ -40,7 +41,15 @@ export default function PrivacidadPage() {
         </li>
         <li>
           <strong className="text-foreground">Correo electrónico:</strong>{" "}
-          team@propus.ink
+          <a href={contact.emailHref} className="text-foreground underline underline-offset-4">
+            {contact.email}
+          </a>
+        </li>
+        <li>
+          <strong className="text-foreground">Teléfono:</strong>{" "}
+          <a href={contact.phoneHref} className="text-foreground underline underline-offset-4">
+            {contact.phoneDisplay}
+          </a>
         </li>
       </ul>
 
@@ -181,7 +190,8 @@ export default function PrivacidadPage() {
       </ul>
       <p className="mb-4 leading-relaxed text-muted-foreground">
         Para ejercer cualquiera de estos derechos, envía un correo electrónico a{" "}
-        <strong className="text-foreground">team@propus.ink</strong>{" "}
+        <strong className="text-foreground">{contact.email}</strong> o llámanos
+        al <strong className="text-foreground">{contact.phoneDisplay}</strong>,
         indicando el derecho que deseas ejercer y adjuntando una copia de tu
         documento de identidad.
       </p>
