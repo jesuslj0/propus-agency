@@ -1,18 +1,21 @@
 import { InfiniteSlider } from "@/components/ui/infinite-slider";
 
+// Iconos auto-hospedados en public/img/stack. Antes se cargaban desde el
+// servicio de favicons de Google, lo que comunicaba la IP de cada visitante a
+// un tercero sin necesidad. No volver a enlazarlos desde un dominio externo.
 const stack = [
-  { name: "N8N",          domain: "n8n.io" },
-  { name: "Make",         domain: "make.com" },
-  { name: "Python",       domain: "python.org" },
-  { name: "Django",       domain: "djangoproject.com" },
-  { name: "PostgreSQL",   domain: "postgresql.org" },
-  { name: "TypeScript",   domain: "typescriptlang.org" },
-  { name: "Next.js",      domain: "nextjs.org" },
-  { name: "Astro",        domain: "astro.build" },
-  { name: "Coolify",      domain: "coolify.io" },
-  { name: "DigitalOcean", domain: "digitalocean.com" },
-  { name: "Tailwind",     domain: "tailwindcss.com" },
-  { name: "Shadcn",       domain: "ui.shadcn.com" },
+  { name: "N8N",          icon: "/img/stack/n8n.png" },
+  { name: "Make",         icon: "/img/stack/make.jpg" },
+  { name: "Python",       icon: "/img/stack/python.png" },
+  { name: "Django",       icon: "/img/stack/django.png" },
+  { name: "PostgreSQL",   icon: "/img/stack/postgresql.png" },
+  { name: "TypeScript",   icon: "/img/stack/typescript.png" },
+  { name: "Next.js",      icon: "/img/stack/nextjs.png" },
+  { name: "Astro",        icon: "/img/stack/astro.png" },
+  { name: "Coolify",      icon: "/img/stack/coolify.png" },
+  { name: "DigitalOcean", icon: "/img/stack/digitalocean.png" },
+  { name: "Tailwind",     icon: "/img/stack/tailwind.png" },
+  { name: "Shadcn",       icon: "/img/stack/shadcn.png" },
 ];
 
 const allItems = [...stack, ...stack];
@@ -37,7 +40,7 @@ export default function LogoBar() {
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src={`https://www.google.com/s2/favicons?domain=${tech.domain}&sz=32`}
+                src={tech.icon}
                 alt=""
                 width={16}
                 height={16}

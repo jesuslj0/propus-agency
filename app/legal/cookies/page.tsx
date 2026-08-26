@@ -85,20 +85,11 @@ export default function CookiesPage() {
         Recursos y enlaces de terceros
       </h2>
       <p className="mb-4 leading-relaxed text-muted-foreground">
-        Aunque no instalamos cookies de terceros, sí existen dos puntos en los
-        que tu navegador se comunica con un proveedor externo, y queremos que lo
-        sepas:
+        Aunque no instalamos cookies de terceros, sí existe un punto en el que
+        tu navegador puede comunicarse con un proveedor externo, y queremos que
+        lo sepas:
       </p>
       <ul className="mb-4 list-disc space-y-2 pl-6 text-muted-foreground">
-        <li>
-          <strong className="text-foreground">
-            Iconos de la sección de tecnologías:
-          </strong>{" "}
-          se cargan desde un servicio de iconos de Google. Al mostrarlos, tu
-          navegador realiza una petición a dicho proveedor, que recibe tu
-          dirección IP y los datos técnicos habituales de conexión. No usamos
-          este servicio para identificarte ni para medir tu navegación.
-        </li>
         <li>
           <strong className="text-foreground">Reserva de llamadas:</strong> el
           botón «Agendar llamada» te lleva a una herramienta de citas de Google
@@ -189,7 +180,7 @@ export default function CookiesPage() {
       </p>
 
       <p className="mt-16 text-sm text-muted-foreground">
-        Última actualización: 26 de agosto de 2026
+        Última actualización: 27 de agosto de 2026
       </p>
     </article>
   )
