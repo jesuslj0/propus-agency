@@ -50,6 +50,7 @@ const footerLinks: FooterSection[] = [
       { href: '/legal/privacidad', label: 'Privacidad' },
       { href: '/legal/terminos', label: 'Términos' },
       { href: '/legal/cookies', label: 'Cookies' },
+      { href: '/legal/eliminacion-de-datos', label: 'Eliminación de datos' },
     ],
   },
   {

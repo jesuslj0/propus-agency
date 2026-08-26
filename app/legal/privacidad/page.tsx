@@ -217,8 +217,9 @@ export default function PrivacidadPage() {
         Cookies
       </h2>
       <p className="mb-4 leading-relaxed text-muted-foreground">
-        Este sitio web utiliza cookies. Para más información sobre qué cookies
-        utilizamos y cómo gestionarlas, consulta nuestra{" "}
+        Este sitio web no instala cookies propias ni de terceros: únicamente
+        utiliza el almacenamiento local de tu navegador para recordar tus
+        preferencias de visualización. Para más información, consulta nuestra{" "}
         <Link
           href="/legal/cookies"
           className="text-foreground underline underline-offset-4 transition-colors hover:text-brand-teal"
@@ -239,7 +240,7 @@ export default function PrivacidadPage() {
       </p>
 
       <p className="mt-16 text-sm text-muted-foreground">
-        Última actualización: 29 de marzo de 2026
+        Última actualización: 26 de agosto de 2026
       </p>
     </article>
   )

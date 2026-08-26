@@ -18,9 +18,15 @@ export default function CookiesPage() {
       </h1>
 
       <p className="mb-4 leading-relaxed text-muted-foreground">
-        En Propus utilizamos cookies y tecnologías similares para
-        mejorar tu experiencia de navegación. Esta política explica qué son las
-        cookies, qué tipos utilizamos y cómo puedes gestionarlas.
+        Esta política explica qué son las cookies y qué tecnologías de
+        almacenamiento utiliza este sitio web. Queremos ser precisos:{" "}
+        <strong className="text-foreground">
+          propus.ink no instala cookies propias ni de terceros
+        </strong>{" "}
+        y no utiliza herramientas de analítica, de perfilado ni de publicidad.
+        Únicamente empleamos el almacenamiento local de tu navegador para
+        recordar dos preferencias de visualización, tal y como se detalla más
+        abajo.
       </p>
 
       <h2 className="mt-12 mb-4 text-xl font-semibold md:text-2xl">
@@ -35,68 +41,70 @@ export default function CookiesPage() {
       </p>
 
       <h2 className="mt-12 mb-4 text-xl font-semibold md:text-2xl">
-        Tipos de cookies que utilizamos
+        Qué utiliza este sitio web
       </h2>
 
       <h3 className="mt-8 mb-3 text-lg font-semibold">
-        Cookies técnicas (necesarias)
+        Almacenamiento local (técnico)
       </h3>
       <p className="mb-4 leading-relaxed text-muted-foreground">
-        Son imprescindibles para el correcto funcionamiento del sitio web. Sin
-        ellas, algunas funcionalidades no estarían disponibles. No requieren tu
-        consentimiento, ya que se basan en nuestro interés legítimo de
-        proporcionarte un servicio funcional.
+        En lugar de cookies, utilizamos el almacenamiento local
+        (<span className="text-foreground">localStorage</span>) de tu navegador,
+        que guarda la información en tu propio dispositivo y no se envía a
+        nuestros servidores en cada petición. Solo almacenamos dos valores:
       </p>
       <ul className="mb-4 list-disc space-y-2 pl-6 text-muted-foreground">
         <li>
           <strong className="text-foreground">Preferencia de tema:</strong>{" "}
-          almacena tu selección de modo claro u oscuro.
+          almacena tu selección de modo claro u oscuro para respetarla en tus
+          siguientes visitas.
         </li>
         <li>
-          <strong className="text-foreground">Sesión:</strong> mantiene el
-          estado de tu navegación durante la visita.
+          <strong className="text-foreground">Avisos cerrados:</strong> recuerda
+          que has cerrado un aviso informativo, para no volver a mostrártelo.
         </li>
       </ul>
+      <p className="mb-4 leading-relaxed text-muted-foreground">
+        Ninguno de estos valores te identifica ni permite hacer seguimiento de
+        tu navegación dentro o fuera de este sitio web.
+      </p>
 
       <h3 className="mt-8 mb-3 text-lg font-semibold">
-        Cookies analíticas
+        Analítica y publicidad
       </h3>
       <p className="mb-4 leading-relaxed text-muted-foreground">
-        Nos permiten medir y analizar el tráfico del sitio web para mejorar su
-        rendimiento y contenido. Estas cookies recopilan información de forma
-        anónima y agregada.
+        Este sitio web no utiliza cookies analíticas, ni herramientas de
+        medición de audiencia, ni píxeles publicitarios, ni cookies de
+        seguimiento de redes sociales. No medimos las páginas que visitas, el
+        tiempo que pasas en ellas ni el origen de tu visita. Las tipografías y
+        los recursos gráficos del sitio están alojados en nuestros propios
+        servidores.
       </p>
-      <ul className="mb-4 list-disc space-y-2 pl-6 text-muted-foreground">
-        <li>
-          <strong className="text-foreground">Páginas visitadas:</strong> qué
-          secciones del sitio se consultan con más frecuencia.
-        </li>
-        <li>
-          <strong className="text-foreground">Tiempo de permanencia:</strong>{" "}
-          cuánto tiempo pasas en cada página.
-        </li>
-        <li>
-          <strong className="text-foreground">Origen del tráfico:</strong> desde
-          qué sitio web o buscador has llegado.
-        </li>
-      </ul>
 
       <h2 className="mt-12 mb-4 text-xl font-semibold md:text-2xl">
-        Cookies de terceros
+        Recursos y enlaces de terceros
       </h2>
       <p className="mb-4 leading-relaxed text-muted-foreground">
-        Algunos servicios de terceros que utilizamos pueden instalar sus propias
-        cookies en tu dispositivo. Estos servicios tienen sus propias políticas
-        de privacidad y cookies:
+        Aunque no instalamos cookies de terceros, sí existen dos puntos en los
+        que tu navegador se comunica con un proveedor externo, y queremos que lo
+        sepas:
       </p>
       <ul className="mb-4 list-disc space-y-2 pl-6 text-muted-foreground">
         <li>
-          <strong className="text-foreground">Servicios de analítica:</strong>{" "}
-          para medir el uso del sitio web y generar informes estadísticos.
+          <strong className="text-foreground">
+            Iconos de la sección de tecnologías:
+          </strong>{" "}
+          se cargan desde un servicio de iconos de Google. Al mostrarlos, tu
+          navegador realiza una petición a dicho proveedor, que recibe tu
+          dirección IP y los datos técnicos habituales de conexión. No usamos
+          este servicio para identificarte ni para medir tu navegación.
         </li>
         <li>
-          <strong className="text-foreground">Tipografías web:</strong> para
-          cargar las fuentes utilizadas en el diseño del sitio.
+          <strong className="text-foreground">Reserva de llamadas:</strong> el
+          botón «Agendar llamada» te lleva a una herramienta de citas de Google
+          alojada fuera de este sitio web. Solo se abre si haces clic en él, y a
+          partir de ese momento se aplican las políticas de cookies y privacidad
+          de dicho proveedor.
         </li>
       </ul>
 
@@ -106,18 +114,28 @@ export default function CookiesPage() {
       <p className="mb-4 leading-relaxed text-muted-foreground">
         De conformidad con el artículo 22.2 de la Ley 34/2002, de 11 de julio,
         de servicios de la sociedad de la información y de comercio electrónico
-        (LSSI-CE), las cookies técnicas se instalan en base a nuestro interés
-        legítimo. Para el resto de cookies, solicitamos tu consentimiento previo
-        antes de su instalación.
+        (LSSI-CE), el consentimiento solo resulta exigible para el
+        almacenamiento y la recuperación de datos que no sean estrictamente
+        necesarios para prestar el servicio solicitado. El almacenamiento local
+        descrito en el apartado anterior responde exclusivamente a preferencias
+        que tú mismo has elegido y está exento de dicha obligación, razón por la
+        cual este sitio web no muestra un banner de consentimiento.
+      </p>
+      <p className="mb-4 leading-relaxed text-muted-foreground">
+        Si en el futuro incorporamos herramientas de analítica, píxeles
+        publicitarios o cualquier otra tecnología no exenta, actualizaremos esta
+        política e implantaremos un mecanismo de consentimiento previo antes de
+        activarlas.
       </p>
 
       <h2 className="mt-12 mb-4 text-xl font-semibold md:text-2xl">
-        Cómo gestionar las cookies
+        Cómo gestionar las cookies y el almacenamiento local
       </h2>
       <p className="mb-4 leading-relaxed text-muted-foreground">
-        Puedes configurar tu navegador para bloquear o eliminar las cookies en
-        cualquier momento. A continuación te indicamos cómo hacerlo en los
-        navegadores más comunes:
+        Puedes bloquear o eliminar en cualquier momento las cookies y los datos
+        que los sitios web almacenan en tu dispositivo, incluido el
+        almacenamiento local que utilizamos. A continuación te indicamos dónde
+        hacerlo en los navegadores más comunes:
       </p>
       <ul className="mb-4 list-disc space-y-2 pl-6 text-muted-foreground">
         <li>
@@ -141,12 +159,13 @@ export default function CookiesPage() {
       </ul>
 
       <h2 className="mt-12 mb-4 text-xl font-semibold md:text-2xl">
-        Consecuencias de desactivar las cookies
+        Consecuencias de bloquear el almacenamiento
       </h2>
       <p className="mb-4 leading-relaxed text-muted-foreground">
-        Si decides bloquear o eliminar las cookies, es posible que algunas
-        funcionalidades del sitio web no funcionen correctamente. Por ejemplo,
-        las preferencias de visualización podrían no guardarse entre visitas.
+        El sitio web seguirá funcionando con normalidad, pero tus preferencias
+        de visualización no se guardarán entre visitas: el tema volverá a su
+        valor por defecto y los avisos que hubieras cerrado podrían mostrarse de
+        nuevo.
       </p>
 
       <h2 className="mt-12 mb-4 text-xl font-semibold md:text-2xl">
@@ -170,7 +189,7 @@ export default function CookiesPage() {
       </p>
 
       <p className="mt-16 text-sm text-muted-foreground">
-        Última actualización: 29 de marzo de 2026
+        Última actualización: 26 de agosto de 2026
       </p>
     </article>
   )

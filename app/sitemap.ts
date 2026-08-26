@@ -71,6 +71,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "yearly",
       priority: 0.2,
     },
+    {
+      url: `${BASE_URL}/legal/eliminacion-de-datos`,
+      lastModified: new Date(),
+      changeFrequency: "yearly",
+      priority: 0.2,
+    },
   ]
 
   const postRoutes: MetadataRoute.Sitemap = getAllPosts().map((post) => ({

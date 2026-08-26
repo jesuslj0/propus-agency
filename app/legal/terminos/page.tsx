@@ -60,6 +60,18 @@ export default function TerminosPage() {
         web, proporcionamos información sobre nuestros servicios y facilitamos el
         contacto con potenciales clientes.
       </p>
+      <p className="mb-4 leading-relaxed text-muted-foreground">
+        Dentro de este catálogo se incluye el servicio de{" "}
+        <strong className="text-foreground">
+          agente de inteligencia artificial sobre WhatsApp
+        </strong>
+        : la implantación y el mantenimiento de un asistente automatizado que
+        atiende las conversaciones del número de WhatsApp del cliente y gestiona
+        la información, las citas, los recordatorios y las cancelaciones de sus
+        usuarios finales, junto con el panel de control asociado. Las
+        condiciones específicas de este servicio se recogen en el apartado
+        correspondiente de estos términos.
+      </p>
 
       <h2 className="mt-12 mb-4 text-xl font-semibold md:text-2xl">
         Condiciones de uso
@@ -116,6 +128,81 @@ export default function TerminosPage() {
       </p>
 
       <h2 className="mt-12 mb-4 text-xl font-semibold md:text-2xl">
+        Agente de inteligencia artificial sobre WhatsApp
+      </h2>
+
+      <h3 className="mt-8 mb-3 text-lg font-semibold">
+        Dependencia de plataformas de terceros
+      </h3>
+      <p className="mb-4 leading-relaxed text-muted-foreground">
+        Este servicio se presta sobre la WhatsApp Business Platform, titularidad
+        del grupo Meta y prestada en el Espacio Económico Europeo por WhatsApp
+        Ireland Limited. Se trata de una plataforma ajena a Propus, por lo que
+        el cliente reconoce y acepta que:
+      </p>
+      <ul className="mb-4 list-disc space-y-2 pl-6 text-muted-foreground">
+        <li>
+          Su disponibilidad, su funcionamiento y sus condiciones técnicas no
+          están bajo el control de Propus y pueden verse interrumpidos o
+          modificados en cualquier momento.
+        </li>
+        <li>
+          Sus políticas de uso, sus requisitos de verificación y sus tarifas los
+          fija Meta de forma unilateral y pueden cambiar sin previo aviso, con
+          impacto directo en el coste y en el alcance del servicio.
+        </li>
+        <li>
+          El cliente queda sujeto a las políticas de WhatsApp Business y demás
+          condiciones de la plataforma, cuya lectura y cumplimiento son de su
+          exclusiva responsabilidad.
+        </li>
+      </ul>
+
+      <h3 className="mt-8 mb-3 text-lg font-semibold">
+        Obligaciones del cliente
+      </h3>
+      <p className="mb-4 leading-relaxed text-muted-foreground">
+        Como titular del número de WhatsApp y responsable del tratamiento de los
+        datos de sus usuarios, el cliente se obliga a:
+      </p>
+      <ul className="mb-4 list-disc space-y-2 pl-6 text-muted-foreground">
+        <li>
+          Obtener y conservar la prueba del consentimiento previo y expreso
+          (opt-in) de cada persona antes de que esta reciba mensajes iniciados
+          por el negocio, informándole con claridad de qué comunicaciones va a
+          recibir y de cómo puede darse de baja.
+        </li>
+        <li>
+          No utilizar el canal para envíos masivos no solicitados, comunicaciones
+          comerciales sin consentimiento ni ninguna práctica que pueda calificarse
+          de spam.
+        </li>
+        <li>
+          Atender sin demora las solicitudes de baja y los derechos que ejerzan
+          las personas que conversen con el negocio.
+        </li>
+        <li>
+          No emplear el asistente para finalidades contrarias a la ley, a las
+          políticas de la plataforma o a estos términos.
+        </li>
+      </ul>
+
+      <h3 className="mt-8 mb-3 text-lg font-semibold">
+        Naturaleza del asistente
+      </h3>
+      <p className="mb-4 leading-relaxed text-muted-foreground">
+        El asistente es una herramienta de información y de gestión de citas.
+        No sustituye el criterio de un profesional ni constituye asesoramiento
+        médico, legal, fiscal ni financiero, y no emite diagnósticos ni
+        recomendaciones clínicas. Sus respuestas se generan mediante modelos de
+        lenguaje y pueden contener errores o imprecisiones, por lo que el
+        cliente se compromete a supervisar el servicio y a mantener disponible
+        una vía de atención humana. La responsabilidad sobre las decisiones
+        profesionales y sobre la información que el asistente traslada en nombre
+        del negocio corresponde en todo caso al cliente.
+      </p>
+
+      <h2 className="mt-12 mb-4 text-xl font-semibold md:text-2xl">
         Limitación de responsabilidad
       </h2>
       <p className="mb-4 leading-relaxed text-muted-foreground">
@@ -137,6 +224,18 @@ export default function TerminosPage() {
         <li>
           Daños indirectos, incidentales o consecuentes derivados del uso de
           nuestros servicios.
+        </li>
+        <li>
+          Las interrupciones, restricciones, suspensiones, bajas de la
+          calificación de calidad del número, reducciones de límite de mensajería
+          o cancelaciones de la cuenta impuestas por Meta o por WhatsApp, cuando
+          deriven de un uso del canal por parte del cliente contrario a las
+          políticas de la plataforma, a la normativa aplicable o a estos
+          términos.
+        </li>
+        <li>
+          Los cambios de precios, funcionalidades o condiciones de acceso que
+          Meta introduzca en la WhatsApp Business Platform.
         </li>
       </ul>
 
@@ -172,7 +271,7 @@ export default function TerminosPage() {
       </p>
 
       <p className="mt-16 text-sm text-muted-foreground">
-        Última actualización: 29 de marzo de 2026
+        Última actualización: 26 de agosto de 2026
       </p>
     </article>
   )
