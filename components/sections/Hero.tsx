@@ -6,24 +6,15 @@ import { Badge } from "@/components/ui/badge"
 import { ArrowRightIcon, SparklesIcon, BotIcon, MonitorIcon, TrendingUpIcon, SearchIcon, LightbulbIcon, RocketIcon } from "lucide-react"
 import { SplineScene } from "@/components/ui/spline-scene"
 import { TiltCtaButton } from "@/components/ui/tilt-cta-button"
-const splineSceneLogo = "https://prod.spline.design/L6mCzNR38flmxHnK/scene.splinecode"
-const splineSceneSphere = "https://prod.spline.design/Xup3h6IBrMohCZ2d/scene.splinecode"
+// Escena auto-hospedada (antes prod.spline.design): evita la conexión a un
+// tercer dominio y permite precargarla en paralelo al runtime
+const splineSceneLogo = "/spline/hero.splinecode"
 
 export default function Hero() {
 
   return (
     <section className="relative flex min-h-svh items-stretch pt-24 pb-16 md:block md:min-h-0 md:pt-44 md:pb-28 2xl:pt-56 2xl:pb-36 overflow-hidden bg-transparent">
 
-      {/* Spline background — en móvil el canvas se ensancha y se desplaza para
-          correr la escena a la izquierda sin dejar bordes vacíos */}
-      <div className="absolute inset-y-0 left-0 z-0 w-[180%] -translate-x-[40%] md:w-full md:translate-x-0">
-        {/* Escena auto-hospedada (antes prod.spline.design): evita la conexión
-            a un tercer dominio y permite precargarla en paralelo al runtime */}
-        <SplineScene
-          scene="/spline/hero.splinecode"
-          className="w-full h-full"
-        />
-      </div>
       <div className="relative mx-auto grid w-full max-w-6xl grid-cols-1 items-stretch gap-x-10 px-4 md:grid-cols-2 md:items-center 2xl:max-w-7xl">
 
         {/* Escena Spline — la cámara ortográfica tiene zoom fijo, así que el
