@@ -5,19 +5,15 @@ import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { ArrowRightIcon, SparklesIcon, BotIcon, MonitorIcon, TrendingUpIcon, SearchIcon, LightbulbIcon, RocketIcon } from "lucide-react"
 import { SplineScene } from "@/components/ui/spline-scene"
-<<<<<<< HEAD
 import { TiltCtaButton } from "@/components/ui/tilt-cta-button"
-=======
 const splineSceneLogo = "https://prod.spline.design/L6mCzNR38flmxHnK/scene.splinecode"
 const splineSceneSphere = "https://prod.spline.design/Xup3h6IBrMohCZ2d/scene.splinecode"
->>>>>>> 9596e70 (Nueva escena Spline con Logo Propus)
 
 export default function Hero() {
 
   return (
     <section className="relative flex min-h-svh items-stretch pt-24 pb-16 md:block md:min-h-0 md:pt-44 md:pb-28 2xl:pt-56 2xl:pb-36 overflow-hidden bg-transparent">
 
-<<<<<<< HEAD
       {/* Spline background — en móvil el canvas se ensancha y se desplaza para
           correr la escena a la izquierda sin dejar bordes vacíos */}
       <div className="absolute inset-y-0 left-0 z-0 w-[180%] -translate-x-[40%] md:w-full md:translate-x-0">
@@ -28,9 +24,7 @@ export default function Hero() {
           className="w-full h-full"
         />
       </div>
-=======
       <div className="relative mx-auto grid w-full max-w-6xl grid-cols-1 items-stretch gap-x-10 px-4 md:grid-cols-2 md:items-center 2xl:max-w-7xl">
->>>>>>> 9596e70 (Nueva escena Spline con Logo Propus)
 
         {/* Escena Spline — la cámara ortográfica tiene zoom fijo, así que el
             canvas actúa de ventana: por debajo de ~32rem de lado recorta la
