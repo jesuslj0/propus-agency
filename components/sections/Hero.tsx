@@ -5,12 +5,19 @@ import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { ArrowRightIcon, SparklesIcon, BotIcon, MonitorIcon, TrendingUpIcon, SearchIcon, LightbulbIcon, RocketIcon } from "lucide-react"
 import { SplineScene } from "@/components/ui/spline-scene"
+<<<<<<< HEAD
 import { TiltCtaButton } from "@/components/ui/tilt-cta-button"
+=======
+const splineSceneLogo = "https://prod.spline.design/L6mCzNR38flmxHnK/scene.splinecode"
+const splineSceneSphere = "https://prod.spline.design/Xup3h6IBrMohCZ2d/scene.splinecode"
+>>>>>>> 9596e70 (Nueva escena Spline con Logo Propus)
 
 export default function Hero() {
+
   return (
     <section className="relative flex min-h-svh items-stretch pt-24 pb-16 md:block md:min-h-0 md:pt-44 md:pb-28 2xl:pt-56 2xl:pb-36 overflow-hidden bg-transparent">
 
+<<<<<<< HEAD
       {/* Spline background — en móvil el canvas se ensancha y se desplaza para
           correr la escena a la izquierda sin dejar bordes vacíos */}
       <div className="absolute inset-y-0 left-0 z-0 w-[180%] -translate-x-[40%] md:w-full md:translate-x-0">
@@ -21,9 +28,22 @@ export default function Hero() {
           className="w-full h-full"
         />
       </div>
+=======
+      <div className="relative mx-auto grid w-full max-w-6xl grid-cols-1 items-stretch gap-x-10 px-4 md:grid-cols-2 md:items-center 2xl:max-w-7xl">
+>>>>>>> 9596e70 (Nueva escena Spline con Logo Propus)
 
-      <div className="relative z-10 flex w-full max-w-6xl mx-auto px-4 2xl:max-w-7xl">
-        <div className="flex flex-1 flex-col items-center justify-between text-center md:flex-initial md:items-start md:justify-start md:text-left">
+        {/* Escena Spline — la cámara ortográfica tiene zoom fijo, así que el
+            canvas actúa de ventana: por debajo de ~32rem de lado recorta la
+            figura. En móvil va centrada detrás del texto, desbordando el ancho
+            si hace falta; desde md ocupa la columna derecha */}
+        <div className="absolute left-1/2 top-1/2 z-0 aspect-square w-[115%] min-w-[32rem] max-w-[36rem] -translate-x-1/2 -translate-y-1/2 md:relative md:inset-auto md:order-2 md:z-10 md:w-full md:min-w-0 md:max-w-none md:max-h-[32rem] md:translate-x-0 md:translate-y-0 2xl:max-h-[38rem]">
+          <SplineScene
+            scene={splineSceneLogo}
+            className="w-full h-full"
+          />
+        </div>
+
+        <div className="relative z-10 flex flex-col items-center justify-between text-center md:order-1 md:items-start md:justify-center md:text-left">
 
           {/* Grupo superior: eyebrow + título */}
           <div className="flex flex-col items-center md:items-start mt-6">

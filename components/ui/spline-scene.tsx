@@ -1,30 +1,8 @@
 "use client"
 
 import dynamic from "next/dynamic"
-import { preload } from "react-dom"
-import { useRef, useEffect, useState } from "react"
-import type { Application } from "@splinetool/runtime"
-
-// Internos del runtime que necesitamos para pausar SOLO el bucle de render.
-// La API pública `stop()`/`play()` es asimétrica: `stop()` desactiva además el
-// EventManager, y al reactivarse este no restaura ni el controlsManager ni las
-// animaciones del mixer (`deactivate()` llama a `onExitPlayMode()`, que hace
-// `stopAllAction()`, y `activate()` no tiene contrapartida). Por eso al volver
-// al hero el fondo quedaba congelado y la bola dejaba de girar, mientras que
-// el hover —cuyos handlers sí se reconectan— seguía respondiendo.
-type PausableApplication = Application & {
-  render: (time: number) => void
-  _renderer?: {
-    setAnimationLoop: (callback: ((time: number) => void) | null) => void
-  }
-  _lastTime?: number
-}
-
-// Arranca la descarga del chunk del runtime (~2 MB) en cuanto el navegador
-// evalúa el bundle de la página, sin esperar a que el componente se monte.
-if (typeof window !== "undefined") {
-  void import("@splinetool/react-spline")
-}
+import { useCallback, useEffect, useRef } from "react"
+import type { Application, SPEObject } from "@splinetool/runtime"
 
 const Spline = dynamic(() => import("@splinetool/react-spline"), {
   ssr: false,
@@ -34,120 +12,166 @@ const Spline = dynamic(() => import("@splinetool/react-spline"), {
 interface SplineSceneProps {
   scene: string
   className?: string
+  /** Nombre EXACTO del objeto en el árbol de Spline (sensible a mayúsculas) */
+  objectName?: string
+  /** Radianes de giro por píxel arrastrado */
+  sensitivity?: number
+  /** Tope de inclinación vertical, en radianes */
+  maxTilt?: number
+  /** Suavizado del seguimiento (0-1): más bajo = más inercia */
+  damping?: number
 }
 
-export function SplineScene({ scene, className }: SplineSceneProps) {
-  const canvasRef = useRef<HTMLCanvasElement | null>(null)
-  const [app, setApp] = useState<Application | null>(null)
-  // Compartido entre los dos efectos: mientras el hero está fuera de pantalla
-  // no renderizamos y tampoco tiene sentido reenviar el puntero al canvas.
-  const pausedRef = useRef(false)
+const EPSILON = 0.0005
 
-  // Accesibilidad + rendimiento: si el usuario pide menos movimiento, no
-  // se instancia la escena 3D (queda el fondo estático de la página). Se
-  // evalúa en el inicializador (no en un efecto) para evitar un render extra;
-  // la guarda `typeof window` mantiene el valor a false durante el SSR.
-  const [reducedMotion] = useState(
-    () =>
-      typeof window !== "undefined" &&
-      window.matchMedia("(prefers-reduced-motion: reduce)").matches
+function isInteractive(target: EventTarget | null) {
+  return (
+    target instanceof Element &&
+    target.closest("a, button, input, textarea, select, [role='button'], [contenteditable='true']") !== null
+  )
+}
+
+export function SplineScene({
+  scene,
+  className,
+  objectName = "Group",
+  sensitivity = 0.005,
+  maxTilt = Math.PI / 6,
+  damping = 0.08,
+}: SplineSceneProps) {
+  const objectRef = useRef<SPEObject | null>(null)
+  const baseRotation = useRef({ x: 0, y: 0 })
+  const target = useRef({ x: 0, y: 0 })
+  const current = useRef({ x: 0, y: 0 })
+  const frame = useRef<number | null>(null)
+
+  const dragging = useRef(false)
+  const dragOrigin = useRef({ x: 0, y: 0 })
+  const dragRotation = useRef({ x: 0, y: 0 })
+
+  const onLoad = useCallback(
+    (spline: Application) => {
+      // React StrictMode monta el efecto interno de react-spline dos veces en
+      // dev: la primera Application se destruye antes de resolver su load().
+      // Escribir sobre sus objetos no repinta nada, así que la descartamos.
+      if ((spline as Application & { disposed?: boolean }).disposed) return
+
+      const object = spline.findObjectByName(objectName)
+      if (!object) {
+        console.warn(
+          `[SplineScene] No hay ningún objeto llamado "${objectName}" en la escena.`,
+          "Nombres disponibles:",
+          spline.getAllObjects().map((o) => o.name)
+        )
+        return
+      }
+
+      objectRef.current = object
+      baseRotation.current = { x: object.rotation.x, y: object.rotation.y }
+    },
+    [objectName]
   )
 
-  // Precarga la escena en paralelo con el runtime: React hoistea el <link
-  // rel="preload"> al <head>, así el .splinecode ya está en caché cuando el
-  // runtime lo pide (antes se descargaba en serie, después del runtime).
-  preload(scene, { as: "fetch", crossOrigin: "anonymous" })
-
-  // Reenvía el movimiento del ratón al canvas (que tiene pointer-events:
-  // none). Solo en dispositivos con hover real y como máximo una vez por
-  // frame: en pantallas de 120/144 Hz el pointermove dispara mucho más
-  // rápido de lo que se renderiza y saturaba el hilo principal.
   useEffect(() => {
-    if (window.matchMedia("(hover: none)").matches) return
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    if (reduceMotion) return
 
-    let frame = 0
-    let lastEvent: PointerEvent | null = null
+    const tick = () => {
+      const object = objectRef.current
+      if (!object) {
+        frame.current = null
+        return
+      }
 
-    const flush = () => {
-      frame = 0
-      const canvas = canvasRef.current
-      const e = lastEvent
-      lastEvent = null
-      if (!canvas || !e) return
-      canvas.dispatchEvent(
-        new PointerEvent("pointermove", {
-          clientX: e.clientX,
-          clientY: e.clientY,
-          pointerId: e.pointerId,
-          pointerType: "mouse",
-          bubbles: true,
-          cancelable: true,
-        })
+      const dx = target.current.x - current.current.x
+      const dy = target.current.y - current.current.y
+
+      if (Math.abs(dx) < EPSILON && Math.abs(dy) < EPSILON) {
+        // Ya convergió: paramos el bucle para no forzar un repintado por frame
+        // (el runtime de Spline usa renderOnDemand).
+        frame.current = null
+        return
+      }
+
+      current.current.x += dx * damping
+      current.current.y += dy * damping
+
+      object.rotation.x = baseRotation.current.x + current.current.x
+      object.rotation.y = baseRotation.current.y + current.current.y
+
+      frame.current = requestAnimationFrame(tick)
+    }
+
+    const requestFrame = () => {
+      if (frame.current === null) frame.current = requestAnimationFrame(tick)
+    }
+
+    const stopDrag = () => {
+      if (!dragging.current) return
+      dragging.current = false
+      document.body.style.removeProperty("cursor")
+      document.body.style.removeProperty("user-select")
+    }
+
+    const onDown = (e: PointerEvent) => {
+      if (e.button !== 0 || isInteractive(e.target)) return
+
+      dragging.current = true
+      dragOrigin.current = { x: e.clientX, y: e.clientY }
+      // Agarramos la rotación visible, no la de destino: así el arrastre
+      // continúa desde donde está el objeto y no da un salto.
+      dragRotation.current = { ...current.current }
+      target.current = { ...current.current }
+
+      document.body.style.cursor = "grabbing"
+      document.body.style.userSelect = "none"
+    }
+
+    const onMove = (e: PointerEvent) => {
+      if (!dragging.current) return
+
+      const dx = e.clientX - dragOrigin.current.x
+      const dy = e.clientY - dragOrigin.current.y
+
+      target.current.y = dragRotation.current.y + dx * sensitivity
+      target.current.x = Math.max(
+        -maxTilt,
+        Math.min(maxTilt, dragRotation.current.x + dy * sensitivity)
       )
+
+      requestFrame()
     }
 
-    const forward = (e: PointerEvent) => {
-      if (!e.isTrusted || pausedRef.current) return
-      lastEvent = e
-      if (!frame) frame = requestAnimationFrame(flush)
-    }
+    window.addEventListener("pointerdown", onDown)
+    window.addEventListener("pointermove", onMove, { passive: true })
+    window.addEventListener("pointerup", stopDrag)
+    window.addEventListener("pointercancel", stopDrag)
 
-    window.addEventListener("pointermove", forward, { passive: true })
     return () => {
-      window.removeEventListener("pointermove", forward)
-      if (frame) cancelAnimationFrame(frame)
+      window.removeEventListener("pointerdown", onDown)
+      window.removeEventListener("pointermove", onMove)
+      window.removeEventListener("pointerup", stopDrag)
+      window.removeEventListener("pointercancel", stopDrag)
+      stopDrag()
+      if (frame.current !== null) cancelAnimationFrame(frame.current)
+      frame.current = null
     }
-  }, [])
+  }, [damping, maxTilt, sensitivity])
 
-  // La escena usa físicas y renderiza de forma continua aunque no se vea.
-  // Cuando el hero sale del viewport (scroll), desenganchamos el bucle de
-  // render para liberar GPU/CPU y que el resto de la página vaya fluida —
-  // clave en móvil. Todo el trabajo caro (controles, físicas, partículas,
-  // draw calls) vive dentro de `render`, así que basta con no llamarlo: el
-  // sistema de eventos y las animaciones siguen intactos y al volver se
-  // reanudan solos, sin el desmontaje parcial que provoca `stop()`.
+  // Al cambiar de escena/objeto se invalida la referencia cacheada.
   useEffect(() => {
-    if (!app) return
-    const target = app.canvas
-    const runtime = app as PausableApplication
-    const renderer = runtime._renderer
-    // Si una versión futura del runtime renombra estos internos, preferimos
-    // dejar la escena corriendo (correcta aunque más costosa) antes que caer
-    // en `stop()`, que no resucita las animaciones en bucle.
-    if (!target || typeof renderer?.setAnimationLoop !== "function") return
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          if (!pausedRef.current) return
-          pausedRef.current = false
-          // El reloj del runtime sigue anclado al último frame pintado: sin
-          // resetearlo, el primer frame tras reanudar recibe un dt de varios
-          // segundos y descuadra partículas, físicas y damping. Es el mismo
-          // reset que hace el propio `dispose()` del runtime.
-          runtime._lastTime = undefined
-          renderer.setAnimationLoop(runtime.render)
-        } else if (!pausedRef.current) {
-          pausedRef.current = true
-          renderer.setAnimationLoop(null)
-        }
-      },
-      { rootMargin: "100px" }
-    )
-    observer.observe(target)
-    return () => observer.disconnect()
-  }, [app])
-
-  if (reducedMotion) return null
+    return () => {
+      objectRef.current = null
+      current.current = { x: 0, y: 0 }
+      target.current = { x: 0, y: 0 }
+    }
+  }, [scene, objectName])
 
   return (
     <Spline
       scene={scene}
       className={className}
-      onLoad={(spline) => {
-        canvasRef.current = spline.canvas
-        setApp(spline)
-      }}
+      onLoad={onLoad}
       style={{ pointerEvents: "none" }}
     />
   )
