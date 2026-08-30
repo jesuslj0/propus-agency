@@ -8,7 +8,7 @@ import { SplineScene } from "@/components/ui/spline-scene"
 import { TiltCtaButton } from "@/components/ui/tilt-cta-button"
 // Escena auto-hospedada (antes prod.spline.design): evita la conexión a un
 // tercer dominio y permite precargarla en paralelo al runtime
-const splineSceneLogo = "/spline/hero.splinecode"
+const splineSceneLogo = "/spline/logo.splinecode"
 
 export default function Hero() {
 
