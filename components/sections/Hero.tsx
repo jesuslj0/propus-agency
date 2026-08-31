@@ -6,9 +6,13 @@ import { Badge } from "@/components/ui/badge"
 import { ArrowRightIcon, SparklesIcon, BotIcon, MonitorIcon, TrendingUpIcon, SearchIcon, LightbulbIcon, RocketIcon } from "lucide-react"
 import { SplineScene } from "@/components/ui/spline-scene"
 import { TiltCtaButton } from "@/components/ui/tilt-cta-button"
-// Escena auto-hospedada (antes prod.spline.design): evita la conexión a un
-// tercer dominio y permite precargarla en paralelo al runtime
-const splineSceneLogo = "/spline/logo.splinecode"
+// Producción sirve siempre la copia auto-hospedada: evita la conexión a un
+// tercer dominio y permite precargarla en paralelo al runtime. En desarrollo,
+// NEXT_PUBLIC_SPLINE_SCENE (.env.local) permite apuntar a la escena publicada
+// en Spline para ir viendo los cambios; `pnpm run spline:pull` la congela aquí.
+const splineSceneLogo =
+  (process.env.NODE_ENV === "development" && process.env.NEXT_PUBLIC_SPLINE_SCENE) ||
+  "/spline/logo.splinecode"
 
 export default function Hero() {
 

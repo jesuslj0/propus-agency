@@ -7,7 +7,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "spline:pull": "node scripts/pull-spline.mjs"
   },
   "dependencies": {
     "@splinetool/react-spline": "^4.1.0",

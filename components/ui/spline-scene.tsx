@@ -1,7 +1,7 @@
 "use client"
 
 import dynamic from "next/dynamic"
-import { useCallback, useEffect, useRef } from "react"
+import { useCallback, useEffect, useMemo, useRef } from "react"
 import type { Application, SPEObject } from "@splinetool/runtime"
 
 const Spline = dynamic(() => import("@splinetool/react-spline"), {
@@ -24,6 +24,11 @@ interface SplineSceneProps {
 
 const EPSILON = 0.0005
 
+// Se calcula una sola vez por carga de página, fuera del render para no
+// introducir impureza en el memo de abajo.
+const DEV_CACHE_BUSTER =
+  process.env.NODE_ENV === "development" ? Date.now().toString(36) : ""
+
 function isInteractive(target: EventTarget | null) {
   return (
     target instanceof Element &&
@@ -44,6 +49,17 @@ export function SplineScene({
   const target = useRef({ x: 0, y: 0 })
   const current = useRef({ x: 0, y: 0 })
   const frame = useRef<number | null>(null)
+
+  // Las escenas remotas se piden en desarrollo con un parámetro único por carga:
+  // al republicar en Spline la URL no cambia y prod.spline.design no manda
+  // Cache-Control, así que el navegador puede servir una copia rancia. Las
+  // escenas locales las revalida el propio servidor de Next.
+  const sceneUrl = useMemo(() => {
+    if (!DEV_CACHE_BUSTER || !/^https?:\/\//.test(scene)) return scene
+    const url = new URL(scene)
+    url.searchParams.set("_dev", DEV_CACHE_BUSTER)
+    return url.toString()
+  }, [scene])
 
   const dragging = useRef(false)
   const dragOrigin = useRef({ x: 0, y: 0 })
@@ -169,7 +185,7 @@ export function SplineScene({
 
   return (
     <Spline
-      scene={scene}
+      scene={sceneUrl}
       className={className}
       onLoad={onLoad}
       style={{ pointerEvents: "none" }}
