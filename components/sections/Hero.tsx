@@ -12,7 +12,7 @@ import { TiltCtaButton } from "@/components/ui/tilt-cta-button"
 // en Spline para ir viendo los cambios; `pnpm run spline:pull` la congela aquí.
 const splineSceneLogo =
   (process.env.NODE_ENV === "development" && process.env.NEXT_PUBLIC_SPLINE_SCENE) ||
-  "/spline/logo.splinecode"
+  "/spline/logo-v3.splinecode"
 
 export default function Hero() {
 
