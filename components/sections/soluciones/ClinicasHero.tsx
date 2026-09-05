@@ -22,8 +22,8 @@ export default function ClinicasHero() {
         <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-wha-muted">
           Un agente de IA en WhatsApp que atiende, agenda y recuerda cada cita, respaldado por un
           CRM que centraliza tu agenda, tus pacientes y tus servicios. Diseñado para clínicas
-          dentales, centros de estética y consultas de fisioterapia — 24/7 y sin que tu equipo
-          mueva un dedo.
+          de podología y dentales, y adaptable a centros de estética o consultas de
+          fisioterapia — 24/7 y sin que tu equipo mueva un dedo.
         </p>
 
         <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">

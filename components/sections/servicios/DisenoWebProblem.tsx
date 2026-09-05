@@ -6,7 +6,7 @@ const problems = [
     icon: MapPinOffIcon,
     title: "Invisible en las búsquedas locales",
     description:
-      "Cuando alguien busca \"clínica dental cerca de mí\" o \"centro de estética en su ciudad\", una web sin SEO local no aparece — y esa búsqueda es justo la de mayor intención de reserva.",
+      "Cuando alguien busca \"podólogo cerca de mí\" o \"clínica dental en su ciudad\", una web sin SEO local no aparece — y esa búsqueda es justo la de mayor intención de reserva.",
   },
   {
     icon: SmartphoneIcon,

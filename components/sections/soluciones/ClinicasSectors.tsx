@@ -1,14 +1,35 @@
-import { HeartPulseIcon, SparklesIcon, ActivityIcon, StarIcon } from "lucide-react"
+import type { LucideIcon } from "lucide-react"
+import { FootprintsIcon, HeartPulseIcon, SparklesIcon, ActivityIcon, StarIcon } from "lucide-react"
 
 import { cn } from "@/lib/utils"
 
-const sectors = [
+interface Sector {
+  icon: LucideIcon
+  title: string
+  description: string
+  featured: boolean
+  /** Etiqueta de la esquina. Sin ella no se pinta el distintivo. */
+  badge?: string
+}
+
+// `featured` da el relieve visual; `badge` es la etiqueta de la esquina. Los
+// dos nichos van destacados, pero solo la podología es el principal.
+const sectors: Sector[] = [
+  {
+    icon: FootprintsIcon,
+    title: "Clínicas de podología",
+    description:
+      "Nuestro caso de uso principal, ya en fase beta con una clínica real. Agenda por tipo de tratamiento (quiropodia, estudio biomecánico, revisión) con la disponibilidad de cada profesional y la ficha de cada paciente centralizada.",
+    featured: true,
+    badge: "Nicho principal",
+  },
   {
     icon: HeartPulseIcon,
     title: "Clínicas dentales",
     description:
-      "Nuestro caso de uso principal. Agenda por tipo de tratamiento (limpieza, ortodoncia, endodoncia) con la disponibilidad real de cada profesional y la ficha de cada paciente centralizada.",
+      "Nuestro segundo nicho. Agenda por tipo de tratamiento (limpieza, ortodoncia, endodoncia) con la disponibilidad real de cada profesional y la ficha de cada paciente centralizada.",
     featured: true,
+    badge: "Segundo nicho",
   },
   {
     icon: SparklesIcon,
@@ -61,10 +82,10 @@ export default function ClinicasSectors() {
                     : "border-white/8 bg-wha-card/60 hover:border-wha/25 hover:bg-wha-card hover:shadow-lg hover:shadow-wha/10"
                 )}
               >
-                {s.featured && (
+                {s.badge && (
                   <span className="absolute right-4 top-4 inline-flex items-center gap-1 rounded-full bg-wha/15 px-2.5 py-1 text-[10px] font-semibold text-wha">
                     <StarIcon className="size-2.5 fill-wha" />
-                    Nicho principal
+                    {s.badge}
                   </span>
                 )}
                 <div className="flex size-11 items-center justify-center rounded-xl bg-linear-to-br from-wha to-wha-teal shadow-md shadow-wha/30 transition-shadow duration-200 group-hover:shadow-lg group-hover:shadow-wha/50">

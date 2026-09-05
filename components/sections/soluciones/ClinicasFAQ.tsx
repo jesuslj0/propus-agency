@@ -11,7 +11,7 @@ const faqs = [
   {
     question: "¿Sirve para mi tipo de clínica?",
     answer:
-      "Si tu clínica trabaja por cita, sí. Está pensado sobre todo para clínicas dentales, centros de estética y consultas de fisioterapia, pero se adapta a cualquier consulta que gestione agenda y profesionales.",
+      "Si tu clínica trabaja por cita, sí. Está pensado sobre todo para clínicas de podología y dentales, pero se adapta a cualquier consulta que gestione agenda y profesionales, como centros de estética o consultas de fisioterapia.",
   },
   {
     question: "¿El agente distingue entre distintos tratamientos y sus duraciones?",

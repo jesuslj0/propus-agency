@@ -1,6 +1,16 @@
+import type { LucideIcon } from "lucide-react"
 import { HeartPulseIcon, FootprintsIcon, ActivityIcon, StethoscopeIcon, StarIcon } from "lucide-react"
 
 import { cn } from "@/lib/utils"
+
+interface Sector {
+  icon: LucideIcon
+  title: string
+  description: string
+  featured: boolean
+  /** Etiqueta de la esquina. Sin ella no se pinta el distintivo. */
+  badge?: string
+}
 
 const metrics = [
   { value: "24/7", label: "Disponibilidad del agente" },
@@ -9,20 +19,22 @@ const metrics = [
   { value: "100%", label: "Huecos reasignados automáticamente" },
 ]
 
-const sectors = [
-  {
-    icon: HeartPulseIcon,
-    title: "Clínicas dentales",
-    description:
-      "Nuestro caso de uso principal. Agenda de higienistas, ortodoncistas y cirujanos bajo un solo agente, con información detallada de cada profesional y tratamiento.",
-    featured: true,
-  },
+const sectors: Sector[] = [
   {
     icon: FootprintsIcon,
     title: "Clínicas de podología",
     description:
-      "Nuestro segundo nicho principal, ya en pruebas con una clínica de podología en Albacete y configurándose a medida: quiropodias, estudios biomecánicos y tratamientos recurrentes con recordatorios que mantienen alta la asistencia.",
+      "Nuestro caso de uso principal, ya en fase beta con una clínica de podología en Albacete y configurado a medida: quiropodias, estudios biomecánicos y tratamientos recurrentes con recordatorios que mantienen alta la asistencia.",
     featured: true,
+    badge: "Nicho principal",
+  },
+  {
+    icon: HeartPulseIcon,
+    title: "Clínicas dentales",
+    description:
+      "Nuestro segundo nicho. Agenda de higienistas, ortodoncistas y cirujanos bajo un solo agente, con información detallada de cada profesional y tratamiento.",
+    featured: true,
+    badge: "Segundo nicho",
   },
   {
     icon: ActivityIcon,
@@ -88,10 +100,10 @@ export default function WhaUseCases() {
                     : "border-white/8 bg-wha-card/60 hover:border-wha/25 hover:bg-wha-card hover:shadow-lg hover:shadow-wha/10"
                 )}
               >
-                {s.featured && (
+                {s.badge && (
                   <span className="absolute right-4 top-4 inline-flex items-center gap-1 rounded-full bg-wha/15 px-2.5 py-1 text-[10px] font-semibold text-wha">
                     <StarIcon className="size-2.5 fill-wha" />
-                    Nicho principal
+                    {s.badge}
                   </span>
                 )}
                 <div

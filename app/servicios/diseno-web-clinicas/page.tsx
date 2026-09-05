@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Diseño web para clínicas — Propus",
     description:
-      "Webs para clínicas dentales, de estética y otros negocios de salud: rápidas, optimizadas para SEO local y listas para conectar con tu agente de WhatsApp.",
+      "Webs para clínicas de podología, dentales y otros negocios de salud: rápidas, optimizadas para SEO local y listas para conectar con tu agente de WhatsApp.",
     type: "website",
     locale: "es_ES",
   },
@@ -29,7 +29,7 @@ export default function DisenoWebClinicasPage() {
     <>
       <ServiceSchema
         name="Diseño web para clínicas"
-        description="Diseño de páginas web para clínicas dentales, de estética y otros negocios de salud, optimizadas para SEO local y con integración opcional del agente de WhatsApp para reservar citas."
+        description="Diseño de páginas web para clínicas de podología, dentales y otros negocios de salud, optimizadas para SEO local y con integración opcional del agente de WhatsApp para reservar citas."
         serviceType="Diseño y desarrollo web"
       />
       <Navbar />

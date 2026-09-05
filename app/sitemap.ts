@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next"
-import { getAllPosts } from "@/lib/blog"
+import { getAllPosts, getTotalPages } from "@/lib/blog"
 
 const BASE_URL = "https://propus.ink"
 
@@ -86,5 +86,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }))
 
-  return [...staticRoutes, ...postRoutes]
+  // Páginas 2..N del listado. La 1 ya está arriba como /blog. Prioridad baja:
+  // son páginas de navegación, no contenido que deba posicionar por sí mismo.
+  const paginationRoutes: MetadataRoute.Sitemap = Array.from(
+    { length: Math.max(0, getTotalPages() - 1) },
+    (_, i) => ({
+      url: `${BASE_URL}/blog/pagina/${i + 2}`,
+      lastModified: new Date(),
+      changeFrequency: "weekly" as const,
+      priority: 0.3,
+    })
+  )
+
+  return [...staticRoutes, ...postRoutes, ...paginationRoutes]
 }

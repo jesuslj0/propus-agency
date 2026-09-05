@@ -32,10 +32,11 @@ const projectLinks = [
   { href: "/proyectos/agente-whatsapp", label: "AutoClinic" },
 ]
 
-const solutionLinks = [
-  { href: "/soluciones/clinicas", label: "Agente + CRM para clínicas" },
-  { href: "/servicios/diseno-web-clinicas", label: "Diseño web para clínicas" },
-]
+// Las páginas de Soluciones (/soluciones/clinicas y
+// /servicios/diseno-web-clinicas) se acceden solo desde el footer, que las
+// enlaza sitewide en su columna «Soluciones». No se quitan del sitemap: además
+// del pie, /soluciones/clinicas recibe 7 enlaces contextuales desde artículos
+// del blog, que es lo que sostiene su posicionamiento.
 
 const infoLinks = [
   { href: "/sobre-nosotros", label: "Sobre nosotros" },
@@ -63,20 +64,6 @@ export default function Navbar() {
               {link.label}
             </Link>
           ))}
-
-          <DropdownMenu>
-            <DropdownMenuTrigger className="flex items-center gap-1 text-sm text-muted-foreground transition-colors hover:text-foreground outline-none">
-              Soluciones
-              <ChevronDown className="size-3.5" />
-            </DropdownMenuTrigger>
-            <DropdownMenuContent align="end">
-              {solutionLinks.map((link) => (
-                <DropdownMenuItem key={link.href} asChild>
-                  <Link href={link.href}>{link.label}</Link>
-                </DropdownMenuItem>
-              ))}
-            </DropdownMenuContent>
-          </DropdownMenu>
 
           <DropdownMenu>
             <DropdownMenuTrigger className="flex items-center gap-1 text-sm text-muted-foreground transition-colors hover:text-foreground outline-none">
@@ -131,20 +118,6 @@ export default function Navbar() {
             </Link>
             <nav className="flex flex-col gap-5 mt-8">
               {navLinks.map((link) => (
-                <SheetClose key={link.href} asChild>
-                  <Link
-                    href={link.href}
-                    className="text-base text-muted-foreground hover:text-foreground transition-colors"
-                  >
-                    {link.label}
-                  </Link>
-                </SheetClose>
-              ))}
-
-              <span className="mt-4 text-xs font-semibold uppercase tracking-wider text-muted-foreground/60">
-                Soluciones
-              </span>
-              {solutionLinks.map((link) => (
                 <SheetClose key={link.href} asChild>
                   <Link
                     href={link.href}

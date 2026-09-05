@@ -13,7 +13,7 @@ import ClinicasCTA from "@/components/sections/soluciones/ClinicasCTA"
 export const metadata: Metadata = {
   title: "Agente recepcionista y CRM para clínicas",
   description:
-    "Agente de IA en WhatsApp y CRM para clínicas dentales, de estética y fisioterapia: agenda por servicio, recordatorios, control de bonos y ficha de paciente. Operativo en 2-3 semanas.",
+    "Agente de IA en WhatsApp y CRM para clínicas de podología y dentales: agenda por servicio, recordatorios, control de bonos y ficha de paciente. Operativo en 2-3 semanas.",
   alternates: {
     canonical: "/soluciones/clinicas",
   },
@@ -31,7 +31,7 @@ export default function ClinicasPage() {
     <div className="relative">
       <ServiceSchema
         name="Agente recepcionista y CRM para clínicas"
-        description="Agente de IA en WhatsApp y CRM de control interno para clínicas dentales, de estética y fisioterapia: agenda por servicio, recordatorios automáticos, control de bonos y ficha de paciente centralizada."
+        description="Agente de IA en WhatsApp y CRM de control interno para clínicas de podología y dentales: agenda por servicio, recordatorios automáticos, control de bonos y ficha de paciente centralizada."
         serviceType="Automatización de recepción para clínicas del sector salud"
       />
       <div className="pointer-events-none fixed inset-0 -z-10" aria-hidden>
