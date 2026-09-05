@@ -45,6 +45,13 @@ logs/
 *.tsbuildinfo
 next-env.d.ts
 
+# Másteres de las portadas del blog generadas con Nano Banana Pro (2752x1536,
+# ~2 MB cada una). Se conservan en local para poder reexportar a mayor tamaño,
+# pero al repositorio solo van las versiones optimizadas de public/img/blog.
+/docs/blog/*.jpeg
+/docs/blog/*.jpg
+/docs/blog/*.png
+
 # IDEs
 .idea/
 *.suo

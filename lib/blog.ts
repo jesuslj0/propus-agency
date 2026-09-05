@@ -26,7 +26,7 @@ export const blogPosts: BlogPost[] = [
     date: "2026-03-29",
     readingTime: "6 min de lectura",
     tags: ["IA", "Automatización", "Albacete", "Pymes"],
-    image: "/img/facturia/graphics.png",
+    image: "/img/blog/automatizacion-ia-empresas-albacete.jpg",
     content: `
       <p class="text-muted-foreground leading-relaxed mb-4">
         La inteligencia artificial ha dejado de ser una tecnología exclusiva de las grandes corporaciones. Hoy, las pymes y empresas de Albacete y Castilla-La Mancha tienen a su alcance herramientas de automatización con IA que pueden transformar por completo la manera en que operan, compiten y crecen. En este artículo, exploramos cómo tu negocio puede beneficiarse de esta revolución tecnológica sin necesidad de grandes inversiones ni equipos técnicos internos.
@@ -87,7 +87,7 @@ export const blogPosts: BlogPost[] = [
     date: "2026-05-04",
     readingTime: "9 min de lectura",
     tags: ["Clínicas dentales", "WhatsApp", "IA", "CRM"],
-    image: "/img/autoclinic/fotobaseconocimiento3.png",
+    image: "/img/blog/recepcionista-virtual-clinica-dental.jpg",
     content: `
       <p class="text-muted-foreground leading-relaxed mb-4">
         Cada vez más clínicas dentales están sustituyendo el teléfono como único canal de reserva por un agente de inteligencia artificial que atiende por WhatsApp las 24 horas del día. Esta guía explica qué es exactamente un recepcionista virtual para clínica dental, cómo funciona por dentro y qué debe tener el sistema que lo sostiene para que la promesa de "agenda que se gestiona sola" sea real y no solo marketing.
@@ -179,7 +179,7 @@ export const blogPosts: BlogPost[] = [
     date: "2026-05-18",
     readingTime: "6 min de lectura",
     tags: ["WhatsApp", "IA", "Automatización"],
-    image: "/img/autoclinic/fotoagente4.png",
+    image: "/img/blog/chatbot-whatsapp-citas-clinica.jpg",
     content: `
       <p class="text-muted-foreground leading-relaxed mb-4">
         "Chatbot de WhatsApp" suena a menú de opciones rígido con botones numerados. Un agente de citas médicas basado en IA funciona de forma muy distinta: entiende lenguaje natural, consulta datos en tiempo real y toma decisiones dentro de reglas que tú defines. Este artículo desglosa, paso a paso, qué ocurre técnicamente desde que un paciente escribe hasta que su cita queda confirmada.
@@ -227,7 +227,7 @@ export const blogPosts: BlogPost[] = [
     date: "2026-06-01",
     readingTime: "6 min de lectura",
     tags: ["Clínicas dentales", "WhatsApp", "Automatización"],
-    image: "/img/autoclinic/agenda.png",
+    image: "/img/blog/reducir-no-shows-clinica-recordatorios.jpg",
     content: `
       <p class="text-muted-foreground leading-relaxed mb-4">
         Una cita a la que el paciente no se presenta —lo que en el sector se conoce como "no-show"— no es solo una molestia de agenda: es un coste económico directo y un hueco de tiempo clínico que ya no se puede recuperar ese día. Este artículo explica por qué ocurre, cuánto cuesta realmente y cómo un sistema de recordatorios automáticos por WhatsApp reduce ese impacto de forma medible.
@@ -282,7 +282,7 @@ export const blogPosts: BlogPost[] = [
     date: "2026-06-15",
     readingTime: "7 min de lectura",
     tags: ["CRM", "Clínicas dentales", "Gestión"],
-    image: "/img/autoclinic/panel.png",
+    image: "/img/blog/software-gestion-clinica-dental.jpg",
     content: `
       <p class="text-muted-foreground leading-relaxed mb-4">
         Elegir un software de gestión para una clínica dental no debería reducirse a comparar precios. El sistema que sostiene tu día a día tiene que resolver problemas muy concretos: agenda por profesional, historial de cada paciente, información propia de la clínica y visibilidad clara de lo que ocurre cada día. Este artículo funciona como checklist para evaluar cualquier CRM dental antes de contratarlo.
@@ -338,7 +338,7 @@ export const blogPosts: BlogPost[] = [
     date: "2026-06-29",
     readingTime: "6 min de lectura",
     tags: ["Clínicas de estética", "WhatsApp", "IA"],
-    image: "/img/autoclinic/base-conocimiento.png",
+    image: "/img/blog/automatizar-recepcion-clinica-estetica.jpg",
     content: `
       <p class="text-muted-foreground leading-relaxed mb-4">
         Aunque nuestro caso de uso principal son las clínicas de podología, el mismo agente recepcionista de WhatsApp se adapta a otros negocios que trabajan por cita. Uno de nuestros primeros beta testers fue un centro de estética real, y este artículo cuenta cómo adaptamos la tecnología a sus particularidades: bonos de sesiones, tratamientos recurrentes y picos de demanda por campañas.
@@ -387,7 +387,7 @@ export const blogPosts: BlogPost[] = [
     date: "2026-07-06",
     readingTime: "6 min de lectura",
     tags: ["Diseño web", "Clínicas dentales", "Conversión"],
-    image: "/img/landings/golosea-hero2.png",
+    image: "/img/blog/diseno-web-clinica-dental.jpg",
     content: `
       <p class="text-muted-foreground leading-relaxed mb-4">
         Muchas clínicas dentales invierten en atraer visitas a su web —a través de Google o redes sociales— y pierden gran parte de ese esfuerzo porque la propia web no hace fácil el siguiente paso: reservar una cita. Este artículo repasa qué elementos concretos de diseño y contenido marcan la diferencia entre una web que solo informa y una que realmente convierte.
@@ -434,7 +434,7 @@ export const blogPosts: BlogPost[] = [
     date: "2026-07-13",
     readingTime: "7 min de lectura",
     tags: ["Clínicas de podología", "WhatsApp", "IA", "AutoClinic"],
-    image: "/img/autoclinic/fotoagenda2.png",
+    image: "/img/blog/recepcionista-virtual-clinica-podologia.jpg",
     content: `
       <p class="text-muted-foreground leading-relaxed mb-4">
         Las clínicas de podología comparten un problema con el resto del sector salud: la mayor parte de las citas se pierden o se retrasan por teléfono, fuera de horario o cuando la recepción está ocupada atendiendo en gabinete. Por eso hemos convertido a la podología en el nicho principal de AutoClinic, nuestro agente recepcionista de WhatsApp, y lo estamos configurando a medida junto a una clínica de podología en Albacete que ya lo está probando en su día a día.
@@ -483,7 +483,7 @@ export const blogPosts: BlogPost[] = [
     date: "2026-07-20",
     readingTime: "6 min de lectura",
     tags: ["Clínicas de podología", "Automatización", "Caso real", "Albacete"],
-    image: "/img/autoclinic/fotopanelinicio1.png",
+    image: "/img/blog/automatizar-agenda-podologo-ia-albacete.jpg",
     content: `
       <p class="text-muted-foreground leading-relaxed mb-4">
         Este artículo cuenta un caso real que tenemos en marcha: la puesta a punto de AutoClinic para una clínica de podología en Albacete. No es un caso cerrado con métricas finales, sino un proyecto en fase de pruebas y ajuste fino, y precisamente por eso resulta útil para entender cómo se adapta un agente recepcionista a un sector nuevo paso a paso.
@@ -528,7 +528,7 @@ export const blogPosts: BlogPost[] = [
     date: "2026-08-10",
     readingTime: "7 min de lectura",
     tags: ["Turismo rural", "Reservas", "Astro", "Automatización"],
-    image: "/img/landings/acuiferohero.png",
+    image: "/img/blog/portal-reservas-turismo-rural-astro.jpg",
     content: `
       <p class="text-muted-foreground leading-relaxed mb-4">
         La mayoría de casas rurales gestionan sus reservas de una de estas tres formas: por teléfono, por WhatsApp con clientes que ya conocen, o cediendo entre un 15% y un 20% de cada reserva a un portal externo. Las tres funcionan hasta que dejan de hacerlo: la primera depende de que alguien coja el teléfono, la segunda no escala más allá del boca a boca, y la tercera convierte al portal en el dueño de la relación con tu cliente. Este artículo explica cómo se construye la alternativa: un portal de reservas propio y autogestionable.
@@ -608,10 +608,7 @@ export const blogPosts: BlogPost[] = [
     date: "2026-08-24",
     readingTime: "7 min de lectura",
     tags: ["AutoClinic", "WhatsApp", "CRM", "Clínicas"],
-    // Vista del agente. Hay 7 capturas de AutoClinic para 10 posts de clínica,
-    // así que algunas se repiten: al asignarlas, comprobar que las repetidas no
-    // caigan en la misma página del listado (6 cards por página).
-    image: "/img/autoclinic/fotoagente4.png",
+    image: "/img/blog/autoclinic-agente-crm-clinicas.jpg",
     content: `
       <p class="text-muted-foreground leading-relaxed mb-4">
         AutoClinic es el producto que hemos desarrollado en Propus para que una clínica deje de perder citas por no poder atender el teléfono. Son dos piezas que funcionan juntas: un agente de inteligencia artificial que atiende WhatsApp las 24 horas y un CRM que centraliza la agenda, los pacientes y los servicios. Este artículo explica qué hace cada parte, por qué no sirve una sin la otra y cómo es el proceso de implantación real.
@@ -686,7 +683,7 @@ export const blogPosts: BlogPost[] = [
     date: "2026-09-05",
     readingTime: "6 min de lectura",
     tags: ["AutoClinic", "Integraciones", "API", "CRM"],
-    image: "/img/autoclinic/panel.png",
+    image: "/img/blog/autoclinic-integracion-api-crm.jpg",
     content: `
       <p class="text-muted-foreground leading-relaxed mb-4">
         Es la pregunta que más nos hacen las clínicas que ya llevan años funcionando: "yo ya tengo un programa de gestión, ¿tengo que cambiarlo?". La respuesta corta es no, siempre que ese programa permita conectarse desde fuera. Este artículo explica qué significa eso exactamente, qué necesitamos para hacerlo y en qué casos la integración no es viable, que también los hay.
