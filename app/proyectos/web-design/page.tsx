@@ -54,6 +54,16 @@ const projects: ShowcaseProject[] = [
     extraImages: ["/img/landings/nacion-section.png"],
   },
   {
+    title: "Cabañas El Acuífero",
+    id: "cabanas-el-acuifero",
+    url: "https://elacuifero.es",
+    domain: "elacuifero.es",
+    description:
+      "Portal de reservas para seis cabañas rurales en las Lagunas de Ruidera. Incluye panel de administración para autogestionar el blog y una app de calendario desarrollada por nosotros dentro del propio panel, vinculada a la web para controlar fechas, disponibilidad y reservas.",
+    tags: ["Astro", "Panel admin", "Calendario propio", "Reservas", "SEO & AEO"],
+    image: "/img/landings/acuiferohero.png",
+  },
+  {
     title: "Golosea",
     id: "golosea",
     url: "https://golosea.com",

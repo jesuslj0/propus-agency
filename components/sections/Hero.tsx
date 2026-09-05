@@ -17,7 +17,12 @@ const splineSceneLogo =
 export default function Hero() {
 
   return (
-    <section className="relative flex min-h-svh items-stretch pt-24 pb-16 md:block md:min-h-0 md:pt-44 md:pb-28 2xl:pt-56 2xl:pb-36 overflow-hidden bg-transparent">
+    // El hero ocupa la ventana completa y centra su contenido también en
+    // escritorio: así los CTAs entran en la primera vista sin hacer scroll.
+    // El pt-24 reserva sitio para la navbar fija (h-16). No sustituir el
+    // centrado por paddings superiores fijos: empujan los botones bajo el
+    // pliegue en pantallas de 900px de alto o menos.
+    <section className="relative flex min-h-svh items-stretch pt-24 pb-16 md:items-center overflow-hidden bg-transparent">
 
       <div className="relative mx-auto grid w-full max-w-6xl grid-cols-1 items-stretch gap-x-10 px-4 md:grid-cols-2 md:items-center 2xl:max-w-7xl">
 

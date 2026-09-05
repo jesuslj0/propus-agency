@@ -47,6 +47,17 @@ const cases = [
       "Tráfico creciendo de forma exponencial cada semana y una comunidad activa que llena las fiestas.",
   },
   {
+    sector: "Turismo rural · Cabañas El Acuífero",
+    url: "elacuifero.es",
+    href: "/proyectos/web-design#cabanas-el-acuifero",
+    problema:
+      "José gestionaba las reservas de sus seis cabañas en la carretera de Ruidera únicamente por teléfono y boca a boca, sin web ni calendario: dependía de conocidos y anotaba las fechas a mano.",
+    solucion:
+      "Portal de reservas propio con panel de administración para autogestionar el blog y una app de calendario que le construimos dentro del panel, vinculada a la web para controlar disponibilidad y fechas. Todo con SEO y AEO trabajados.",
+    resultado:
+      "Pasa de la agenda telefónica a su propia pasarela de reservas abierta a cualquier viajero, y empieza a aparecer como recomendación de alojamiento en Ruidera cuando se pregunta a los asistentes de IA.",
+  },
+  {
     sector: "Golosinas y snacks · Golosea",
     url: "golosea.com",
     href: "/proyectos/web-design#golosea",
