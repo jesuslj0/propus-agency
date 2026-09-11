@@ -42,35 +42,35 @@ const destacadas: Pantalla[] = [
     title: "Chats",
     description:
       "Al conectar tu número a la API de WhatsApp, deja de funcionar en la aplicación del móvil. Esta bandeja te lo devuelve, con el color distinguiendo qué contestó el agente y qué contestó una persona del equipo.",
-    url: "autoclinic.space/chats/",
+    url: "autoclinic.space/chats",
   },
   {
     id: "agenda",
     title: "Agenda",
     description:
       "La semana completa sobre el horario real de cada profesional. Admite jornada partida y ausencias, y las citas que se solapan se reparten en columnas en vez de taparse entre ellas.",
-    url: "autoclinic.space/appointments/",
+    url: "autoclinic.space/appointments",
   },
   {
     id: "pacientes",
     title: "Pacientes",
     description:
       "El directorio de la clínica, con búsqueda por nombre, correo o teléfono. Los números se normalizan al dar de alta, así que el mismo teléfono escrito de tres formas no genera tres fichas. Cada alta abre su historia clínica.",
-    url: "autoclinic.space/patients/",
+    url: "autoclinic.space/patients",
   },
   {
     id: "facturacion",
     title: "Facturación",
     description:
       "Del tratamiento a la factura sin teclear dos veces. Los procedimientos quedan pendientes de facturar, se agrupan en un borrador y al emitirlo toma número de la serie y se cierra. Una factura emitida no se corrige: se anula y se emite otra.",
-    url: "autoclinic.space/facturacion/",
+    url: "autoclinic.space/facturacion",
   },
   {
     id: "agente",
     title: "Agente de WhatsApp",
     description:
       "La configuración del número y, sobre todo, el chat de pruebas: hablas con el agente desde el propio panel, sin gastar mensajes ni molestar a nadie, para comprobar qué contesta antes de ponerlo delante de pacientes.",
-    url: "autoclinic.space/clinic/integraciones/",
+    url: "autoclinic.space/clinic/integraciones",
   },
 ]
 
@@ -80,42 +80,42 @@ const configuracion: Pantalla[] = [
     title: "Citas",
     description:
       "El listado completo, filtrable por fecha y estado. Cada cita guarda su recorrido —quién cambió qué y cuándo— y de dónde vino: del panel, del agente o de la reserva pública.",
-    url: "autoclinic.space/appointments/list/",
+    url: "autoclinic.space/appointments/list",
   },
   {
     id: "servicios",
     title: "Servicios",
     description:
       "El catálogo que el agente consulta para responder precios y calcular cuánto hueco ocupa cada cita. La duración y el precio pueden ser fijos o variables; si la duración varía, la agenda reserva el máximo.",
-    url: "autoclinic.space/services/",
+    url: "autoclinic.space/services",
   },
   {
     id: "profesionales",
     title: "Profesionales",
     description:
       "Quién trabaja, cuándo y en qué: horario semanal por tramos, ausencias y servicios que presta cada uno. Es lo que alimenta el calendario y los huecos que el agente puede ofrecer.",
-    url: "autoclinic.space/appointments/professionals/",
+    url: "autoclinic.space/appointments/professionals",
   },
   {
     id: "clinica",
     title: "Clínica",
     description:
       "Los datos que el agente da cuando se los piden: dirección, contacto y zona horaria. Aquí se fija también cuánto se guarda el hueco de una cita que el agente ha reservado y el equipo aún no ha validado.",
-    url: "autoclinic.space/clinic/info/",
+    url: "autoclinic.space/clinic/info",
   },
   {
     id: "base-conocimiento",
     title: "Base de conocimiento",
     description:
       "Lo que el agente sabe, escrito por la clínica: horarios, ubicación, precios, políticas y preguntas frecuentes. Se edita desde el panel, sin tocar el bot.",
-    url: "autoclinic.space/knowledge/",
+    url: "autoclinic.space/knowledge",
   },
   {
     id: "mi-cuenta",
     title: "Mi cuenta",
     description:
       "Cada miembro del equipo gestiona lo suyo: sus datos de acceso, su ficha profesional y su propio horario y ausencias.",
-    url: "autoclinic.space/cuenta/",
+    url: "autoclinic.space/cuenta",
   },
 ]
 
