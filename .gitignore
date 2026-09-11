@@ -45,6 +45,12 @@ logs/
 *.tsbuildinfo
 next-env.d.ts
 
+# Documentación interna de producto. ESTE REPOSITORIO ES PÚBLICO: el documento
+# de apartados de AutoClinic incluye un apartado explícitamente interno con lo
+# que el producto todavía no hace, que no debe acabar en GitHub.
+/APARTADOS-Autoclinic-explicados.md
+/apartados-Autoclinic-explicados.md
+
 # Másteres de las portadas del blog generadas con Nano Banana Pro (2752x1536,
 # ~2 MB cada una). Se conservan en local para poder reexportar a mayor tamaño,
 # pero al repositorio solo van las versiones optimizadas de public/img/blog.
