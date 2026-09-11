@@ -74,12 +74,24 @@ export const metadata: Metadata = {
     title: "Propus — Automatización e IA para tu negocio",
     description:
       "Automatizamos tareas repetitivas y damos valor a los negocios con la ayuda de la IA. Desarrollo de aplicaciones, automatización de procesos e integración de agentes inteligentes.",
+    // Imagen de la vista previa al compartir el enlace (WhatsApp, Telegram,
+    // Slack, LinkedIn...). Sin esto, WhatsApp cae a un icono del sitio con
+    // fondo transparente, que se ve mal contra su propio fondo blanco.
+    images: [
+      {
+        url: "/img/og/propus-preview.jpg",
+        width: 1200,
+        height: 1200,
+        alt: "Propus — Automatización e IA para tu negocio",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Propus — Automatización e IA para tu negocio",
     description:
       "Automatizamos tareas repetitivas y damos valor a los negocios con la ayuda de la IA.",
+    images: ["/img/og/propus-preview.jpg"],
   },
 }
 
