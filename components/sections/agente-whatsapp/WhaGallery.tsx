@@ -20,6 +20,8 @@ interface Pantalla {
   id: string
   title: string
   description: string
+  /** URL real de la pantalla en autoclinic.space, para la barra del navegador */
+  url: string
 }
 
 /**
@@ -33,36 +35,42 @@ const destacadas: Pantalla[] = [
     title: "Panel de control",
     description:
       "Lo que pasa hoy y lo que se ha cobrado este mes: las citas del día con su estado, la actividad de la clínica y el bloque económico, que distingue lo facturado, lo cobrado y el trabajo hecho que aún no se ha facturado.",
+    url: "autoclinic.space",
   },
   {
     id: "chats",
     title: "Chats",
     description:
       "Al conectar tu número a la API de WhatsApp, deja de funcionar en la aplicación del móvil. Esta bandeja te lo devuelve, con el color distinguiendo qué contestó el agente y qué contestó una persona del equipo.",
+    url: "autoclinic.space/chats/",
   },
   {
     id: "agenda",
     title: "Agenda",
     description:
       "La semana completa sobre el horario real de cada profesional. Admite jornada partida y ausencias, y las citas que se solapan se reparten en columnas en vez de taparse entre ellas.",
+    url: "autoclinic.space/appointments/",
   },
   {
     id: "pacientes",
     title: "Pacientes",
     description:
       "El directorio de la clínica, con búsqueda por nombre, correo o teléfono. Los números se normalizan al dar de alta, así que el mismo teléfono escrito de tres formas no genera tres fichas. Cada alta abre su historia clínica.",
+    url: "autoclinic.space/patients/",
   },
   {
     id: "facturacion",
     title: "Facturación",
     description:
       "Del tratamiento a la factura sin teclear dos veces. Los procedimientos quedan pendientes de facturar, se agrupan en un borrador y al emitirlo toma número de la serie y se cierra. Una factura emitida no se corrige: se anula y se emite otra.",
+    url: "autoclinic.space/facturacion/",
   },
   {
     id: "agente",
     title: "Agente de WhatsApp",
     description:
       "La configuración del número y, sobre todo, el chat de pruebas: hablas con el agente desde el propio panel, sin gastar mensajes ni molestar a nadie, para comprobar qué contesta antes de ponerlo delante de pacientes.",
+    url: "autoclinic.space/clinic/integraciones/",
   },
 ]
 
@@ -72,36 +80,42 @@ const configuracion: Pantalla[] = [
     title: "Citas",
     description:
       "El listado completo, filtrable por fecha y estado. Cada cita guarda su recorrido —quién cambió qué y cuándo— y de dónde vino: del panel, del agente o de la reserva pública.",
+    url: "autoclinic.space/appointments/list/",
   },
   {
     id: "servicios",
     title: "Servicios",
     description:
       "El catálogo que el agente consulta para responder precios y calcular cuánto hueco ocupa cada cita. La duración y el precio pueden ser fijos o variables; si la duración varía, la agenda reserva el máximo.",
+    url: "autoclinic.space/services/",
   },
   {
     id: "profesionales",
     title: "Profesionales",
     description:
       "Quién trabaja, cuándo y en qué: horario semanal por tramos, ausencias y servicios que presta cada uno. Es lo que alimenta el calendario y los huecos que el agente puede ofrecer.",
+    url: "autoclinic.space/appointments/professionals/",
   },
   {
     id: "clinica",
     title: "Clínica",
     description:
       "Los datos que el agente da cuando se los piden: dirección, contacto y zona horaria. Aquí se fija también cuánto se guarda el hueco de una cita que el agente ha reservado y el equipo aún no ha validado.",
+    url: "autoclinic.space/clinic/info/",
   },
   {
     id: "base-conocimiento",
     title: "Base de conocimiento",
     description:
       "Lo que el agente sabe, escrito por la clínica: horarios, ubicación, precios, políticas y preguntas frecuentes. Se edita desde el panel, sin tocar el bot.",
+    url: "autoclinic.space/knowledge/",
   },
   {
     id: "mi-cuenta",
     title: "Mi cuenta",
     description:
       "Cada miembro del equipo gestiona lo suyo: sus datos de acceso, su ficha profesional y su propio horario y ausencias.",
+    url: "autoclinic.space/cuenta/",
   },
 ]
 
@@ -147,7 +161,7 @@ export default function WhaGallery() {
   return (
     <section className="py-20 md:py-28">
       <div className="mx-auto max-w-6xl px-4">
-        <div className="mx-auto mb-10 max-w-2xl text-center">
+        <div className="mx-auto mb-7 max-w-2xl text-center">
           <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-wha-alt/30 bg-wha-alt/10 px-4 py-1.5 text-xs font-semibold text-wha-alt">
             El agente en acción
           </span>
@@ -165,7 +179,7 @@ export default function WhaGallery() {
 
         <ConmutadorTema tema={tema} onChange={setTema} />
 
-        <div className="mt-12 grid gap-6 md:grid-cols-2 lg:gap-8">
+        <div className="mt-10 grid gap-6 md:grid-cols-2 lg:gap-8">
           {destacadas.map((p, i) => (
             <TarjetaCaptura
               key={p.id}
@@ -251,7 +265,7 @@ function TarjetaCaptura({
           <span className="size-2.5 rounded-full bg-amber-400/70" />
           <span className="size-2.5 rounded-full bg-emerald-400/70" />
           <div className="ml-2 flex-1 truncate rounded-md bg-black/20 px-3 py-1 text-center font-mono text-[11px] text-wha-muted">
-            app.autoclinic.es
+            {pantalla.url}
           </div>
         </div>
 
@@ -298,7 +312,12 @@ function ConmutadorTema({
   const esClaro = tema === "claro"
 
   return (
-    <div className="flex flex-col items-center gap-3 sm:flex-row sm:justify-center sm:gap-4">
+    <div className="flex items-center justify-center gap-3">
+      {/* Invita siempre al modo que NO se está viendo */}
+      <span className="text-xs text-wha-muted">
+        Échale un ojo a nuestro modo {esClaro ? "oscuro" : "claro"}
+      </span>
+
       <button
         type="button"
         role="switch"
@@ -309,77 +328,45 @@ function ConmutadorTema({
             : "Ver las capturas en modo claro"
         }
         onClick={() => onChange(esClaro ? "oscuro" : "claro")}
-        className="group relative h-14 w-28 shrink-0 rounded-full p-1.5 transition-colors duration-500"
-        style={{
-          background: esClaro
-            ? "linear-gradient(160deg, #7dd3fc 0%, #38bdf8 45%, #0ea5e9 100%)"
-            : "linear-gradient(160deg, #1e293b 0%, #0f172a 45%, #020617 100%)",
-          boxShadow: esClaro
-            ? "inset 0 2px 5px rgba(255,255,255,.55), inset 0 -3px 7px rgba(2,44,74,.5), 0 10px 22px -8px rgba(14,165,233,.6)"
-            : "inset 0 2px 5px rgba(148,163,184,.28), inset 0 -3px 7px rgba(0,0,0,.85), 0 10px 22px -8px rgba(0,0,0,.9)",
-        }}
+        className={cn(
+          "relative h-7 w-[3.25rem] shrink-0 rounded-full border transition-colors duration-300",
+          esClaro
+            ? "border-sky-300/40 bg-sky-500/25"
+            : "border-white/12 bg-white/5"
+        )}
       >
-        {/* Textura: trama diagonal muy fina sobre el fondo del carril */}
-        <span
-          aria-hidden
-          className="pointer-events-none absolute inset-0 rounded-full opacity-[0.18] mix-blend-overlay"
-          style={{
-            backgroundImage:
-              "repeating-linear-gradient(45deg, rgba(255,255,255,.9) 0 1px, transparent 1px 3px)",
-          }}
-        />
-
-        {/* Iconos de fondo, el inactivo apagado */}
-        <span className="pointer-events-none absolute inset-0 flex items-center justify-between px-3.5">
+        {/* Iconos del carril, apagados bajo la perilla */}
+        <span className="pointer-events-none absolute inset-0 flex items-center justify-between px-1.5">
           <SunIcon
             className={cn(
-              "size-4 transition-all duration-500",
-              esClaro ? "text-amber-100/50" : "text-slate-500"
+              "size-3 transition-colors duration-300",
+              esClaro ? "text-transparent" : "text-wha-muted"
             )}
           />
           <MoonIcon
             className={cn(
-              "size-4 transition-all duration-500",
-              esClaro ? "text-sky-100/50" : "text-slate-300"
+              "size-3 transition-colors duration-300",
+              esClaro ? "text-sky-100/70" : "text-transparent"
             )}
           />
         </span>
 
-        {/* Perilla con relieve */}
+        {/* Perilla */}
         <span
           className={cn(
-            "relative z-10 flex size-11 items-center justify-center rounded-full transition-transform duration-500 ease-out",
-            esClaro ? "translate-x-0" : "translate-x-14"
+            "relative z-10 flex size-6 items-center justify-center rounded-full shadow-sm transition-transform duration-300 ease-out",
+            esClaro
+              ? "translate-x-0.5 bg-amber-300"
+              : "translate-x-[1.625rem] bg-slate-200"
           )}
-          style={{
-            background: esClaro
-              ? "radial-gradient(circle at 32% 28%, #fffbeb 0%, #fde68a 45%, #f59e0b 100%)"
-              : "radial-gradient(circle at 32% 28%, #f8fafc 0%, #cbd5e1 42%, #64748b 100%)",
-            boxShadow: esClaro
-              ? "inset 0 -3px 6px rgba(180,83,9,.45), inset 0 2px 4px rgba(255,255,255,.9), 0 6px 14px -3px rgba(180,83,9,.55)"
-              : "inset 0 -3px 6px rgba(15,23,42,.5), inset 0 2px 4px rgba(255,255,255,.95), 0 6px 14px -3px rgba(0,0,0,.7)",
-          }}
         >
           {esClaro ? (
-            <SunIcon className="size-5 text-amber-700" strokeWidth={2.4} />
+            <SunIcon className="size-3.5 text-amber-700" strokeWidth={2.5} />
           ) : (
-            <MoonIcon className="size-5 text-slate-700" strokeWidth={2.4} />
+            <MoonIcon className="size-3.5 text-slate-700" strokeWidth={2.5} />
           )}
         </span>
       </button>
-
-      {/* Burbuja que explica qué hace el botón */}
-      <span className="relative max-w-xs rounded-xl border border-white/10 bg-wha-card/80 px-4 py-2.5 text-center text-xs leading-relaxed text-wha-muted sm:text-left">
-        {/* Pico de la burbuja: abajo en móvil, a la izquierda en escritorio */}
-        <span
-          aria-hidden
-          className="absolute -top-1.5 left-1/2 size-3 -translate-x-1/2 rotate-45 border-l border-t border-white/10 bg-wha-card/80 sm:left-0 sm:top-1/2 sm:-translate-x-1/2 sm:-translate-y-1/2 sm:border-l sm:border-t"
-        />
-        <strong className="font-semibold text-wha-fg">
-          El panel tiene modo claro y oscuro de verdad.
-        </strong>{" "}
-        Pulsa el sol o la luna para ver todas las capturas de abajo en ese modo.
-      </span>
     </div>
   )
 }

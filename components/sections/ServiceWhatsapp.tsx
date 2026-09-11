@@ -1,25 +1,27 @@
 "use client"
 
 import Link from "next/link"
-import { ArrowRightIcon, CheckCircle2Icon, PhoneMissedIcon, ClockIcon, BellOffIcon, MessageCircleWarningIcon } from "lucide-react"
+import { ArrowRightIcon, CheckCircle2Icon, MoonIcon, RepeatIcon, BellOffIcon, MicIcon } from "lucide-react"
 import { TiltCtaButton } from "@/components/ui/tilt-cta-button"
 
+// Todo el producto es texto sobre WhatsApp: aquí no se habla de llamadas ni
+// de coger el teléfono, porque no es un agente de voz.
 const painPoints = [
   {
-    icon: PhoneMissedIcon,
-    text: "Pacientes que llaman fuera de horario y no vuelven a intentarlo",
+    icon: MoonIcon,
+    text: "Mensajes que entran de noche o en fin de semana y siguen sin contestar al día siguiente",
   },
   {
-    icon: ClockIcon,
-    text: "Recepcionista saturada con llamadas repetitivas: citas, precios, horarios",
+    icon: RepeatIcon,
+    text: "Las mismas preguntas una y otra vez: precios, horarios, dónde estáis, qué incluye cada tratamiento",
   },
   {
     icon: BellOffIcon,
     text: "Sin recordatorios automáticos → cancelaciones de última hora",
   },
   {
-    icon: MessageCircleWarningIcon,
-    text: "Respuestas lentas en WhatsApp que generan desconfianza",
+    icon: MicIcon,
+    text: "Audios de pacientes que se acumulan sin escuchar mientras estás en gabinete",
   },
 ]
 
@@ -83,12 +85,12 @@ export default function ServiceWhatsapp() {
           <h2 className="text-3xl md:text-5xl font-semibold tracking-tight leading-tight text-white">
             Nunca más pierdas una cita{" "}
             <span className="bg-gradient-to-r from-brand-spring to-brand-teal bg-clip-text text-transparent">
-              por no coger el teléfono
+              por un mensaje sin responder
             </span>
           </h2>
           <p className="mt-4 text-slate-400 text-lg leading-relaxed">
-            Un agente IA en WhatsApp que atiende a tus pacientes 24/7: responde dudas,
-            proporciona información sobre profesionales y servicios, gestiona citas, envía recordatorios y filtra urgencias — sin cambiar
+            Un agente IA que escribe por WhatsApp y atiende a tus pacientes 24/7: responde dudas,
+            informa de profesionales y servicios, gestiona citas, envía recordatorios y filtra urgencias — sin cambiar
             cómo trabajas hoy.
           </p>
         </div>
@@ -124,7 +126,7 @@ export default function ServiceWhatsapp() {
               <CheckCircle2Icon className="size-5 text-brand-spring shrink-0 mt-0.5" />
               <p className="text-sm text-slate-200 leading-relaxed">
                 Con el agente WhatsApp de Propus, tus pacientes reservan, cancelan y reciben
-                confirmaciones <strong className="text-white">a cualquier hora</strong> —
+                confirmaciones <strong className="text-white">escribiendo, a cualquier hora</strong> —
                 tu recepcionista solo atiende lo que realmente necesita atención humana.
               </p>
             </div>
@@ -179,7 +181,8 @@ function WhatsAppMockup() {
           <p className="text-[11px] text-[#00a884] leading-none mt-0.5">en línea</p>
         </div>
         <div className="flex items-center gap-4 text-[#aebac1]">
-          <svg viewBox="0 0 24 24" className="size-5 fill-current"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+          {/* Lupa, no el auricular de llamada: el producto es texto, no voz. */}
+          <svg viewBox="0 0 24 24" className="size-5 fill-current"><path d="M15.5 14h-.79l-.28-.27A6.47 6.47 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
           <svg viewBox="0 0 24 24" className="size-5 fill-current"><path d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/></svg>
         </div>
       </div>
