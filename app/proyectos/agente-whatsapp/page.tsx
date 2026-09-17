@@ -7,6 +7,7 @@ import WhaProblem from "@/components/sections/agente-whatsapp/WhaProblem"
 import WhaFeatures from "@/components/sections/agente-whatsapp/WhaFeatures"
 import WhaGallery from "@/components/sections/agente-whatsapp/WhaGallery"
 import WhaUseCases from "@/components/sections/agente-whatsapp/WhaUseCases"
+import WhaRoiCalculator from "@/components/sections/agente-whatsapp/WhaRoiCalculator"
 import WhaCTA from "@/components/sections/agente-whatsapp/WhaCTA"
 import ServiceSchema from "@/components/seo/ServiceSchema"
 
@@ -48,6 +49,7 @@ export default function AgenteWhatsappPage() {
         <WhaFeatures />
         <WhaGallery />
         <WhaUseCases />
+        <WhaRoiCalculator />
         <WhaCTA />
       </main>
       <Footer />

@@ -12,11 +12,22 @@ interface Sector {
   badge?: string
 }
 
+// Las cuatro son comprobables en el producto. Nada de porcentajes de mejora
+// que nadie ha medido: si una cifra no se puede enseñar en el panel, no entra.
 const metrics = [
   { value: "24/7", label: "Disponibilidad del agente" },
-  { value: "−60%", label: "Reducción de no-shows" },
-  { value: "<5s", label: "Tiempo de respuesta" },
-  { value: "100%", label: "Huecos reasignados automáticamente" },
+  {
+    value: "24 h + 3 h",
+    label: "Dos recordatorios, y el segundo solo a quien no ha confirmado",
+  },
+  {
+    value: "6 estados",
+    label: "Cada cita registra quién la cambió y cuándo",
+  },
+  {
+    value: "3 orígenes",
+    label: "Sabes si cada cita la trajo el agente, el panel o la web",
+  },
 ]
 
 const sectors: Sector[] = [
@@ -61,8 +72,9 @@ export default function WhaUseCases() {
         <div className="mb-20 grid grid-cols-2 gap-6 rounded-2xl border border-wha-teal/20 bg-wha-teal/5 px-6 py-10 sm:grid-cols-4">
           {metrics.map((m) => (
             <div key={m.label} className="flex flex-col items-center gap-1.5 text-center">
-              <span className="text-3xl font-bold text-wha-teal">{m.value}</span>
-              <span className="max-w-[120px] text-xs leading-snug text-wha-muted">{m.label}</span>
+              {/* Las cifras no parten: "24 h + 3 h" tiene que leerse de una pieza */}
+              <span className="text-2xl font-bold whitespace-nowrap text-wha-teal md:text-3xl">{m.value}</span>
+              <span className="max-w-[180px] text-xs leading-snug text-balance text-wha-muted">{m.label}</span>
             </div>
           ))}
         </div>
