@@ -25,9 +25,18 @@ interface Pantalla {
 }
 
 /**
- * Las seis primeras van visibles: es el orden de lo más vendible a lo más
- * técnico. Las seis de configuración quedan tras un desplegable para no
- * convertir la página en una galería de doce capturas.
+ * Las ocho visibles. El orden no es alfabético ni por importancia: está
+ * escrito para que la rejilla de dos columnas caiga en estas filas,
+ *
+ *   Panel de control | Agenda
+ *   Citas            | Pacientes
+ *   Agente WhatsApp  | Chats
+ *   Servicios        | Facturación
+ *
+ * así que mover una sola entrada descoloca su fila entera. Ocho son cuatro
+ * filas exactas, sin tarjeta huérfana al final. Las de configuración quedan
+ * tras un desplegable para no convertir la página en una galería de doce
+ * capturas.
  */
 const destacadas: Pantalla[] = [
   {
@@ -38,18 +47,18 @@ const destacadas: Pantalla[] = [
     url: "autoclinic.space",
   },
   {
-    id: "chats",
-    title: "Chats",
-    description:
-      "Al conectar tu número a la API de WhatsApp, deja de funcionar en la aplicación del móvil. Esta bandeja te lo devuelve, con el color distinguiendo qué contestó el agente y qué contestó una persona del equipo.",
-    url: "autoclinic.space/chats",
-  },
-  {
     id: "agenda",
     title: "Agenda",
     description:
       "La semana completa sobre el horario real de cada profesional. Admite jornada partida y ausencias, y las citas que se solapan se reparten en columnas en vez de taparse entre ellas.",
     url: "autoclinic.space/appointments",
+  },
+  {
+    id: "citas",
+    title: "Citas",
+    description:
+      "El listado completo, filtrable por fecha y estado. Cada cita guarda su recorrido —quién cambió qué y cuándo— y de dónde vino: del panel, del agente o de la reserva pública.",
+    url: "autoclinic.space/appointments/list",
   },
   {
     id: "pacientes",
@@ -59,28 +68,18 @@ const destacadas: Pantalla[] = [
     url: "autoclinic.space/patients",
   },
   {
-    id: "facturacion",
-    title: "Facturación",
-    description:
-      "Del tratamiento a la factura sin teclear dos veces. Los procedimientos quedan pendientes de facturar, se agrupan en un borrador y al emitirlo toma número de la serie y se cierra. Una factura emitida no se corrige: se anula y se emite otra.",
-    url: "autoclinic.space/facturacion",
-  },
-  {
     id: "agente",
     title: "Agente de WhatsApp",
     description:
       "La configuración del número y, sobre todo, el chat de pruebas: hablas con el agente desde el propio panel, sin gastar mensajes ni molestar a nadie, para comprobar qué contesta antes de ponerlo delante de pacientes.",
     url: "autoclinic.space/clinic/integraciones",
   },
-]
-
-const configuracion: Pantalla[] = [
   {
-    id: "citas",
-    title: "Citas",
+    id: "chats",
+    title: "Chats",
     description:
-      "El listado completo, filtrable por fecha y estado. Cada cita guarda su recorrido —quién cambió qué y cuándo— y de dónde vino: del panel, del agente o de la reserva pública.",
-    url: "autoclinic.space/appointments/list",
+      "Al conectar tu número a la API de WhatsApp, deja de funcionar en la aplicación del móvil. Esta bandeja te lo devuelve, con el color distinguiendo qué contestó el agente y qué contestó una persona del equipo.",
+    url: "autoclinic.space/chats",
   },
   {
     id: "servicios",
@@ -89,6 +88,16 @@ const configuracion: Pantalla[] = [
       "El catálogo que el agente consulta para responder precios y calcular cuánto hueco ocupa cada cita. La duración y el precio pueden ser fijos o variables; si la duración varía, la agenda reserva el máximo.",
     url: "autoclinic.space/services",
   },
+  {
+    id: "facturacion",
+    title: "Facturación",
+    description:
+      "Del tratamiento a la factura sin teclear dos veces. Los procedimientos quedan pendientes de facturar, se agrupan en un borrador y al emitirlo toma número de la serie y se cierra. Una factura emitida no se corrige: se anula y se emite otra.",
+    url: "autoclinic.space/facturacion",
+  },
+]
+
+const configuracion: Pantalla[] = [
   {
     id: "profesionales",
     title: "Profesionales",
@@ -191,7 +200,7 @@ export default function WhaGallery() {
           ))}
         </div>
 
-        {/* Las seis de configuración, plegadas por defecto */}
+        {/* Las de configuración, plegadas por defecto */}
         <div className="mt-10">
           <button
             type="button"
@@ -201,7 +210,7 @@ export default function WhaGallery() {
           >
             {verConfiguracion
               ? "Ocultar las pantallas de configuración"
-              : "Ver las 6 pantallas de configuración"}
+              : `Ver las ${configuracion.length} pantallas de configuración`}
             <ChevronDownIcon
               className={cn(
                 "size-4 transition-transform duration-300",
@@ -229,6 +238,7 @@ export default function WhaGallery() {
         <Visor
           pantalla={todas[ampliada]}
           tema={tema}
+          onCambiarTema={setTema}
           onCerrar={cerrar}
           onAnterior={() => mover(-1)}
           onSiguiente={() => mover(1)}
@@ -373,15 +383,54 @@ function ConmutadorTema({
 
 /* ---------------------------------------------------------------- */
 
+/**
+ * El conmutador del visor. A diferencia del interruptor de la cabecera, aquí
+ * el espacio manda y la etiqueta ya dice a qué modo se va, así que basta un
+ * botón: anuncia el destino, no el estado actual —misma lógica que el
+ * «Échale un ojo a nuestro modo…» de arriba.
+ *
+ * Cambia el `tema` compartido de la galería, no una copia: al cerrar el visor
+ * las tarjetas del fondo ya están en el modo que se acaba de elegir.
+ */
+function BotonTema({
+  tema,
+  onChange,
+}: {
+  tema: Tema
+  onChange: (t: Tema) => void
+}) {
+  const destino: Tema = tema === "claro" ? "oscuro" : "claro"
+
+  return (
+    <button
+      type="button"
+      onClick={() => onChange(destino)}
+      aria-label={`Ver esta captura en modo ${destino}`}
+      className="inline-flex shrink-0 items-center gap-1.5 rounded-full border border-white/15 bg-white/5 px-3 py-1.5 text-xs font-medium text-white/70 transition-colors hover:bg-white/15 hover:text-white"
+    >
+      {destino === "claro" ? (
+        <SunIcon className="size-3.5" />
+      ) : (
+        <MoonIcon className="size-3.5" />
+      )}
+      Modo {destino}
+    </button>
+  )
+}
+
+/* ---------------------------------------------------------------- */
+
 function Visor({
   pantalla,
   tema,
+  onCambiarTema,
   onCerrar,
   onAnterior,
   onSiguiente,
 }: {
   pantalla: Pantalla
   tema: Tema
+  onCambiarTema: (t: Tema) => void
   onCerrar: () => void
   onAnterior: () => void
   onSiguiente: () => void
@@ -421,12 +470,12 @@ function Visor({
           <ChevronLeftIcon className="size-5" />
         </button>
 
-        <p className="truncate text-center text-sm font-medium text-white">
-          {pantalla.title}
-          <span className="ml-2 font-normal text-white/50">
-            modo {tema}
-          </span>
-        </p>
+        <div className="flex min-w-0 flex-1 flex-col items-center gap-2 sm:flex-row sm:justify-center sm:gap-3">
+          <p className="max-w-full truncate text-center text-sm font-medium text-white">
+            {pantalla.title}
+          </p>
+          <BotonTema tema={tema} onChange={onCambiarTema} />
+        </div>
 
         <button
           type="button"

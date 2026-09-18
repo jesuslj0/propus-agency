@@ -16,7 +16,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
-import { MenuIcon, ChevronDown } from "lucide-react"
+import { MenuIcon, ChevronDown, CalendarDaysIcon } from "lucide-react"
 
 const navLinks = [
   { href: "/#servicios", label: "Servicios" },
@@ -50,7 +50,7 @@ export default function Navbar() {
       <div className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2 font-bold text-[1.375rem] tracking-tight">
           <Image src="/favicons/noBGpropus1024.png" alt="Propus logo" width={32} height={32} />
-          <span className="hidden md:inline font-heading font-semibold bg-linear-to-r from-brand-teal to-brand-lime bg-clip-text text-transparent">PROPUS</span>
+          <span className="hidden md:inline font-heading font-semibold bg-linear-to-r from-brand-sky via-brand-teal to-brand-green bg-clip-text text-transparent">PROPUS</span>
         </Link>
 
         {/* Desktop nav */}
@@ -96,10 +96,13 @@ export default function Navbar() {
 
         <div className="hidden md:flex items-center gap-3">
           <TiltCtaButton
-            className="h-9 px-5 text-sm bg-brand-emerald hover:bg-brand-teal text-background font-semibold"
+            className="h-9 gap-2 px-5 text-sm bg-brand-emerald hover:bg-brand-teal text-background font-semibold"
             asChild
           >
-            <Link href="https://calendar.app.google/CNBch8s1Q8iqoqdE9" target="_blank" rel="noopener noreferrer">Agendar llamada</Link>
+            <Link href="https://calendar.app.google/CNBch8s1Q8iqoqdE9" target="_blank" rel="noopener noreferrer">
+              <CalendarDaysIcon className="size-4" />
+              Agendar llamada
+            </Link>
           </TiltCtaButton>
         </div>
 
@@ -114,7 +117,7 @@ export default function Navbar() {
           <SheetContent side="right" className="w-72 flex flex-col px-6 py-6">
             <Link href="/" className="flex items-center gap-2 font-bold text-[1.375rem] tracking-tight">
               <Image src="/favicons/noBGpropus1024.png" alt="Propus logo" width={32} height={32} />
-              <span className="font-heading font-semibold bg-linear-to-r from-brand-teal to-brand-lime bg-clip-text text-transparent">PROPUS</span>
+              <span className="font-heading font-semibold bg-linear-to-r from-brand-sky via-brand-teal to-brand-green bg-clip-text text-transparent">PROPUS</span>
             </Link>
             <nav className="flex flex-col gap-5 mt-8">
               {navLinks.map((link) => (
@@ -159,10 +162,13 @@ export default function Navbar() {
             <div className="mt-auto">
               <SheetClose asChild>
                 <TiltCtaButton
-                  className="h-11 w-full text-base bg-brand-emerald hover:bg-brand-teal text-background font-semibold"
+                  className="h-11 w-full gap-2 text-base bg-brand-emerald hover:bg-brand-teal text-background font-semibold"
                   asChild
                 >
-                  <Link href="https://calendar.app.google/CNBch8s1Q8iqoqdE9" target="_blank" rel="noopener noreferrer">Agendar llamada</Link>
+                  <Link href="https://calendar.app.google/CNBch8s1Q8iqoqdE9" target="_blank" rel="noopener noreferrer">
+                    <CalendarDaysIcon className="size-4" />
+                    Agendar llamada
+                  </Link>
                 </TiltCtaButton>
               </SheetClose>
             </div>
