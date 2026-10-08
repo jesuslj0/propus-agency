@@ -41,12 +41,15 @@ export default function Hero() {
 
           {/* Grupo superior: eyebrow + título */}
           <div className="flex flex-col items-center md:items-start mt-6">
+            {/* Eyebrow con la palabra clave: dice a qué nos dedicamos para que
+                el H1 pueda quedarse con el gancho. En móvil parte en dos
+                líneas, así que deja de ser una píldora y se redondea menos. */}
             <Badge
               variant="outline"
-              className="mb-6 gap-1.5 border-brand-teal/40 text-brand-teal dark:border-brand-teal/40 dark:text-brand-teal py-1 px-3 h-auto rounded-full"
+              className="mb-6 h-auto max-w-full shrink gap-1.5 whitespace-normal rounded-2xl border-brand-teal/40 px-3 py-1 text-center leading-snug text-balance text-brand-teal dark:border-brand-teal/40 dark:text-brand-teal sm:whitespace-nowrap sm:rounded-full"
             >
-              <SparklesIcon className="size-3" />
-              Más tiempo para lo que importa
+              <SparklesIcon className="size-3 shrink-0" />
+              Desarrollo web, software a medida y automatización en Albacete
             </Badge>
 
             <h1 className="max-w-4xl 2xl:max-w-5xl flex flex-col">

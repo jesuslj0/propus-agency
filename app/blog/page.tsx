@@ -1,20 +1,18 @@
 import type { Metadata } from "next"
-import { getPostsByPage, getTotalPages } from "@/lib/blog"
+import { DESCRIPCION_BLOG, getPostsByPage, getTotalPages } from "@/lib/blog"
 import BlogList from "@/components/sections/blog/BlogList"
 import Navbar from "@/components/layout/Navbar"
 import Footer from "@/components/layout/Footer"
 
 export const metadata: Metadata = {
-  title: "Blog | IA y Automatización en Albacete",
-  description:
-    "Artículos sobre inteligencia artificial, automatización de procesos y transformación digital para empresas en Albacete y Castilla-La Mancha.",
+  title: "Blog · Desarrollo web, software y automatización",
+  description: DESCRIPCION_BLOG,
   alternates: {
     canonical: "/blog",
   },
   openGraph: {
-    title: "Blog — Propus | IA y Automatización en Albacete",
-    description:
-      "Artículos sobre inteligencia artificial, automatización de procesos y transformación digital para empresas en Albacete y Castilla-La Mancha.",
+    title: "Blog · Desarrollo web, software y automatización — Propus",
+    description: DESCRIPCION_BLOG,
     type: "website",
     locale: "es_ES",
   },

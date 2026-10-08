@@ -1,6 +1,6 @@
 import type { Metadata } from "next"
 import { notFound } from "next/navigation"
-import { getPostsByPage, getTotalPages } from "@/lib/blog"
+import { DESCRIPCION_BLOG, getPostsByPage, getTotalPages } from "@/lib/blog"
 import BlogList from "@/components/sections/blog/BlogList"
 import Navbar from "@/components/layout/Navbar"
 import Footer from "@/components/layout/Footer"
@@ -37,14 +37,13 @@ export async function generateMetadata({
 
   return {
     title: `Blog — Página ${page}`,
-    description: `Artículos sobre inteligencia artificial, automatización y transformación digital para empresas. Página ${page} de ${getTotalPages()}.`,
+    description: `${DESCRIPCION_BLOG} Página ${page} de ${getTotalPages()}.`,
     alternates: {
       canonical: `/blog/pagina/${page}`,
     },
     openGraph: {
       title: `Blog — Propus (página ${page})`,
-      description:
-        "Artículos sobre inteligencia artificial, automatización y transformación digital para empresas en Albacete y Castilla-La Mancha.",
+      description: DESCRIPCION_BLOG,
       type: "website",
       locale: "es_ES",
     },

@@ -14,8 +14,12 @@ export interface BlogPost {
   content: string
 }
 
-/** Cards por página en /blog. Cambiarlo aquí ajusta también el sitemap. */
+/** Cards por página en /blog. */
 export const POSTS_PER_PAGE = 6
+
+/** Description del listado del blog, compartida por /blog y /blog/pagina/N. */
+export const DESCRIPCION_BLOG =
+  "Guías y casos reales sobre desarrollo web, software a medida y automatización para negocios, con foco en clínicas y empresas de Albacete."
 
 export const blogPosts: BlogPost[] = [
   {

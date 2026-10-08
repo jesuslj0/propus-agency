@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next"
-import { getAllPosts, getTotalPages } from "@/lib/blog"
+import { getAllPosts } from "@/lib/blog"
 
 const BASE_URL = "https://propus.ink"
 
@@ -86,17 +86,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }))
 
-  // Páginas 2..N del listado. La 1 ya está arriba como /blog. Prioridad baja:
-  // son páginas de navegación, no contenido que deba posicionar por sí mismo.
-  const paginationRoutes: MetadataRoute.Sitemap = Array.from(
-    { length: Math.max(0, getTotalPages() - 1) },
-    (_, i) => ({
-      url: `${BASE_URL}/blog/pagina/${i + 2}`,
-      lastModified: new Date(),
-      changeFrequency: "weekly" as const,
-      priority: 0.3,
-    })
-  )
-
-  return [...staticRoutes, ...postRoutes, ...paginationRoutes]
+  // /blog/pagina/N no entra: son listados de navegación sin contenido propio.
+  // Las páginas siguen existiendo y Google llega a ellas desde la paginación de
+  // /blog; los artículos, que es lo que importa, van todos arriba.
+  return [...staticRoutes, ...postRoutes]
 }

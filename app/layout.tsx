@@ -40,14 +40,23 @@ const instrumentSerif = Instrument_Serif({
   style: ["normal", "italic"],
 })
 
+// Posicionamiento: desarrollo web, software a medida y automatización en
+// Albacete. La IA es una herramienta, no la etiqueta de la agencia. Se definen
+// una vez y se reutilizan en title, openGraph y twitter para que no diverjan.
+const TITULO_PORTADA =
+  "Propus · Desarrollo web, software y automatización en Albacete"
+const DESCRIPCION_PORTADA =
+  "Desarrollo web, software a medida y automatización de procesos para empresas de Albacete y toda España. La IA, cuando aporta, como una herramienta más."
+
 export const metadata: Metadata = {
   metadataBase: new URL("https://propus.ink"),
   title: {
-    default: "Propus — Automatización e IA para tu negocio",
+    // La portada no define metadatos propios, así que usa este default tal
+    // cual: la plantilla de abajo solo se aplica a las páginas hijas.
+    default: TITULO_PORTADA,
     template: "%s — Propus",
   },
-  description:
-    "Automatizamos tareas repetitivas y damos valor a los negocios con la ayuda de la IA. Desarrollo de aplicaciones, automatización de procesos e integración de agentes inteligentes.",
+  description: DESCRIPCION_PORTADA,
   applicationName: "Propus",
   manifest: "/manifest.webmanifest",
   appleWebApp: {
@@ -71,9 +80,8 @@ export const metadata: Metadata = {
     siteName: "Propus",
     type: "website",
     locale: "es_ES",
-    title: "Propus — Automatización e IA para tu negocio",
-    description:
-      "Automatizamos tareas repetitivas y damos valor a los negocios con la ayuda de la IA. Desarrollo de aplicaciones, automatización de procesos e integración de agentes inteligentes.",
+    title: TITULO_PORTADA,
+    description: DESCRIPCION_PORTADA,
     // Imagen de la vista previa al compartir el enlace (WhatsApp, Telegram,
     // Slack, LinkedIn...). Sin esto, WhatsApp cae a un icono del sitio con
     // fondo transparente, que se ve mal contra su propio fondo blanco.
@@ -82,15 +90,14 @@ export const metadata: Metadata = {
         url: "/img/og/propus-preview.jpg",
         width: 1200,
         height: 1200,
-        alt: "Propus — Automatización e IA para tu negocio",
+        alt: TITULO_PORTADA,
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Propus — Automatización e IA para tu negocio",
-    description:
-      "Automatizamos tareas repetitivas y damos valor a los negocios con la ayuda de la IA.",
+    title: TITULO_PORTADA,
+    description: DESCRIPCION_PORTADA,
     images: ["/img/og/propus-preview.jpg"],
   },
 }

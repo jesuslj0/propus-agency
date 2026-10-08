@@ -5,14 +5,14 @@ import Footer from "@/components/layout/Footer"
 import ProjectsShowcase, { type ShowcaseProject } from "@/components/sections/ProjectsShowcase"
 
 export const metadata: Metadata = {
-  title: "Diseño de páginas web a medida | Portfolio",
+  title: "Portfolio de diseño y desarrollo web a medida",
   description:
     "Selección de landing pages y diseños web creados por Propus: interfaces modernas, rápidas y orientadas a conversión para empresas de Albacete y toda España.",
   alternates: {
     canonical: "/proyectos/web-design",
   },
   openGraph: {
-    title: "Web Design — Propus | Landing pages a medida",
+    title: "Portfolio de diseño y desarrollo web a medida — Propus",
     description:
       "Selección de landing pages y diseños web creados por Propus.",
     type: "website",

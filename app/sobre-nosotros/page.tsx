@@ -7,27 +7,26 @@ import { Card, CardContent } from "@/components/ui/card"
 import { GlowCard } from "@/components/ui/glow-card"
 import Navbar from "@/components/layout/Navbar"
 import Footer from "@/components/layout/Footer"
-import LocalBusinessSchema from "@/components/seo/LocalBusinessSchema"
+
+const DESCRIPCION =
+  "Somos Propus, un equipo de Albacete que desarrolla webs, software a medida y automatizaciones para empresas de Castilla-La Mancha y toda España."
 
 export const metadata: Metadata = {
-  title: "Sobre Nosotros | Agencia de IA en Albacete",
-  description:
-    "Propus es una agencia de inteligencia artificial y automatización en Albacete, Castilla-La Mancha. Desarrollamos aplicaciones con IA, automatizamos procesos y creamos agentes inteligentes para empresas.",
+  title: "Sobre nosotros · Desarrollo web en Albacete",
+  description: DESCRIPCION,
   keywords: [
-    "agencia IA Albacete",
+    "desarrollo web Albacete",
+    "software a medida Albacete",
     "automatización Albacete",
-    "inteligencia artificial Castilla-La Mancha",
-    "desarrollo IA",
+    "diseño web Castilla-La Mancha",
     "Propus",
-    "agentes inteligentes Albacete",
   ],
   alternates: {
     canonical: "/sobre-nosotros",
   },
   openGraph: {
-    title: "Sobre Nosotros — Propus | Agencia de IA en Albacete",
-    description:
-      "Agencia de inteligencia artificial y automatización en Albacete. Desarrollo de apps con IA, automatización de procesos y agentes inteligentes.",
+    title: "Sobre nosotros · Desarrollo web en Albacete — Propus",
+    description: DESCRIPCION,
     type: "website",
     locale: "es_ES",
   },
@@ -76,7 +75,6 @@ const teamSquads = [
 export default function SobreNosotrosPage() {
   return (
     <>
-      <LocalBusinessSchema />
       <Navbar />
       <main className="relative z-10">
         {/* Hero */}

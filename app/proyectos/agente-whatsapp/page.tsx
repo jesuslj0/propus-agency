@@ -14,14 +14,14 @@ import ServiceSchema from "@/components/seo/ServiceSchema"
 export const metadata: Metadata = {
   title: "Agente recepcionista WhatsApp | Gestión de citas con IA",
   description:
-    "Un agente de IA en WhatsApp que agenda, cancela, envía recordatorios y rellena huecos de última hora — 24/7, en el idioma de tu paciente. Para clínicas de podología y dentales, veterinarias, estética y más.",
+    "Un agente de IA en WhatsApp que agenda, cancela y envía recordatorios — 24/7, en el idioma de tu paciente. Para clínicas de podología y dentales, veterinarias, estética y más.",
   alternates: {
     canonical: "/proyectos/agente-whatsapp",
   },
   openGraph: {
     title: "Agente recepcionista WhatsApp — Propus",
     description:
-      "Tu consulta nunca pierde una cita. Agenda, recordatorios, cancelaciones y relleno de huecos automático por WhatsApp.",
+      "Tu consulta nunca pierde una cita. Agenda, recordatorios y cancelaciones por WhatsApp.",
     type: "website",
     locale: "es_ES",
   },
@@ -32,7 +32,7 @@ export default function AgenteWhatsappPage() {
     <div className="relative">
       <ServiceSchema
         name="Agente recepcionista de WhatsApp con IA"
-        description="Agente de inteligencia artificial en WhatsApp que agenda, cancela y recuerda citas, y rellena huecos de última hora, 24/7, para clínicas de podología, dentales, de estética y otros negocios de salud."
+        description="Agente de inteligencia artificial en WhatsApp que agenda, cancela y recuerda citas, 24/7, para clínicas de podología, dentales, de estética y otros negocios de salud."
         serviceType="Automatización de atención al cliente con IA"
       />
       {/* Fondo animado (stripe shader) para toda la sección AutoClinic */}
