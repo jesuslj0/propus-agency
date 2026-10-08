@@ -219,6 +219,29 @@
   .animate-aurora-1, .animate-aurora-2, .animate-aurora-3 { animation: none; }
 }
 
+/* ── Rendimiento en móvil ──────────────────────────────────────────────────
+   En un teléfono la GPU ya va justa con el 3D del hero. Se congelan las
+   animaciones decorativas infinitas (los glows quedan donde empiezan, igual de
+   bonitos) y se quita el desenfoque de fondo de las tarjetas: sobre un fondo
+   casi plano ni se nota, pero obliga a recalcular el blur en cada frame de
+   scroll. Solo afecta a <768px; en escritorio todo sigue igual. */
+@media (max-width: 767px) {
+  .animate-aurora-1, .animate-aurora-2, .animate-aurora-3,
+  .animate-cosmic-drift { animation: none; }
+
+  /* El borde arcoíris anima background-position, que repinta en cada frame
+     (no va por compositor), y además lleva un blur. Se queda fijo. */
+  .rainbow-border::before,
+  .rainbow-border::after { animation: none; }
+
+  .backdrop-blur-sm,
+  .liquid-glass,
+  .liquid-glass-strong {
+    -webkit-backdrop-filter: none !important;
+    backdrop-filter: none !important;
+  }
+}
+
 @keyframes orbit-spin {
   from { transform: rotate(0deg); }
   to   { transform: rotate(360deg); }
