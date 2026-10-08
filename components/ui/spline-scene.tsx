@@ -65,12 +65,43 @@ export function SplineScene({
   const dragOrigin = useRef({ x: 0, y: 0 })
   const dragRotation = useRef({ x: 0, y: 0 })
 
+  // Pausa del render fuera de pantalla: el canvas WebGL sigue pintando aunque
+  // el hero ya no se vea, y en móvil eso compite con el scroll. `stop()` /
+  // `play()` son la API del runtime; el aspecto y el movimiento no cambian.
+  const appRef = useRef<Application | null>(null)
+  const wrapperRef = useRef<HTMLDivElement>(null)
+  const visible = useRef(true)
+
+  const syncPlayback = useCallback(() => {
+    const app = appRef.current
+    if (!app) return
+    if (visible.current && app.isStopped) app.play()
+    else if (!visible.current && !app.isStopped) app.stop()
+  }, [])
+
+  useEffect(() => {
+    const el = wrapperRef.current
+    if (!el || typeof IntersectionObserver === "undefined") return
+
+    const observer = new IntersectionObserver(([entry]) => {
+      visible.current = entry.isIntersecting
+      syncPlayback()
+    })
+    observer.observe(el)
+    return () => observer.disconnect()
+  }, [syncPlayback])
+
   const onLoad = useCallback(
     (spline: Application) => {
       // React StrictMode monta el efecto interno de react-spline dos veces en
       // dev: la primera Application se destruye antes de resolver su load().
       // Escribir sobre sus objetos no repinta nada, así que la descartamos.
       if ((spline as Application & { disposed?: boolean }).disposed) return
+
+      appRef.current = spline
+      // Si la escena termina de cargar con el hero ya fuera de pantalla
+      // (recarga a mitad de página), arranca pausada.
+      syncPlayback()
 
       const object = spline.findObjectByName(objectName)
       if (!object) {
@@ -85,7 +116,7 @@ export function SplineScene({
       objectRef.current = object
       baseRotation.current = { x: object.rotation.x, y: object.rotation.y }
     },
-    [objectName]
+    [objectName, syncPlayback]
   )
 
   useEffect(() => {
@@ -178,17 +209,22 @@ export function SplineScene({
   useEffect(() => {
     return () => {
       objectRef.current = null
+      appRef.current = null
       current.current = { x: 0, y: 0 }
       target.current = { x: 0, y: 0 }
     }
   }, [scene, objectName])
 
   return (
-    <Spline
-      scene={sceneUrl}
-      className={className}
-      onLoad={onLoad}
-      style={{ pointerEvents: "none" }}
-    />
+    // El envoltorio existe desde el primer render (Spline se carga con
+    // dynamic y aún no tiene nodo), así el observer se engancha de inmediato.
+    <div ref={wrapperRef} className={className} style={{ pointerEvents: "none" }}>
+      <Spline
+        scene={sceneUrl}
+        className="h-full w-full"
+        onLoad={onLoad}
+        style={{ pointerEvents: "none" }}
+      />
+    </div>
   )
 }

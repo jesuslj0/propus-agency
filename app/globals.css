@@ -234,6 +234,20 @@
   .rainbow-border::before,
   .rainbow-border::after { animation: none; }
 
+  /* GlowCard (tarjetas de precios): el foco sigue al puntero, que en un
+     teléfono no existe. Su background-attachment: fixed obliga a repintar la
+     tarjeta entera en cada frame de scroll, y los pseudo-elementos con máscara
+     y blur lo agravan. Queda el fondo base y el borde. */
+  [data-glow] {
+    background-attachment: scroll !important;
+    background-image: none !important;
+    -webkit-backdrop-filter: none !important;
+    backdrop-filter: none !important;
+  }
+  [data-glow]::before,
+  [data-glow]::after,
+  [data-glow] > [data-glow] { display: none !important; }
+
   .backdrop-blur-sm,
   .liquid-glass,
   .liquid-glass-strong {
