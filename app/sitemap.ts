@@ -1,7 +1,8 @@
 import type { MetadataRoute } from "next"
 import { getAllPosts } from "@/lib/blog"
+import { siteUrl } from "@/lib/site"
 
-const BASE_URL = "https://propus.ink"
+const BASE_URL = siteUrl
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes: MetadataRoute.Sitemap = [

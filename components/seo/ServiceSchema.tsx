@@ -1,3 +1,5 @@
+import { siteUrl } from "@/lib/site"
+
 interface ServiceSchemaProps {
   name: string
   description: string
@@ -14,7 +16,7 @@ export default function ServiceSchema({ name, description, serviceType }: Servic
     provider: {
       "@type": "Organization",
       name: "Propus",
-      url: "https://propus.ink",
+      url: siteUrl,
     },
     areaServed: {
       "@type": "Country",

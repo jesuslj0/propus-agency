@@ -434,7 +434,7 @@ export default function PrivacidadPage() {
         2. Este sitio web está alojado en Reino Unido
       </h3>
       <p className="mb-4 leading-relaxed text-muted-foreground">
-        Las páginas de propus.ink se sirven desde la región LON1 de
+        Las páginas de propus.es se sirven desde la región LON1 de
         DigitalOcean, en Londres. Reino Unido se encuentra fuera de la Unión
         Europea, pero cuenta con una decisión de adecuación de la Comisión
         Europea, lo que significa que ofrece un nivel de protección equivalente

@@ -8,6 +8,7 @@ import { Separator } from "@/components/ui/separator"
 import Navbar from "@/components/layout/Navbar"
 import Footer from "@/components/layout/Footer"
 import BreadcrumbSchema from "@/components/seo/BreadcrumbSchema"
+import { siteUrl } from "@/lib/site"
 
 export async function generateMetadata({
   params,
@@ -63,9 +64,9 @@ export default async function BlogPostPage({
     datePublished: post.date,
     mainEntityOfPage: {
       "@type": "WebPage",
-      "@id": `https://propus.ink/blog/${post.slug}`,
+      "@id": `${siteUrl}/blog/${post.slug}`,
     },
-    image: "https://propus.ink/favicons/android-chrome-512x512.png",
+    image: `${siteUrl}/favicons/android-chrome-512x512.png`,
     author: {
       "@type": "Organization",
       name: "Propus",

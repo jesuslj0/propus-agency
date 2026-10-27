@@ -1,3 +1,5 @@
+import { siteUrl } from "@/lib/site"
+
 interface BreadcrumbItem {
   name: string
   path: string
@@ -11,7 +13,7 @@ export default function BreadcrumbSchema({ items }: { items: BreadcrumbItem[] })
       "@type": "ListItem",
       position: index + 1,
       name: item.name,
-      item: `https://propus.ink${item.path}`,
+      item: `${siteUrl}${item.path}`,
     })),
   }
 

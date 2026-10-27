@@ -7,6 +7,7 @@ import { ThemeProvider } from "next-themes"
 import AuroraBackground from "@/components/ui/aurora-background"
 import ServiceWorkerRegister from "@/components/pwa/service-worker-register"
 import OrganizationSchema from "@/components/seo/OrganizationSchema"
+import { siteUrl } from "@/lib/site"
 
 // Cuerpo de texto — Satoshi (Fontshare, auto-hospedada)
 const satoshi = localFont({
@@ -49,7 +50,7 @@ const DESCRIPCION_PORTADA =
   "Desarrollo web, software a medida y automatización de procesos para empresas de Albacete y toda España. La IA, cuando aporta, como una herramienta más."
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://propus.ink"),
+  metadataBase: new URL(siteUrl),
   title: {
     // La portada no define metadatos propios, así que usa este default tal
     // cual: la plantilla de abajo solo se aplica a las páginas hijas.

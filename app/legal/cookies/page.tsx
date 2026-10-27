@@ -21,7 +21,7 @@ export default function CookiesPage() {
         Esta política explica qué son las cookies y qué tecnologías de
         almacenamiento utiliza este sitio web. Queremos ser precisos:{" "}
         <strong className="text-foreground">
-          propus.ink no instala cookies propias ni de terceros
+          propus.es no instala cookies propias ni de terceros
         </strong>{" "}
         y no utiliza herramientas de analítica, de perfilado ni de publicidad.
         Únicamente empleamos el almacenamiento local de tu navegador para

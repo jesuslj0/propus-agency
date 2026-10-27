@@ -1,4 +1,14 @@
 /**
+ * URL pública del sitio, sin barra final. Fuente única para metadataBase,
+ * sitemap, robots y JSON-LD. NEXT_PUBLIC_SITE_URL solo hace falta en un
+ * entorno distinto (preview, staging): en producción vale el valor por defecto.
+ * Las páginas son estáticas, así que cambiarla exige reconstruir la imagen.
+ */
+export const siteUrl = (
+  process.env.NEXT_PUBLIC_SITE_URL || "https://propus.es"
+).replace(/\/+$/, "")
+
+/**
  * Datos de contacto públicos de Propus.
  * Fuente única para footer, páginas legales y schema.org — Meta y otras
  * plataformas verifican que el teléfono y el email coincidan en todo el sitio.

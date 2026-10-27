@@ -1,4 +1,4 @@
-import { contact } from "@/lib/site"
+import { contact, siteUrl } from "@/lib/site"
 
 /**
  * Organization y no LocalBusiness ni ProfessionalService: esos dos esperan una
@@ -10,8 +10,8 @@ export default function OrganizationSchema() {
     "@context": "https://schema.org",
     "@type": "Organization",
     name: "Propus",
-    url: "https://propus.ink",
-    logo: "https://propus.ink/favicons/android-chrome-512x512.png",
+    url: siteUrl,
+    logo: `${siteUrl}/favicons/android-chrome-512x512.png`,
     description:
       "Desarrollo web, software a medida y automatización de procesos para empresas de Albacete y toda España.",
     areaServed: [
