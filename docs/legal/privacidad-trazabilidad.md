@@ -24,9 +24,9 @@ Cada afirmación pública de [app/legal/privacidad/page.tsx](../../app/legal/pri
 | 9 | Comunicaciones a clientes: interés legítimo (art. 6.1.f), con baja | Datos y finalidades | Encargo §3 | |
 | 10 | Datos de la fila «consultas»: nombre, correo, teléfono y contenido del mensaje | Datos y finalidades | Política anterior (apartado «Datos que recopilamos») | Ya no hay formulario; los datos llegan por correo o por la reserva de llamada |
 | 11 | Datos de las filas «contratos», «facturación» y «comunicaciones»: datos de contacto, de prestación del servicio y de facturación | Datos y finalidades | Sin fuente | Redacción genérica; sin NIF ni medios de pago a propósito |
-| 12 | Contacto por correo o reservando una llamada; la web no tiene formulario | Datos y finalidades | Encargo §3 («sin formulario»); Repo: no hay `<form>` en `app/` ni `components/` | |
+| 12 | Contacto por correo, por teléfono o reservando una llamada; la web no tiene formulario | Datos y finalidades | Encargo §3 («correo y teléfono, sin formulario»); Repo: no hay `<form>` en `app/` ni `components/` | |
 | 13 | El botón «Agendar llamada» lleva a la agenda de Google (Google Ireland Limited), fuera de la web | Datos y finalidades | Repo: `components/layout/Navbar.tsx` (enlace `calendar.app.google`), `app/legal/cookies/page.tsx` ap. «Recursos y enlaces de terceros»; Encargo §6 (Google: correo y agenda) | |
-| 14 | El servidor recibe la IP y datos técnicos del navegador | Datos y finalidades | Hecho técnico de cualquier petición HTTP | No dice nada de registros ni de su plazo (ver dudas) |
+| 14 | El servidor recibe la IP y datos técnicos del navegador | Datos y finalidades | Hecho técnico de cualquier petición HTTP | No dice nada de registros ni de su plazo; pendiente de confirmar con el titular |
 | 15 | No se usan analítica, perfilado ni publicidad | Datos y finalidades | Repo: no hay analítica ni scripts de seguimiento; `app/legal/cookies/page.tsx` | |
 | 16 | La web no instala cookies; guarda tema y avisos cerrados en el almacenamiento local | Cookies | Encargo §3; Repo: `app/layout.tsx` (`next-themes`), `components/ui/banner.tsx` (`localStorage`), `app/legal/cookies/page.tsx` | No dice «solo localStorage»: la web registra un service worker (`public/sw.js`) |
 | 17 | AutoClinic es un software de gestión clínica; el agente es de IA en WhatsApp | Servicios para clínicas | Encargo §5 | Grafía «AutoClinic» como en el resto del sitio |
@@ -43,7 +43,7 @@ Cada afirmación pública de [app/legal/privacidad/page.tsx](../../app/legal/pri
 | 28 | Servidor de Contabo GmbH en la Unión Europea | Servicios para clínicas, Destinatarios | Encargo §5, §6 | Sin país (ver `paisContaboConfirmado`) |
 | 29 | Archivos en Cloudflare R2, jurisdicción UE, almacenamiento privado, enlaces firmados de corta duración | Servicios para clínicas, Destinatarios | Encargo §5, §6 | Sin cifras de duración |
 | 30 | IA: Azure OpenAI (Microsoft Ireland Operations Limited), zona de datos de la UE | Servicios para clínicas, Destinatarios | Encargo §5, §6 | |
-| 31 | Transcripción en Suecia (UE) | Servicios para clínicas | Encargo §5 | No se nombra proveedor: falta en Destinatarios (ver dudas) |
+| 31 | Transcripción en Suecia (UE) | Servicios para clínicas | Encargo §5 | No se nombra proveedor, por lo que falta en Destinatarios; pendiente de confirmar con el titular |
 | 32 | Mensajería vía WhatsApp Ireland Limited | Servicios para clínicas, Destinatarios | Encargo §5, §6 | |
 | 33 | Seguridad: HTTPS con HSTS | Servicios para clínicas | Encargo §5 | |
 | 34 | Seguridad: contraseñas con hash y mínimo de 10 caracteres | Servicios para clínicas | Encargo §5 | Se dice «hash», no «cifrado» |
@@ -67,6 +67,8 @@ Cada afirmación pública de [app/legal/privacidad/page.tsx](../../app/legal/pri
 | 52 | Se puede pedir acreditación de identidad | Derechos | `eliminacion-de-datos/page.tsx` («podemos pedirte que acredites tu identidad») | |
 | 53 | Reclamación ante la AEPD, www.aepd.es; enlace a /legal/eliminacion-de-datos | Derechos | Encargo §9 | |
 | 54 | Última actualización: 28 de octubre de 2026 | Pie | Encargo §10 («hoy») | Actualizar al día de publicación |
+| 55 | Teléfono de Propus: +1 (320) 301-0131 | Responsable | Repo: `lib/site.ts` (commit 567b1c1, 2026-08-20); Encargo (contexto, §5) | El número ya estaba publicado en el sitio; el reenvío aún no funciona; pendiente de decidir si se oculta mientras tanto |
+| 56 | Twilio: telefonía, gestiona las llamadas al teléfono público de Propus | Destinatarios | Encargo §6 | Sin ubicación (no se dio) |
 
 ## 2. Frases conmutadas
 
@@ -84,4 +86,4 @@ Con el interruptor en `false` la frase no aparece. El estado inicial es el de la
 
 ## 3. Lo que la política anterior decía y esta no
 
-Retirado por no tener respaldo en el repo ni en el encargo: formularios de contacto y consentimiento como base de un formulario; finalidad de «mejorar la experiencia de navegación»; direcciones y países de Contabo (Alemania, Francia); «autenticación de doble factor» en los paneles; «TLS en el intercambio entre sistemas»; las tres garantías de transferencia con cláusulas tipo concretas (Decisión 2021/914) y «ninguna transferencia fuera de la Unión»; la cita de Microsoft sobre no entrenar modelos; la retención de 30 días por supervisión de abusos y la ausencia de exención; los plazos de 2 años y 12 meses; la mención al teléfono; el bloqueo de datos tras los plazos (sigue explicado en la página de eliminación de datos).
+Retirado por no tener respaldo en el repo ni en el encargo: formularios de contacto y consentimiento como base de un formulario; finalidad de «mejorar la experiencia de navegación»; direcciones y países de Contabo (Alemania, Francia); «autenticación de doble factor» en los paneles; «TLS en el intercambio entre sistemas»; las tres garantías de transferencia con cláusulas tipo concretas (Decisión 2021/914) y «ninguna transferencia fuera de la Unión»; la cita de Microsoft sobre no entrenar modelos; la retención de 30 días por supervisión de abusos y la ausencia de exención; los plazos de 2 años y 12 meses; la invitación a ejercer derechos llamando por teléfono (ahora solo por correo); el bloqueo de datos tras los plazos (sigue explicado en la página de eliminación de datos).

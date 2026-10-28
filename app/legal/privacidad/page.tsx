@@ -178,6 +178,12 @@ export default function PrivacidadPage() {
             {contact.email}
           </a>
         </li>
+        <li>
+          <B>Teléfono:</B>{" "}
+          <a href={contact.phoneHref} className={enlace}>
+            {contact.phoneDisplay}
+          </a>
+        </li>
       </UL>
 
       <H2 id="alcance">Alcance y roles de Propus</H2>
@@ -263,8 +269,9 @@ export default function PrivacidadPage() {
       </div>
       <UL>
         <li>
-          <B>Cómo contactar con nosotros:</B> por correo electrónico o
-          reservando una llamada. Esta web no tiene formulario de contacto.
+          <B>Cómo contactar con nosotros:</B> por correo electrónico, por
+          teléfono o reservando una llamada. Esta web no tiene formulario de
+          contacto.
         </li>
         <li>
           <B>Reserva de llamadas:</B> el botón «Agendar llamada» te lleva a la
@@ -558,6 +565,10 @@ export default function PrivacidadPage() {
         <li>
           <B>WhatsApp Ireland Limited:</B> plataforma de mensajería de
           WhatsApp.
+        </li>
+        <li>
+          <B>Twilio:</B> telefonía; gestiona las llamadas al teléfono público
+          de Propus.
         </li>
       </UL>
       {estado.recursosTercerosPanel && (
