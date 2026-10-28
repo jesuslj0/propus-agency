@@ -84,9 +84,9 @@ export default function EliminacionDeDatosPage() {
         1. Has contactado directamente con Propus
       </h3>
       <p className="mb-4 leading-relaxed text-muted-foreground">
-        Es el caso si nos has escrito a través del formulario web, por correo
-        electrónico o si has reservado una llamada con nosotros. En este
-        supuesto Propus es el responsable del tratamiento y podemos tener:
+        Es el caso si nos has escrito por correo electrónico, nos has llamado
+        por teléfono o has reservado una llamada con nosotros. En este supuesto
+        Propus es el responsable del tratamiento y podemos tener:
       </p>
       <ul className="mb-4 list-disc space-y-2 pl-6 text-muted-foreground">
         <li>
@@ -268,7 +268,7 @@ export default function EliminacionDeDatosPage() {
       </ul>
 
       <p className="mt-16 text-sm text-muted-foreground">
-        Última actualización: 26 de agosto de 2026
+        Última actualización: 28 de octubre de 2026
       </p>
     </article>
   )

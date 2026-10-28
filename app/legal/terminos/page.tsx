@@ -95,8 +95,9 @@ export default function TerminosPage() {
           autorización.
         </li>
         <li>
-          Proporcionar información veraz y actualizada en los formularios de
-          contacto.
+          Proporcionar información veraz y actualizada al contactar con
+          nosotros por correo electrónico, por teléfono o al reservar una
+          llamada.
         </li>
       </ul>
 
@@ -271,7 +272,7 @@ export default function TerminosPage() {
       </p>
 
       <p className="mt-16 text-sm text-muted-foreground">
-        Última actualización: 26 de agosto de 2026
+        Última actualización: 28 de octubre de 2026
       </p>
     </article>
   )
