@@ -75,6 +75,30 @@ function B({ children }: { children: ReactNode }) {
   return <strong className="text-foreground">{children}</strong>
 }
 
+const finalidades = [
+  {
+    finalidad: "Responder a tus consultas",
+    datos: "Nombre, correo electrónico, teléfono y el contenido de tu mensaje",
+    base: "Interés legítimo en atender a quien nos escribe (art. 6.1.f RGPD) o, si pides información antes de contratar, medidas precontractuales a petición tuya (art. 6.1.b)",
+  },
+  {
+    finalidad: "Ejecutar los contratos con clientes",
+    datos:
+      "Datos de contacto y los necesarios para prestar el servicio contratado",
+    base: "Ejecución del contrato (art. 6.1.b)",
+  },
+  {
+    finalidad: "Facturación",
+    datos: "Datos de facturación del cliente",
+    base: "Obligación legal (art. 6.1.c)",
+  },
+  {
+    finalidad: "Comunicaciones a clientes sobre nuestros servicios",
+    datos: "Datos de contacto del cliente",
+    base: "Interés legítimo (art. 6.1.f). Puedes oponerte y darte de baja en cualquier momento",
+  },
+] as const
+
 export default function PrivacidadPage() {
   const ubicacionContabo =
     estado.paisContaboConfirmado && paisContabo
@@ -104,7 +128,7 @@ export default function PrivacidadPage() {
       </P>
 
       <nav aria-label="Índice de la política" className="mb-4">
-        <ol className="list-decimal space-y-1 pl-6 text-muted-foreground">
+        <ol className="list-decimal space-y-1 pl-8 text-muted-foreground">
           <li>
             <a href="#responsable" className={enlace}>
               Responsable del tratamiento
@@ -210,11 +234,11 @@ export default function PrivacidadPage() {
       </UL>
 
       <H2 id="datos-finalidades">Datos y finalidades</H2>
-      <P>
-        Esta tabla recoge los tratamientos en los que Propus es responsable:
-      </P>
-      <div className="mb-4 overflow-x-auto">
-        <table className="w-full min-w-[34rem] border-collapse text-left text-sm text-muted-foreground">
+      <P>Estos son los tratamientos en los que Propus es responsable:</P>
+      {/* Tabla desde 640 px; por debajo, tarjetas, porque tres columnas no caben
+          en un móvil y la última (la base jurídica) quedaría fuera de vista. */}
+      <div className="mb-4 hidden sm:block">
+        <table className="w-full border-collapse text-left text-sm text-muted-foreground">
           <thead>
             <tr className="border-b border-border text-foreground">
               <th scope="col" className="py-2 pr-4 font-semibold">
@@ -229,44 +253,43 @@ export default function PrivacidadPage() {
             </tr>
           </thead>
           <tbody>
-            <tr className="border-b border-border/60 align-top">
-              <td className="py-3 pr-4">Responder a tus consultas</td>
-              <td className="py-3 pr-4">
-                Nombre, correo electrónico, teléfono y el contenido de tu
-                mensaje
-              </td>
-              <td className="py-3">
-                Interés legítimo en atender a quien nos escribe (art. 6.1.f
-                RGPD) o, si pides información antes de contratar, medidas
-                precontractuales a petición tuya (art. 6.1.b)
-              </td>
-            </tr>
-            <tr className="border-b border-border/60 align-top">
-              <td className="py-3 pr-4">Ejecutar los contratos con clientes</td>
-              <td className="py-3 pr-4">
-                Datos de contacto y los necesarios para prestar el servicio
-                contratado
-              </td>
-              <td className="py-3">Ejecución del contrato (art. 6.1.b)</td>
-            </tr>
-            <tr className="border-b border-border/60 align-top">
-              <td className="py-3 pr-4">Facturación</td>
-              <td className="py-3 pr-4">Datos de facturación del cliente</td>
-              <td className="py-3">Obligación legal (art. 6.1.c)</td>
-            </tr>
-            <tr className="align-top">
-              <td className="py-3 pr-4">
-                Comunicaciones a clientes sobre nuestros servicios
-              </td>
-              <td className="py-3 pr-4">Datos de contacto del cliente</td>
-              <td className="py-3">
-                Interés legítimo (art. 6.1.f). Puedes oponerte y darte de baja
-                en cualquier momento
-              </td>
-            </tr>
+            {finalidades.map((f) => (
+              <tr
+                key={f.finalidad}
+                className="border-b border-border/60 align-top last:border-b-0"
+              >
+                <td className="py-3 pr-4">{f.finalidad}</td>
+                <td className="py-3 pr-4">{f.datos}</td>
+                <td className="py-3">{f.base}</td>
+              </tr>
+            ))}
           </tbody>
         </table>
       </div>
+      <ul className="mb-4 space-y-3 sm:hidden">
+        {finalidades.map((f) => (
+          <li
+            key={f.finalidad}
+            className="rounded-lg border border-border/60 bg-muted/40 p-4 text-sm text-muted-foreground"
+          >
+            <p className="font-semibold text-foreground">{f.finalidad}</p>
+            <dl className="mt-3 space-y-3">
+              <div>
+                <dt className="text-xs font-semibold tracking-wide text-foreground uppercase">
+                  Datos
+                </dt>
+                <dd className="mt-1">{f.datos}</dd>
+              </div>
+              <div>
+                <dt className="text-xs font-semibold tracking-wide text-foreground uppercase">
+                  Base jurídica
+                </dt>
+                <dd className="mt-1">{f.base}</dd>
+              </div>
+            </dl>
+          </li>
+        ))}
+      </ul>
       <UL>
         <li>
           <B>Cómo contactar con nosotros:</B> por correo electrónico, por
