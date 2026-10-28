@@ -5,6 +5,7 @@ Cada afirmación pública de [app/legal/privacidad/page.tsx](../../app/legal/pri
 **Leyenda de fuentes**
 
 - **Encargo §n**: lo dio el titular en el encargo de reescritura de la política (apartado n del paso 3). Es lo marcado como AFIRMABLE.
+- **Ronda 3**: indicaciones del titular en la ronda final de revisión (supervisión de abusos de Azure OpenAI, proveedor de la transcripción, ubicaciones de Google, WhatsApp y Twilio, datos que registra Twilio).
 - **Repo**: se comprueba en el código. Se cita el archivo.
 - **Conmutada**: solo se publica si el interruptor de [lib/privacidad-estado.ts](../../lib/privacidad-estado.ts) está en `true`.
 - **Sin fuente**: no hay respaldo en el repo ni en el encargo. Es una redacción genérica que debe validar el abogado o el titular.
@@ -37,13 +38,13 @@ Cada afirmación pública de [app/legal/privacidad/page.tsx](../../app/legal/pri
 | 22 | Se envía al modelo: mensaje, teléfono, nombre del perfil de WhatsApp, nombre y citas del paciente, datos básicos de la clínica | Servicios para clínicas | Encargo §5 | |
 | 23 | No accede a historia clínica (anamnesis, notas clínicas, lesiones, consentimientos, facturas); las fotos no se envían al modelo | Servicios para clínicas | Encargo §5 | No se afirma que no acceda a datos sensibles en general |
 | 24 | Lo que el paciente escribe en un mensaje sí llega al modelo, aunque incluya salud; se recomienda no dar más información clínica de la necesaria | Servicios para clínicas | Derivada de Encargo §5 («se le envía el mensaje»); recomendación ya presente en la política anterior | Frase añadida por coherencia; validar |
-| 25 | Los audios se transcriben automáticamente | Servicios para clínicas | Encargo §5 | |
+| 25 | Los audios se transcriben automáticamente, con el mismo proveedor de IA (Microsoft, Azure OpenAI) | Servicios para clínicas | Encargo §5; Ronda 3 (proveedor) | |
 | 26 | Hay un modo de atención humana | Servicios para clínicas | Encargo §5; Repo: `app/legal/terminos/page.tsx` («vía de atención humana») | |
 | 27 | No toma decisiones clínicas ni con efectos jurídicos | Servicios para clínicas | Encargo §5; coherente con `terminos` («no emite diagnósticos») | |
 | 28 | Servidor de Contabo GmbH en la Unión Europea | Servicios para clínicas, Destinatarios | Encargo §5, §6 | Sin país (ver `paisContaboConfirmado`) |
 | 29 | Archivos en Cloudflare R2, jurisdicción UE, almacenamiento privado, enlaces firmados de corta duración | Servicios para clínicas, Destinatarios | Encargo §5, §6 | Sin cifras de duración |
 | 30 | IA: Azure OpenAI (Microsoft Ireland Operations Limited), zona de datos de la UE | Servicios para clínicas, Destinatarios | Encargo §5, §6 | |
-| 31 | Transcripción en Suecia (UE) | Servicios para clínicas | Encargo §5 | No se nombra proveedor, por lo que falta en Destinatarios; pendiente de confirmar con el titular |
+| 31 | Transcripción en Suecia (UE), del mismo proveedor de IA (Microsoft, Azure OpenAI), no de un tercero distinto | Servicios para clínicas, Destinatarios | Encargo §5; Ronda 3 | |
 | 32 | Mensajería vía WhatsApp Ireland Limited | Servicios para clínicas, Destinatarios | Encargo §5, §6 | |
 | 33 | Seguridad: HTTPS con HSTS | Servicios para clínicas | Encargo §5 | |
 | 34 | Seguridad: contraseñas con hash y mínimo de 10 caracteres | Servicios para clínicas | Encargo §5 | Se dice «hash», no «cifrado» |
@@ -58,8 +59,8 @@ Cada afirmación pública de [app/legal/privacidad/page.tsx](../../app/legal/pri
 | 43 | Menores: los trata la clínica con autorización del representante legal | Servicios para clínicas | Encargo §5 | Sin edad, a propósito |
 | 44 | Sección «Si eres paciente de una clínica»: datos, responsable, derechos, contacto | Pacientes | Encargo §5 | Resume los puntos 19, 18, 40 |
 | 45 | DigitalOcean aloja la web, región LON1, Londres | Destinatarios, Transferencias | Encargo §6, §7 | El repo solo lo respalda de forma indirecta (`LogoBar.tsx` lista DigitalOcean) |
-| 46 | Google Ireland Limited: correo y agenda | Destinatarios | Encargo §6 | Sin ubicación (no se dio) |
-| 47 | WhatsApp Ireland Limited: plataforma de mensajería | Destinatarios | Encargo §6 | Sin ubicación (no se dio) |
+| 46 | Google Ireland Limited (Irlanda): correo y agenda | Destinatarios | Encargo §6; Ronda 3 (ubicación) | |
+| 47 | WhatsApp Ireland Limited (Irlanda): plataforma de mensajería | Destinatarios | Encargo §6; Ronda 3 (ubicación) | |
 | 48 | Acceso desde EE. UU. por ser Iberium estadounidense; algunos proveedores son de EE. UU.; garantías previstas en el RGPD (adecuación o cláusulas tipo) | Transferencias | Encargo §7 | No se atribuye ningún mecanismo a ningún proveedor |
 | 49 | La web se sirve desde Londres; Reino Unido con decisión de adecuación de la Comisión | Transferencias | Encargo §7 | Sin fechas de vigencia |
 | 50 | Conservación (web y clientes): consultas mientras sean necesarias; clientes mientras dure la relación y plazos legales; facturación según normativa mercantil y tributaria; comunicaciones hasta la baja; almacenamiento local hasta que el usuario lo borre | Conservación | Sin fuente (criterios genéricos); el último punto es un hecho técnico | Se quitaron los «2 años» y «12 meses» de la política anterior por no tener respaldo |
@@ -68,7 +69,9 @@ Cada afirmación pública de [app/legal/privacidad/page.tsx](../../app/legal/pri
 | 53 | Reclamación ante la AEPD, www.aepd.es; enlace a /legal/eliminacion-de-datos | Derechos | Encargo §9 | |
 | 54 | Última actualización: 28 de octubre de 2026 | Pie | Encargo §10 («hoy») | Actualizar al día de publicación |
 | 55 | Teléfono de Propus: +1 (320) 301-0131 | Responsable | Repo: `lib/site.ts` (commit 567b1c1, 2026-08-20); Encargo (contexto, §5) | El número ya estaba publicado en el sitio; el reenvío aún no funciona; pendiente de decidir si se oculta mientras tanto |
-| 56 | Twilio: telefonía, gestiona las llamadas al teléfono público de Propus | Destinatarios | Encargo §6 | Sin ubicación (no se dio) |
+| 56 | Twilio Inc. (EE. UU.): telefonía; gestiona las llamadas al teléfono público de Propus y registra datos de las llamadas (número, fecha y duración) | Destinatarios, Datos y finalidades | Encargo §6; Ronda 3 (ubicación y datos registrados) | No se afirma ni se niega que las llamadas se graben, y no se indica plazo de retención, a propósito |
+| 57 | Azure OpenAI: Microsoft puede conservar peticiones y respuestas hasta 30 días para detectar abusos; una persona puede revisar el contenido marcado; no hay retención cero | Servicios para clínicas | Ronda 3 | Ya figuraba en la política anterior; retirada en la primera reescritura y repuesta ahora |
+| 58 | Aparte de lo que decida la clínica, el proveedor de IA puede conservar peticiones y respuestas hasta 30 días (remite a la sección anterior) | Servicios para clínicas (Conservación) | Ronda 3 | Evita que «la clínica decide cuánto se conserva» se lea como absoluto |
 
 ## 2. Frases conmutadas
 
@@ -86,4 +89,4 @@ Con el interruptor en `false` la frase no aparece. El estado inicial es el de la
 
 ## 3. Lo que la política anterior decía y esta no
 
-Retirado por no tener respaldo en el repo ni en el encargo: formularios de contacto y consentimiento como base de un formulario; finalidad de «mejorar la experiencia de navegación»; direcciones y países de Contabo (Alemania, Francia); «autenticación de doble factor» en los paneles; «TLS en el intercambio entre sistemas»; las tres garantías de transferencia con cláusulas tipo concretas (Decisión 2021/914) y «ninguna transferencia fuera de la Unión»; la cita de Microsoft sobre no entrenar modelos; la retención de 30 días por supervisión de abusos y la ausencia de exención; los plazos de 2 años y 12 meses; la invitación a ejercer derechos llamando por teléfono (ahora solo por correo); el bloqueo de datos tras los plazos (sigue explicado en la página de eliminación de datos).
+Retirado por no tener respaldo en el repo ni en el encargo: formularios de contacto y consentimiento como base de un formulario; finalidad de «mejorar la experiencia de navegación»; direcciones y países de Contabo (Alemania, Francia); «autenticación de doble factor» en los paneles; «TLS en el intercambio entre sistemas»; las tres garantías de transferencia con cláusulas tipo concretas (Decisión 2021/914) y «ninguna transferencia fuera de la Unión»; la cita de Microsoft sobre no entrenar modelos; los plazos de 2 años y 12 meses; la invitación a ejercer derechos llamando por teléfono (ahora solo por correo); el bloqueo de datos tras los plazos (sigue explicado en la página de eliminación de datos).

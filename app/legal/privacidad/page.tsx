@@ -280,6 +280,11 @@ export default function PrivacidadPage() {
           usan para atender tu reserva.
         </li>
         <li>
+          <B>Llamadas telefónicas:</B> las llamadas al teléfono de Propus pasan
+          por Twilio Inc., que registra datos de la llamada (número, fecha y
+          duración).
+        </li>
+        <li>
           <B>Datos técnicos:</B> como en cualquier sitio web, el servidor que
           te envía las páginas recibe tu dirección IP y datos técnicos de tu
           navegador para poder responderte. No usamos herramientas de
@@ -365,8 +370,8 @@ export default function PrivacidadPage() {
           tu cita.
         </li>
         <li>
-          <B>Audios:</B> se transcriben automáticamente para que el agente
-          pueda leerlos.
+          <B>Audios:</B> se transcriben automáticamente, con el mismo proveedor
+          de IA (Microsoft, Azure OpenAI), para que el agente pueda leerlos.
         </li>
         <li>
           <B>Atención humana:</B> hay un modo de atención humana, en el que la
@@ -383,6 +388,15 @@ export default function PrivacidadPage() {
           </li>
         )}
       </UL>
+
+      <H3>Supervisión de abusos del proveedor de IA</H3>
+      <P>
+        Azure OpenAI, el servicio de Microsoft que usa el agente, aplica un
+        sistema de supervisión de abusos. Por eso Microsoft puede conservar las
+        peticiones y las respuestas hasta 30 días para detectar usos que
+        incumplan sus condiciones, y una persona puede revisar el contenido que
+        sus filtros automáticos marquen. En este servicio no hay retención cero.
+      </P>
 
       <H3>Dónde se tratan los datos</H3>
       <P>Los datos de estos servicios se tratan en la Unión Europea:</P>
@@ -403,7 +417,8 @@ export default function PrivacidadPage() {
         </li>
         <li>
           <B>Transcripción de audios:</B> se realiza en Suecia (Unión
-          Europea).
+          Europea), con el mismo proveedor de IA (Microsoft, Azure OpenAI), no
+          con un tercero distinto.
         </li>
         <li>
           <B>Mensajería:</B> WhatsApp Ireland Limited presta la plataforma por
@@ -466,7 +481,9 @@ export default function PrivacidadPage() {
         La clínica decide cuánto tiempo se conservan los datos de sus
         pacientes, conforme a la normativa sanitaria aplicable. Cuando termina
         el encargo, Propus devuelve o suprime los datos según indique la
-        clínica (artículo 28.3.g del RGPD).
+        clínica (artículo 28.3.g del RGPD). Aparte, el proveedor de IA puede
+        conservar peticiones y respuestas hasta 30 días, como se explica en
+        «Supervisión de abusos del proveedor de IA».
       </P>
       {(estado.purgaChats24m ||
         estado.memoriaAgente24h ||
@@ -547,8 +564,8 @@ export default function PrivacidadPage() {
           Reino Unido).
         </li>
         <li>
-          <B>Google Ireland Limited:</B> correo corporativo y agenda para
-          reservar llamadas.
+          <B>Google Ireland Limited</B> (Irlanda): correo corporativo y agenda
+          para reservar llamadas.
         </li>
         <li>
           <B>Contabo GmbH:</B> servidor donde funcionan AutoClinic y el agente
@@ -560,15 +577,17 @@ export default function PrivacidadPage() {
         </li>
         <li>
           <B>Microsoft Ireland Operations Limited:</B> inteligencia artificial
-          del agente (Azure OpenAI), en una zona de datos de la Unión Europea.
+          del agente y transcripción de sus audios (Azure OpenAI), en una zona
+          de datos de la Unión Europea. La transcripción se realiza en Suecia.
         </li>
         <li>
-          <B>WhatsApp Ireland Limited:</B> plataforma de mensajería de
-          WhatsApp.
+          <B>WhatsApp Ireland Limited</B> (Irlanda): plataforma de mensajería
+          de WhatsApp.
         </li>
         <li>
-          <B>Twilio:</B> telefonía; gestiona las llamadas al teléfono público
-          de Propus.
+          <B>Twilio Inc.</B> (EE. UU.): telefonía; gestiona las llamadas al
+          teléfono público de Propus y registra datos de las llamadas (número,
+          fecha y duración).
         </li>
       </UL>
       {estado.recursosTercerosPanel && (
