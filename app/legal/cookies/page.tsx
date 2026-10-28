@@ -25,8 +25,9 @@ export default function CookiesPage() {
         </strong>{" "}
         y no utiliza herramientas de analítica, de perfilado ni de publicidad.
         Únicamente empleamos el almacenamiento local de tu navegador para
-        recordar dos preferencias de visualización, tal y como se detalla más
-        abajo.
+        recordar dos preferencias de visualización y una caché técnica para que
+        el sitio cargue más rápido y pueda mostrarse sin conexión, tal y como se
+        detalla más abajo.
       </p>
 
       <h2 className="mt-12 mb-4 text-xl font-semibold md:text-2xl">
@@ -70,15 +71,30 @@ export default function CookiesPage() {
       </p>
 
       <h3 className="mt-8 mb-3 text-lg font-semibold">
+        Service worker y caché del navegador (técnico)
+      </h3>
+      <p className="mb-4 leading-relaxed text-muted-foreground">
+        Este sitio web registra un <em>service worker</em> (el archivo{" "}
+        <span className="text-foreground">/sw.js</span>), un pequeño programa
+        que tu navegador ejecuta en segundo plano. Guarda en la caché de tu
+        navegador copias de las páginas que visitas y de sus imágenes, fuentes
+        y archivos, para que el sitio cargue más rápido y para poder mostrarte
+        una página sin conexión si no hay red. Solo guarda recursos de este
+        sitio y esa caché permanece en tu dispositivo.
+      </p>
+      <p className="mb-4 leading-relaxed text-muted-foreground">
+        Puedes borrarla en cualquier momento desde los ajustes de tu navegador,
+        en los datos del sitio.
+      </p>
+
+      <h3 className="mt-8 mb-3 text-lg font-semibold">
         Analítica y publicidad
       </h3>
       <p className="mb-4 leading-relaxed text-muted-foreground">
         Este sitio web no utiliza cookies analíticas, ni herramientas de
         medición de audiencia, ni píxeles publicitarios, ni cookies de
         seguimiento de redes sociales. No medimos las páginas que visitas, el
-        tiempo que pasas en ellas ni el origen de tu visita. Las tipografías y
-        los recursos gráficos del sitio están alojados en nuestros propios
-        servidores.
+        tiempo que pasas en ellas ni el origen de tu visita.
       </p>
 
       <h2 className="mt-12 mb-4 text-xl font-semibold md:text-2xl">
@@ -108,9 +124,9 @@ export default function CookiesPage() {
         (LSSI-CE), el consentimiento solo resulta exigible para el
         almacenamiento y la recuperación de datos que no sean estrictamente
         necesarios para prestar el servicio solicitado. El almacenamiento local
-        descrito en el apartado anterior responde exclusivamente a preferencias
-        que tú mismo has elegido y está exento de dicha obligación, razón por la
-        cual este sitio web no muestra un banner de consentimiento.
+        de tus preferencias, descrito más arriba, responde exclusivamente a
+        elecciones que tú mismo has hecho y está exento de dicha obligación,
+        razón por la cual este sitio web no muestra un banner de consentimiento.
       </p>
       <p className="mb-4 leading-relaxed text-muted-foreground">
         Si en el futuro incorporamos herramientas de analítica, píxeles
@@ -124,8 +140,8 @@ export default function CookiesPage() {
       </h2>
       <p className="mb-4 leading-relaxed text-muted-foreground">
         Puedes bloquear o eliminar en cualquier momento las cookies y los datos
-        que los sitios web almacenan en tu dispositivo, incluido el
-        almacenamiento local que utilizamos. A continuación te indicamos dónde
+        que los sitios web almacenan en tu dispositivo, incluidos el
+        almacenamiento local y la caché que utilizamos. A continuación te indicamos dónde
         hacerlo en los navegadores más comunes:
       </p>
       <ul className="mb-4 list-disc space-y-2 pl-6 text-muted-foreground">
@@ -156,7 +172,7 @@ export default function CookiesPage() {
         El sitio web seguirá funcionando con normalidad, pero tus preferencias
         de visualización no se guardarán entre visitas: el tema volverá a su
         valor por defecto y los avisos que hubieras cerrado podrían mostrarse de
-        nuevo.
+        nuevo. Tampoco podrá mostrarse una página sin conexión.
       </p>
 
       <h2 className="mt-12 mb-4 text-xl font-semibold md:text-2xl">
@@ -180,7 +196,7 @@ export default function CookiesPage() {
       </p>
 
       <p className="mt-16 text-sm text-muted-foreground">
-        Última actualización: 27 de agosto de 2026
+        Última actualización: 28 de octubre de 2026
       </p>
     </article>
   )

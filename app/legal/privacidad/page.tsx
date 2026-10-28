@@ -296,7 +296,10 @@ export default function PrivacidadPage() {
       <P>
         Este sitio web no instala cookies. Para recordar tus preferencias de
         visualización (el tema claro u oscuro y los avisos que cierras) usa el
-        almacenamiento local de tu navegador. Encontrarás el detalle en la{" "}
+        almacenamiento local de tu navegador. Además registra un service worker
+        que guarda en la caché de tu navegador copias de las páginas que visitas
+        y de sus recursos, para que el sitio cargue más rápido y pueda mostrarse
+        sin conexión. Encontrarás el detalle en la{" "}
         <Link href="/legal/cookies" className={enlace}>
           Política de Cookies
         </Link>
