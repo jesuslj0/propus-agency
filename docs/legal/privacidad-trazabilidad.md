@@ -6,6 +6,7 @@ Cada afirmación pública de [app/legal/privacidad/page.tsx](../../app/legal/pri
 
 - **Encargo §n**: lo dio el titular en el encargo de reescritura de la política (apartado n del paso 3). Es lo marcado como AFIRMABLE.
 - **Ronda 3**: indicaciones del titular en la ronda final de revisión (supervisión de abusos de Azure OpenAI, proveedor de la transcripción, ubicaciones de Google, WhatsApp y Twilio, datos que registra Twilio).
+- **Declarado por el titular**: afirmación hecha por el titular, sin respaldo en el repo; se indica la fecha y, si la hay, la comprobación.
 - **Repo**: se comprueba en el código. Se cita el archivo.
 - **Conmutada**: solo se publica si el interruptor de [lib/privacidad-estado.ts](../../lib/privacidad-estado.ts) está en `true`.
 - **Sin fuente**: no hay respaldo en el repo ni en el encargo. Es una redacción genérica que debe validar el abogado o el titular.
@@ -69,7 +70,7 @@ Cada afirmación pública de [app/legal/privacidad/page.tsx](../../app/legal/pri
 | 53 | Reclamación ante la AEPD, www.aepd.es; enlace a /legal/eliminacion-de-datos | Derechos | Encargo §9 | |
 | 54 | Última actualización: 28 de octubre de 2026 | Pie | Encargo §10 («hoy») | Actualizar al día de publicación |
 | 55 | Teléfono de Propus: +1 (320) 301-0131 | Responsable | Repo: `lib/site.ts` (commit 567b1c1, 2026-08-20); Encargo (contexto, §5) | El número ya estaba publicado en el sitio; el reenvío aún no funciona; pendiente de decidir si se oculta mientras tanto |
-| 56 | Twilio Inc. (EE. UU.): telefonía; gestiona las llamadas al teléfono público de Propus y registra datos de las llamadas (número, fecha y duración) | Destinatarios, Datos y finalidades | Encargo §6; Ronda 3 (ubicación y datos registrados) | No se afirma ni se niega que las llamadas se graben, y no se indica plazo de retención, a propósito |
+| 56 | Twilio Inc. (EE. UU.): telefonía; gestiona las llamadas al teléfono público de Propus. Registra el número que llama, la fecha y la duración. Propus no graba las llamadas | Destinatarios, Datos y finalidades | Encargo §6 y Ronda 3 (ubicación); declarado por el titular (comprobado en el panel de Twilio el 28/10/2026) (datos registrados y no grabación) | No se indica plazo de retención de Twilio, a propósito |
 | 57 | Azure OpenAI: Microsoft puede conservar peticiones y respuestas hasta 30 días para detectar abusos; una persona puede revisar el contenido marcado; no hay retención cero | Servicios para clínicas | Ronda 3 | Ya figuraba en la política anterior; retirada en la primera reescritura y repuesta ahora |
 | 58 | Aparte de lo que decida la clínica, el proveedor de IA puede conservar peticiones y respuestas hasta 30 días (remite a la sección anterior) | Servicios para clínicas (Conservación) | Ronda 3 | Evita que «la clínica decide cuánto se conserva» se lea como absoluto |
 

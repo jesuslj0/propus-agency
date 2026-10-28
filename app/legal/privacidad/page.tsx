@@ -303,9 +303,9 @@ export default function PrivacidadPage() {
           usan para atender tu reserva.
         </li>
         <li>
-          <B>Llamadas telefónicas:</B> las llamadas al teléfono de Propus pasan
-          por Twilio Inc., que registra datos de la llamada (número, fecha y
-          duración).
+          <B>Llamadas telefónicas:</B> las llamadas al número de teléfono de
+          Propus pasan por Twilio Inc., que registra el número que llama, la
+          fecha y la duración. Propus no graba las llamadas.
         </li>
         <li>
           <B>Datos técnicos:</B> como en cualquier sitio web, el servidor que
