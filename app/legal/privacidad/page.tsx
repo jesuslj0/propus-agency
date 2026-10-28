@@ -308,10 +308,11 @@ export default function PrivacidadPage() {
           fecha y la duración. Propus no graba las llamadas.
         </li>
         <li>
-          <B>Datos técnicos:</B> como en cualquier sitio web, el servidor que
-          te envía las páginas recibe tu dirección IP y datos técnicos de tu
-          navegador para poder responderte. No usamos herramientas de
-          analítica, de perfilado ni de publicidad.
+          <B>Datos técnicos:</B> para servirte la web, el servidor procesa de
+          forma transitoria tu dirección IP y datos técnicos de tu navegador.
+          Propus no almacena tu dirección IP en registros de acceso ni en
+          ningún otro sitio. No usamos herramientas de analítica, de
+          perfilado ni de publicidad.
         </li>
       </UL>
 
