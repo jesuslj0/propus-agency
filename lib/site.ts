@@ -14,8 +14,8 @@ export const siteUrl = (
  * plataformas verifican que el teléfono y el email coincidan en todo el sitio.
  */
 export const contact = {
-  email: "team@propus.ink",
-  emailHref: "mailto:team@propus.ink",
+  email: "team@propus.es",
+  emailHref: "mailto:team@propus.es",
   /** Formato E.164 para tel: y schema.org */
   phone: "+13203010131",
   phoneHref: "tel:+13203010131",
